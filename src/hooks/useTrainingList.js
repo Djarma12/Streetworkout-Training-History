@@ -7,7 +7,7 @@ export function useTrainingList({ exerciserId }) {
     data: trainings,
     error,
   } = useQuery({
-    queryKey: ["exerciser", exerciserId],
+    queryKey: ["exerciserTrainings", exerciserId],
     queryFn: () => getTraining({ exerciserId }),
   });
 

@@ -13,3 +13,15 @@ export async function createTraining(newTraining) {
 
   return data;
 }
+
+export async function deleteTraining(trainingId) {
+  const { error } = await supabase
+    .from("trainings")
+    .delete()
+    .eq("id", trainingId);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Training could not be deleted");
+  }
+}

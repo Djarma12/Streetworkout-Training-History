@@ -1,15 +1,18 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTraining as createTrainingApi } from "../../services/apiTrainings";
-import { useUser } from "../authentication/useUser";
+import { useNavigate } from "react-router-dom";
 
-export function useCreateTraining() {
+export function useCreateTraining(userId) {
   const queryClient = useQueryClient();
-  const { user } = useUser();
+  const navigate = useNavigate();
 
   const { mutate: createTraining, isLoading: isCreating } = useMutation({
     mutationFn: createTrainingApi,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["exerciser", user.id] });
+      queryClient.invalidateQueries({
+        queryKey: ["exerciserTrainings", userId],
+      });
+      navigate("/trainings");
     },
     onError: (err) => console.error(err.message),
   });
