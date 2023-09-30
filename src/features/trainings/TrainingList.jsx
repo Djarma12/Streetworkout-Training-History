@@ -1,34 +1,34 @@
-import { Link } from "react-router-dom";
-import { useUser } from "../authentication/useUser";
-import { useTrainingList } from "../../hooks/useTrainingList";
-import { useDeleteTraining } from "./useDeleteTraining";
+import styled from "styled-components";
+import DayItem from "../../ui/DayItem";
+import Trainings from "./Trainings";
+
+const TrainingDays = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 1.2rem;
+  grid-template-rows: 4.8rem auto;
+`;
+
+const daysOfWeek = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 function TrainingList() {
-  const { user } = useUser();
-  const { isLoading, trainings } = useTrainingList({
-    exerciserId: user.id,
-  });
-  const { deleteTraining, isDeleting } = useDeleteTraining();
-
-  console.log(trainings);
-  if (isLoading) return null;
   return (
-    <>
-      <h3>Trainings data</h3>
-      {trainings.map((training) => (
-        <p key={training.id}>
-          <Link to={`/trainings/${training.id}`}>
-            See training {training.trainingName}
-          </Link>
-          <button
-            onClick={() => deleteTraining(training.id)}
-            disabled={isDeleting}
-          >
-            Delete training
-          </button>
-        </p>
+    <TrainingDays>
+      {daysOfWeek.map((day) => (
+        <DayItem day={day} key={day} />
       ))}
-    </>
+      <Trainings />
+    </TrainingDays>
   );
 }
 

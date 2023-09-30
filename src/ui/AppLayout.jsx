@@ -1,22 +1,42 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import styled from "styled-components";
+
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+
+const StyledAppLayout = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+`;
+
+const Main = styled.main`
+  background-color: var(--color-grey-50);
+  padding: 4rem 4.8rem 6.4rem;
+  overflow: scroll;
+  overflow: auto;
+
+  border-top: 2px solid var(--color-brand-200);
+  border-left: 2px solid var(--color-brand-200);
+`;
+
+const Container = styled.div`
+  max-width: 120rem;
+  margin: 0 auto;
+  margin-inline: auto;
+`;
 
 function AppLayout() {
   return (
-    <div>
-      <h1>This is App layout</h1>
-      <ul>
-        <li>
-          <Link to="/trainings">My trainings</Link>
-        </li>
-        <li>
-          <Link to="/trainings/new">Add new training</Link>
-        </li>
-        <li>
-          <Link to="/exercisers">Exercisers</Link>
-        </li>
-      </ul>
-      <Outlet />
-    </div>
+    <StyledAppLayout>
+      <Header />
+      <Sidebar />
+      <Main>
+        <Container>
+          <Outlet />
+        </Container>
+      </Main>
+    </StyledAppLayout>
   );
 }
 

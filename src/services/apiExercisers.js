@@ -11,7 +11,8 @@ export async function getExercisers() {
 export async function getTraining({ exerciserId }) {
   const { data, error } = await supabase
     .from("trainings")
-    .select("id, trainingName")
+    .select("*")
+    // .select("id, trainingName")
     .eq("userid", exerciserId);
 
   if (error) throw new Error(error.message);

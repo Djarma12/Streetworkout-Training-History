@@ -6,6 +6,7 @@ import { getTrainingDetail } from "../services/apiExercisers";
 export function useTrainingDetail() {
   const { exerciserTrainingId, trainingId } = useParams();
   console.log(exerciserTrainingId);
+
   const {
     isLoading,
     data: trainingDetail,

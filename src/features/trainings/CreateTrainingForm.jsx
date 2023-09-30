@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useUser } from "../authentication/useUser";
 import { useCreateTraining } from "./useCreateTraining";
+import Input from "../../ui/Input";
 
 function CreateTrainingForm() {
   const { register, reset, handleSubmit } = useForm();
@@ -25,7 +26,7 @@ function CreateTrainingForm() {
     <>
       <p>Create Training Form</p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+        <Input
           type="number"
           placeholder="num dip"
           {...register("numDip", {
