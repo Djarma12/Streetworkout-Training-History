@@ -10,12 +10,15 @@ export function currentExerciser({ exercisers, exerciserId }) {
 function generateDatesBetween(startDate, endDate) {
   const dates = [];
   let currentDate = new Date(startDate);
+  console.log(startDate);
 
   while (currentDate <= new Date(endDate)) {
-    dates.push(currentDate.toISOString().split("T")[0]);
-    // trainingName: "Rest day",
-    // trainingDate: currentDate.toISOString().split("T")[0],
-    // id: Math.random(),
+    // dates.push(currentDate.toISOString().split("T")[0]);
+    dates.push({
+      trainingName: "Rest day",
+      trainingDate: currentDate.toISOString().split("T")[0],
+      id: Math.random(),
+    });
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
@@ -24,7 +27,6 @@ function generateDatesBetween(startDate, endDate) {
 
 export function combineTrainingAndDates(trainingData) {
   const allData = [];
-  let previousEndDate = new Date();
 
   for (let i = 0; i < trainingData.length; i++) {
     const training = trainingData[i];
@@ -41,9 +43,16 @@ export function combineTrainingAndDates(trainingData) {
     const datesBetween = generateDatesBetween(startDate, endDate);
     allData.push(training);
     allData.push(...datesBetween);
-
-    previousEndDate = endDate;
   }
 
-  return allData;
+  // Assuming your data is stored in an array called 'data'
+  const sortedData = allData.sort((a, b) => {
+    const dateA = new Date(a.trainingDate);
+    const dateB = new Date(b.trainingDate);
+    return dateB - dateA;
+  });
+
+  console.log(sortedData);
+
+  return sortedData;
 }
