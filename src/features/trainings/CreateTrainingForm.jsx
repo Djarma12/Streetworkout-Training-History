@@ -7,7 +7,7 @@ function CreateTrainingForm() {
   const { register, reset, handleSubmit } = useForm();
   const { user } = useUser({
     defaultValues: {
-      trainingName: "",
+      title: "",
       numDip: "",
       description: "",
     },
@@ -46,7 +46,7 @@ function CreateTrainingForm() {
         <input
           type="text"
           placeholder="Emom, super set"
-          {...register("trainingName", {
+          {...register("title", {
             required: true,
             disabled: isCreating,
           })}
