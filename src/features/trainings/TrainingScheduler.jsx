@@ -107,7 +107,7 @@ function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
       />
       <AppointmentForm.Label text="Strength:" />
       <AppointmentForm.Select
-        value={appointmentData.trainingStrength}
+        value={appointmentData.trainingStrength || "1"}
         onValueChange={(e) => onFieldChange({ trainingStrength: e })}
         availableOptions={[
           { id: 1, text: "1" },
@@ -143,16 +143,19 @@ function TrainingScheduler() {
       description,
       trainingStrength,
     } = addTraining;
+
     const newTraining = {
       title,
-      startDate,
-      endDate,
+      startDate: format(new Date(startDate), "yyyy-MM-dd'T'HH:mm:ssXXX"),
+      endDate: format(new Date(endDate), "yyyy-MM-dd'T'HH:mm:ssXXX"),
       numPullUp,
       numDip,
       numPushUp,
       description,
       trainingStrength,
+      userid: user.id,
     };
+
     if (addTraining) {
       console.log(newTraining);
       createTraining(newTraining);
