@@ -22,6 +22,9 @@ import { useUser } from "../authentication/useUser";
 import { useTrainingList } from "../../hooks/useTrainingList";
 import { EditingState } from "@devexpress/dx-react-scheduler";
 import { useCreateTraining } from "./useCreateTraining";
+import { useDeleteTraining } from "./useDeleteTraining";
+import { formatDate } from "../../utils/helpers";
+import { useUpdateTraining } from "./useUpdateTraining";
 
 const currentDate = format(new Date(), "MM/dd/yyyy");
 
@@ -75,6 +78,13 @@ const TextEditor = (props) => {
 };
 
 function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
+  useEffect(function () {
+    const [removeDiv] = Array.from(document.querySelectorAll("span")).filter(
+      (span) => span.textContent === "All Day"
+    );
+    removeDiv?.closest("div").remove();
+  }, []);
+
   return (
     <AppointmentForm.BasicLayout
       appointmentData={appointmentData}
@@ -123,48 +133,39 @@ function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
 
 function TrainingScheduler() {
   const { user } = useUser();
-  const { createTraining, isCreating } = useCreateTraining(user.id);
   const { isLoading, trainings, startDayHour, endDayHour } = useTrainingList({
     exerciserId: user.id,
   });
+  const { createTraining, isCreating } = useCreateTraining(user.id);
+  const { deleteTraining, isDeleting } = useDeleteTraining();
+  const { updateTraining, isUpdating } = useUpdateTraining();
 
   const [visible, setVisible] = useState(false);
 
-  if (isLoading || isCreating) return null;
+  if (isLoading || isCreating || isDeleting || isUpdating) return null;
 
   function handleCommitChanges({ added: addTraining, changed, deleted }) {
-    const {
-      title,
-      startDate,
-      endDate,
-      numPullUp,
-      numDip,
-      numPushUp,
-      description,
-      trainingStrength,
-    } = addTraining;
-
-    const newTraining = {
-      title,
-      startDate: format(new Date(startDate), "yyyy-MM-dd'T'HH:mm:ssXXX"),
-      endDate: format(new Date(endDate), "yyyy-MM-dd'T'HH:mm:ssXXX"),
-      numPullUp,
-      numDip,
-      numPushUp,
-      description,
-      trainingStrength,
-      userid: user.id,
-    };
-
     if (addTraining) {
-      console.log(newTraining);
+      const newTraining = {
+        title: addTraining.title,
+        startDate: formatDate(addTraining.startDate),
+        endDate: formatDate(addTraining.endDate),
+        numPullUp: addTraining.numPullUp,
+        numDip: addTraining.numDip,
+        numPushUp: addTraining.numPullUp,
+        description: addTraining.description,
+        trainingStrength: addTraining.trainingStrength,
+        userid: user.id,
+      };
       createTraining(newTraining);
     }
     if (changed) {
-      console.log("ch");
+      // Pogledati za visible
+      console.log(changed);
+      console.log(Object.key(changed));
     }
     if (deleted !== undefined) {
-      console.log("del");
+      deleteTraining(deleted);
     }
   }
 
