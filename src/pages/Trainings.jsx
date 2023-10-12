@@ -1,11 +1,11 @@
-import TrainingList from "../features/trainings/TrainingList";
+import MainTraining from "../features/trainings/MainTraining";
 import TrainingScheduler from "../features/trainings/TrainingScheduler";
 
 function Trainings() {
   return (
     <>
-      <TrainingScheduler />
-      {/* <TrainingList /> */}
+      <MainTraining />
+      {/* <TrainingScheduler /> */}
     </>
   );
 }

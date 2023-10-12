@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 import { updateTraining as updateTrainingApi } from "../../services/apiTrainings";
 
 export function useUpdateTraining(userId) {
@@ -12,7 +11,6 @@ export function useUpdateTraining(userId) {
       queryClient.invalidateQueries({
         queryKey: ["exerciserTrainings", userId],
       });
-      // navigate("/trainings");
     },
     onError: (err) => console.error(err.message),
   });

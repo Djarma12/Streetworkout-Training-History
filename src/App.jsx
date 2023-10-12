@@ -4,7 +4,6 @@ import Login from "./pages/Login";
 import AppLayout from "./ui/AppLayout";
 import Trainings from "./pages/Trainings";
 import CreateTrainingForm from "./features/trainings/CreateTrainingForm";
-import TrainingDetail from "./features/trainings/TrainingDetail";
 import Exercisers from "./pages/Exercisers";
 import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
 import ExerciserTrainingDetail from "./features/exercisers/ExerciserTrainingDetail";
@@ -40,10 +39,10 @@ function App() {
               <Route index element={<Navigate replace to="/trainings" />} />
               <Route path="trainings" element={<Trainings />} />
               <Route path="trainings/new" element={<CreateTrainingForm />} />
-              <Route
+              {/* <Route
                 path="trainings/:trainingId"
                 element={<TrainingDetail />}
-              />
+              /> */}
               <Route path="exercisers" element={<Exercisers />} />
               <Route
                 path="exercisers/:exerciserId"

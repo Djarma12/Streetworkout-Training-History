@@ -12,9 +12,7 @@ import {
   ViewSwitcher,
   ConfirmationDialog,
   AppointmentForm,
-  EditRecurrenceMenu,
 } from "@devexpress/dx-react-scheduler-material-ui";
-
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -138,9 +136,7 @@ function TrainingScheduler() {
   });
   const { createTraining, isCreating } = useCreateTraining(user.id);
   const { deleteTraining, isDeleting } = useDeleteTraining();
-  const { updateTraining, isUpdating } = useUpdateTraining();
-
-  const [visible, setVisible] = useState(false);
+  const { updateTraining, isUpdating } = useUpdateTraining(user.id);
 
   if (isLoading || isCreating || isDeleting || isUpdating) return null;
 
@@ -160,9 +156,9 @@ function TrainingScheduler() {
       createTraining(newTraining);
     }
     if (changed) {
-      // Pogledati za visible
-      console.log(changed);
-      console.log(Object.key(changed));
+      const [trainingId] = Object.keys(changed);
+      const updatedFields = Object.values(changed)[0];
+      updateTraining({ trainingId, updatedFields });
     }
     if (deleted !== undefined) {
       deleteTraining(deleted);
@@ -185,7 +181,6 @@ function TrainingScheduler() {
         />
         <EditingState onCommitChanges={handleCommitChanges} />
         <IntegratedEditing />
-        <ConfirmationDialog />
         <Appointments />
         <AppointmentTooltip
           showOpenButton
@@ -197,6 +192,12 @@ function TrainingScheduler() {
           basicLayoutComponent={BasicLayout}
           textEditorComponent={TextEditor}
           formComponent={BasicLayout}
+        />
+        <ConfirmationDialog
+          messages={{
+            confirmDeleteMessage:
+              "Are you sure you want to delete this training?",
+          }}
         />
       </Scheduler>
     </Paper>
