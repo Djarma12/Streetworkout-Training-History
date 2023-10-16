@@ -59,7 +59,7 @@ function TrainingScheduler({
             <AppointmentForm
               basicLayoutComponent={BasicLayout}
               textEditorComponent={TextEditor}
-              formComponent={BasicLayout}
+              // formComponent={BasicLayout}
             />
           </>
         )}

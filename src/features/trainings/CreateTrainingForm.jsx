@@ -9,7 +9,13 @@ import {
 } from "@devexpress/dx-react-scheduler-material-ui";
 import BasicLayout from "../../ui/BasicLayout";
 import TextEditor from "../../ui/TextEditor";
+import { EditingState } from "@devexpress/dx-react-scheduler";
+import { IntegratedEditing } from "@devexpress/dx-react-scheduler";
+
 import styled from "styled-components";
+import { formatDate } from "../../utils/helpers";
+import { useTrainingList } from "../../hooks/useTrainingList";
+import { useState } from "react";
 
 const StyledForm = styled.div`
   width: 55rem;
@@ -25,64 +31,53 @@ function CustomOverlay({ children }) {
 }
 
 function CreateTrainingForm() {
-  // const { register, reset, handleSubmit } = useForm();
-  // const { user } = useUser({
-  //   defaultValues: {
-  //     title: "",
-  //     numDip: "",
-  //     description: "",
-  //   },
-  // });
-  // const { createTraining, isCreating } = useCreateTraining(user.id);
+  const { user } = useUser();
+  const { createTraining, isCreating } = useCreateTraining(user.id);
 
-  // function onSubmit(data) {
-  //   const newTraining = {
-  //     ...data,
-  //     userid: user.id,
-  //   };
-  //   createTraining(newTraining, { onSuccess: () => reset() });
-  // }
+  const { isLoading, trainings, startDayHour, endDayHour } = useTrainingList({
+    exerciserId: user.id,
+  });
+  const [state, setState] = useState({
+    title: "Meeting with Client",
+    startDate: new Date(2023, 10, 15, 10, 0), // Date and time
+    endDate: new Date(2023, 10, 15, 11, 0), // Date and time
+    // Other properties like location, description, etc.
+  });
 
+  if (isCreating || isLoading) return null;
+
+  function handleCommitChanges({ added: addTraining }) {
+    if (addTraining) {
+      const newTraining = {
+        title: addTraining.title,
+        startDate: formatDate(addTraining.startDate),
+        endDate: formatDate(addTraining.endDate),
+        numPullUp: addTraining.numPullUp,
+        numDip: addTraining.numDip,
+        numPushUp: addTraining.numPullUp,
+        description: addTraining.description,
+        trainingStrength: addTraining.trainingStrength,
+        userid: user.id,
+      };
+      createTraining(newTraining);
+    }
+  }
+  function handleChange(e) {
+    console.log(e);
+  }
   return (
     <>
-      {/* <p>Create Training Form</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type="number"
-          placeholder="num dip"
-          {...register("numDip", {
-            disabled: isCreating,
-            valueAsNumber: true,
-          })}
-        />
-        <input
-          type="text"
-          placeholder="description"
-          {...register("description", {
-            required: true,
-            disabled: isCreating,
-          })}
-        />
-
-        <input
-          type="text"
-          placeholder="Emom, super set"
-          {...register("title", {
-            required: true,
-            disabled: isCreating,
-          })}
-        />
-
-        <input type="submit" />
-      </form> */}
       <StyledForm>
         <Paper>
           <Scheduler height={660}>
+            <EditingState onCommitChanges={handleCommitChanges} />
+            <IntegratedEditing />
             <AppointmentForm
               overlayComponent={CustomOverlay}
               basicLayoutComponent={BasicLayout}
               textEditorComponent={TextEditor}
-              // commandLayoutComponent={{ hideDeleteButton: true }}
+              appointmentData={state}
+              onAppointmentDataChange={handleChange}
               // formComponent={BasicLayout}
             />
           </Scheduler>

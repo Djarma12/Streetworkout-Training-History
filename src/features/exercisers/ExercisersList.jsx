@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
 import { useExercisersList } from "./useExercisersList";
+import ExerciserItem from "./ExerciserItem";
+import styled from "styled-components";
+
+const ExerciserList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
 
 function ExercisersList() {
   const { exercisers, isLoading } = useExercisersList();
@@ -10,11 +17,11 @@ function ExercisersList() {
     <div>
       <p>Exercisers List</p>
 
-      {exercisers.map((exerciser) => (
-        <Link to={exerciser.userid} key={exerciser.id}>
-          {exerciser.nickName}
-        </Link>
-      ))}
+      <ExerciserList>
+        {exercisers.map((exerciser) => (
+          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
+        ))}
+      </ExerciserList>
     </div>
   );
 }

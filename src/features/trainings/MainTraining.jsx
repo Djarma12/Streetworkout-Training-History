@@ -20,7 +20,6 @@ function MainTraining() {
 
   function handleCommitChanges({ added: addTraining, changed, deleted }) {
     if (addTraining) {
-      console.log(addTraining);
       const newTraining = {
         title: addTraining.title,
         startDate: formatDate(addTraining.startDate),
@@ -32,6 +31,7 @@ function MainTraining() {
         trainingStrength: addTraining.trainingStrength,
         userid: user.id,
       };
+      console.log(newTraining);
       createTraining(newTraining);
     }
     if (changed) {
