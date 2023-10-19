@@ -5,13 +5,14 @@ import styled from "styled-components";
 
 const ExerciserList = styled.ul`
   display: grid;
+  gap: 3.2rem;
   grid-template-columns: repeat(3, 1fr);
 `;
 
 function ExercisersList() {
   const { exercisers, isLoading } = useExercisersList();
 
-  if (isLoading) return;
+  if (isLoading) return null;
 
   return (
     <div>

@@ -4,6 +4,7 @@ const Headings = {
   "/trainings": "My training history",
   "/trainings/new": "Create new training",
   "/exercisers": "List of exercisers",
+  "/profile": "Profile settings",
   trainingDetail: "Training detail",
 };
 

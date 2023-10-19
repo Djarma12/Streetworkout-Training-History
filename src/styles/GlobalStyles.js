@@ -57,6 +57,10 @@ const GlobalStyles = createGlobalStyle`
   --color-brand-700: #b91c1c;
   --color-brand-800: #991b1b;
   --color-brand-900: #7f1d1d;
+
+  --gradient-brand-500:rgba(239, 68, 68, 0.15);
+  --gradient-brand-hover-500:rgba(239, 68, 68, 0.2);
+
   
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;

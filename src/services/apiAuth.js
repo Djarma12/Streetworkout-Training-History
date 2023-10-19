@@ -22,3 +22,23 @@ export async function getCurrentUser() {
 
   return data?.user;
 }
+
+export async function updateUser() {
+  const { data, error } = await supabase
+    .from("users")
+    .update({ other_column: "otherValue" })
+    .eq("some_column", "someValue")
+    .select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+export async function logout() {
+  let { error } = await supabase.auth.signOut();
+
+  if (error) throw new Error(error.message);
+
+  return null;
+}

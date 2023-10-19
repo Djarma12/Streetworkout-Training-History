@@ -11,6 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GlobalStyles from "./styles/GlobalStyles";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,6 +45,7 @@ function App() {
                 element={<TrainingDetail />}
               /> */}
               <Route path="exercisers" element={<Exercisers />} />
+              <Route path="profile" element={<Profile />} />
               <Route
                 path="exercisers/:exerciserId"
                 element={<ExerciserTrainingList />}
