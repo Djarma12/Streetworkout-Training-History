@@ -14,7 +14,7 @@ function HeaderHeading() {
   const location = useLocation();
   const { trainingId, exerciserId } = useParams();
 
-  console.log(Number.isFinite(+location.pathname.split("/")[2]));
+  // console.log(Number.isFinite(+location.pathname.split("/")[2]));
 
   let heading = Headings[location.pathname];
   if (heading === undefined && trainingId) {
@@ -22,7 +22,7 @@ function HeaderHeading() {
   } else if (heading === undefined && exerciserId) {
     heading = `Exerciser: `;
   }
-  console.log(heading);
+  // console.log(heading);
 
   return <h1>{heading}</h1>;
 }

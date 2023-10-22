@@ -7,7 +7,8 @@ const StyledHeader = styled.header`
   box-shadow: var(--shadow-md);
   grid-column: 2/3;
 
-  padding: 1.6rem 2.4rem;
+  padding-inline: 2.4rem;
+  height: 8rem;
 
   display: flex;
   align-items: center;

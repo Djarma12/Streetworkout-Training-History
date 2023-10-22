@@ -4,15 +4,15 @@ import { updateUser as updateUserApi } from "../../services/apiAuth";
 export function useUpdateUser() {
   const queryClient = useQueryClient();
 
-  const { mutate: updateUser, isLoading } = useMutation({
+  const { mutate: updateUser, isLoading: isUpdating } = useMutation({
     mutationFn: updateUserApi,
     onSuccess: () => {
-      queryClient.setQueryData(["user"]);
+      queryClient.setQueryData(["userData"]);
     },
     onError: (err) => {
       console.log("ERROR", err);
     },
   });
 
-  return { updateUser, isLoading };
+  return { updateUser, isUpdating };
 }

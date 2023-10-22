@@ -16,11 +16,14 @@ const Main = styled.main`
 
   border-top: 2px solid var(--color-brand-200);
   border-left: 2px solid var(--color-brand-200);
-  height: 70%;
+  /* height: calc(100vh - 8rem); */
+  height: 100vh;
+  overflow-y: auto;
 `;
 
 const Container = styled.div`
   max-width: 120rem;
+  /* height: 100%; */
   margin: 0 auto;
   margin-inline: auto;
 `;
