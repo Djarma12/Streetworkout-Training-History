@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
-import { getUserData } from "../../services/apiAuth";
-import { useState } from "react";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
+import Spinner from "../../ui/Spinner";
 
 function ProfileSettings({ userData }) {
   const { user } = useUser();
@@ -18,7 +19,7 @@ function ProfileSettings({ userData }) {
     defaultValues: { ...userData },
   });
 
-  if (isUpdating) return null;
+  if (isUpdating) return <Spinner />;
 
   function onSubmit(data) {
     console.log(data);
@@ -28,7 +29,7 @@ function ProfileSettings({ userData }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
+      <Input
         disabled={isUpdating}
         placeholder="Jonas"
         {...register("nickName", { required: true })}
@@ -71,7 +72,7 @@ function ProfileSettings({ userData }) {
 
       {errors.exampleRequired && <span>This field is required</span>}
 
-      <input disabled={isUpdating} type="submit" />
+      <Button disabled={isUpdating}>Update</Button>
     </form>
   );
 }

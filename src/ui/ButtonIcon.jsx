@@ -1,20 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const variations = {
+  primary: css`
+    &:hover {
+      background-color: var(--color-brand-100);
+    }
+
+    & svg {
+      color: var(--color-primary-light);
+    }
+  `,
+  secondary: css``,
+};
 
 const ButtonIcon = styled.button`
   background: none;
   border: none;
   padding: 0.6rem;
-  border-radius: var(--border-radius-sm);
   transition: all 0.2s;
+  border-radius: var(--border-radius-sm);
 
-  &:hover {
-    background-color: var(--color-grey-100);
-  }
+  ${(props) => variations[props.variation]}
 
   & svg {
     width: 2.4rem;
     height: 2.4rem;
-    color: var(--color-brand-600);
   }
 `;
 

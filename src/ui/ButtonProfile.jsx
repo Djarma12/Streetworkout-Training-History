@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ButtonProfile() {
   return (
-    <ButtonIcon>
+    <ButtonIcon variation="primary">
       <Link to="/profile">
         <BiUserCircle />
       </Link>

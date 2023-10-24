@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useExercisersList } from "./useExercisersList";
 import ExerciserItem from "./ExerciserItem";
 import styled from "styled-components";
+import Spinner from "../../ui/Spinner";
 
 const ExerciserList = styled.ul`
   display: grid;
@@ -12,7 +13,7 @@ const ExerciserList = styled.ul`
 function ExercisersList() {
   const { exercisers, isLoading } = useExercisersList();
 
-  if (isLoading) return null;
+  if (isLoading) return <Spinner />;
 
   return (
     <div>

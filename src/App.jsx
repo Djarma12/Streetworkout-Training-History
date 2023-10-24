@@ -6,7 +6,7 @@ import Trainings from "./pages/Trainings";
 import CreateTrainingForm from "./features/trainings/CreateTrainingForm";
 import Exercisers from "./pages/Exercisers";
 import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
-import ExerciserTrainingDetail from "./features/exercisers/ExerciserTrainingDetail";
+// import ExerciserTrainingDetail from "./features/exercisers/ExerciserTrainingDetail";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./ui/ProtectedRoute";
@@ -50,10 +50,10 @@ function App() {
                 path="exercisers/:exerciserId"
                 element={<ExerciserTrainingList />}
               />
-              <Route
+              {/* <Route
                 path="exercisers/:exerciserId/:exerciserTrainingId"
                 element={<ExerciserTrainingDetail />}
-              />
+              /> */}
             </Route>
             <Route path="login" element={<Login />} />
           </Routes>

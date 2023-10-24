@@ -1,4 +1,13 @@
 import { useLocation, useParams } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledHeaderHeading = styled.h1`
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-grey-500);
+`;
 
 const Headings = {
   "/trainings": "My training history",
@@ -24,7 +33,7 @@ function HeaderHeading() {
   }
   // console.log(heading);
 
-  return <h1>{heading}</h1>;
+  return <StyledHeaderHeading>{heading}</StyledHeaderHeading>;
 }
 
 export default HeaderHeading;

@@ -16,6 +16,7 @@ import styled from "styled-components";
 import { formatDate } from "../../utils/helpers";
 import { useTrainingList } from "../../hooks/useTrainingList";
 import { useState } from "react";
+import Spinner from "../../ui/Spinner";
 
 const StyledForm = styled.div`
   width: 55rem;
@@ -44,7 +45,7 @@ function CreateTrainingForm() {
     // Other properties like location, description, etc.
   });
 
-  if (isCreating || isLoading) return null;
+  if (isCreating || isLoading) return <Spinner />;
 
   function handleCommitChanges({ added: addTraining }) {
     if (addTraining) {

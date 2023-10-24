@@ -3,6 +3,7 @@ import { useTrainingList } from "../../hooks/useTrainingList";
 import { useExercisersList } from "./useExercisersList";
 import { currentExerciser } from "../../utils/helpers";
 import TrainingScheduler from "../../ui/Scheduler";
+import Spinner from "../../ui/Spinner";
 
 function ExerciserTrainingList() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function ExerciserTrainingList() {
   const { exercisers, isLoading: isLoadingExercisers } = useExercisersList();
 
   console.log(trainings);
-  if (isLoading || isLoadingExercisers) return null;
+  if (isLoading || isLoadingExercisers) return <Spinner />;
 
   return (
     <div>

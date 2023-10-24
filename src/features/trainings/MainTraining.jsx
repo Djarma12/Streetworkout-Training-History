@@ -5,6 +5,7 @@ import { useCreateTraining } from "./useCreateTraining";
 import { useDeleteTraining } from "./useDeleteTraining";
 import { useUpdateTraining } from "./useUpdateTraining";
 import { formatDate } from "../../utils/helpers";
+import Spinner from "../../ui/Spinner";
 
 function MainTraining() {
   const { user } = useUser();
@@ -16,7 +17,7 @@ function MainTraining() {
   const { deleteTraining, isDeleting } = useDeleteTraining();
   const { updateTraining, isUpdating } = useUpdateTraining(user.id);
 
-  if (isLoading || isCreating || isDeleting || isUpdating) return null;
+  if (isLoading || isCreating || isDeleting || isUpdating) return <Spinner />;
 
   function handleCommitChanges({ added: addTraining, changed, deleted }) {
     if (addTraining) {

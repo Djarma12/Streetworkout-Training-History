@@ -12,6 +12,7 @@ import {
   ViewSwitcher,
   ConfirmationDialog,
   AppointmentForm,
+  DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { EditingState } from "@devexpress/dx-react-scheduler";
 
@@ -20,6 +21,20 @@ import BasicLayout from "./BasicLayout";
 import { formatCurrentDate } from "../utils/helpers";
 import Content from "./Content";
 import TextEditor from "./TextEditor";
+
+const Appointment = ({ children, style, ...restProps }) => (
+  <Appointments.Appointment
+    {...restProps}
+    style={{
+      ...style,
+      backgroundColor: "#748ffc",
+      borderRadius: "8px",
+      fontSize: "1rem",
+    }}
+  >
+    {children}
+  </Appointments.Appointment>
+);
 
 function TrainingScheduler({
   trainings,
@@ -30,7 +45,12 @@ function TrainingScheduler({
   const isUser = Boolean(onCommitChanges);
 
   return (
-    <Paper>
+    <Paper
+      style={{
+        backgroundColor: "var(--color-grey-100)",
+        border: "1px solid var(--color-grey-200)",
+      }}
+    >
       <Scheduler data={trainings} height={660}>
         <ViewState defaultCurrentDate={formatCurrentDate()} />
         <Toolbar />
@@ -43,7 +63,7 @@ function TrainingScheduler({
           endDayHour={endDayHour}
           cellDuration={60}
         />
-        <Appointments />
+        <Appointments appointmentComponent={Appointment} />
 
         <EditingState onCommitChanges={onCommitChanges} />
         <IntegratedEditing />
@@ -52,6 +72,7 @@ function TrainingScheduler({
           showDeleteButton={isUser}
           showCloseButton
           contentComponent={Content}
+          style={{ backgroundColor: "green" }}
         />
 
         {isUser && (
@@ -60,6 +81,7 @@ function TrainingScheduler({
               basicLayoutComponent={BasicLayout}
               textEditorComponent={TextEditor}
               // formComponent={BasicLayout}
+              style={{ backgroundColor: "green" }}
             />
           </>
         )}
@@ -69,6 +91,7 @@ function TrainingScheduler({
               "Are you sure you want to delete this training?",
           }}
         />
+        <DragDropProvider />
       </Scheduler>
     </Paper>
   );

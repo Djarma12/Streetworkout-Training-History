@@ -5,7 +5,7 @@ import Logout from "../features/authentication/Logout";
 import ButtonProfile from "./ButtonProfile";
 
 const StyledSidebar = styled.aside`
-  background-color: var(--color-grey-200);
+  background-color: var(--color-grey-900);
   grid-row: 1/-1;
   height: 100vh;
 
@@ -13,11 +13,12 @@ const StyledSidebar = styled.aside`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 4.8rem;
+  padding-block: 1.6rem;
 `;
 
 const Footer = styled.footer`
   width: 100%;
+  padding-inline: 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
