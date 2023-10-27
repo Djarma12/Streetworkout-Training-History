@@ -1,11 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import MainNav from "./MainNav";
 import Logo from "./Logo";
 import Logout from "../features/authentication/Logout";
 import ButtonProfile from "./ButtonProfile";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const StyledSidebar = styled.aside`
-  background-color: var(--color-grey-900);
+  ${(props) => {
+    if (props.dark) {
+      return css`
+        background-color: var(--color-grey-50);
+      `;
+    } else {
+      return css`
+        background-color: var(--color-grey-900);
+      `;
+    }
+  }}
   grid-row: 1/-1;
   height: 100vh;
 
@@ -25,8 +36,10 @@ const Footer = styled.footer`
 `;
 
 function Sidebar() {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <StyledSidebar>
+    <StyledSidebar dark={isDarkMode}>
       <Logo />
       <MainNav />
       <Footer>

@@ -1,12 +1,22 @@
 import supabase, { supabaseUrl } from "./supabase";
 
 export async function login({ email, password }) {
-  let { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
 
   console.log(data);
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function signup({ email, password }) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  });
+
   if (error) throw new Error(error.message);
   return data;
 }
@@ -21,6 +31,17 @@ export async function getCurrentUser() {
   if (error) throw new Error(error.message);
 
   return data?.user;
+}
+
+export async function insertUser({ nickName, birthDate, userid }) {
+  const { data, error } = await supabase
+    .from("users")
+    .insert([{ nickName, birthDate, userid }])
+    .select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
 }
 
 export async function getUserData(id) {

@@ -4,10 +4,10 @@ import ExerciserItem from "./ExerciserItem";
 import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
 
-const ExerciserList = styled.ul`
+const List = styled.ul`
   display: grid;
   gap: 3.2rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 `;
 
 function ExercisersList() {
@@ -17,13 +17,20 @@ function ExercisersList() {
 
   return (
     <div>
-      <p>Exercisers List</p>
-
-      <ExerciserList>
+      <List>
         {exercisers.map((exerciser) => (
           <ExerciserItem exerciser={exerciser} key={exerciser.id} />
         ))}
-      </ExerciserList>
+        {/* {exercisers.map((exerciser) => (
+          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
+        ))}
+        {exercisers.map((exerciser) => (
+          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
+        ))}
+        {exercisers.map((exerciser) => (
+          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
+        ))} */}
+      </List>
     </div>
   );
 }

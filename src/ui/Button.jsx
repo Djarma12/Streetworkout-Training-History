@@ -3,10 +3,8 @@ import styled, { css } from "styled-components";
 const sizes = {
   small: css`
     font-size: 1.4rem;
-    padding: 1.2rem 4.8rem;
-    text-transform: uppercase;
+    padding: 1.6rem 4.8rem;
     font-weight: 400;
-    text-align: center;
   `,
   // medium: css`
   //   font-size: 1.4rem;
@@ -29,16 +27,12 @@ const variations = {
       var(--color-primary-light),
       var(--color-primary-dark)
     );
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s;
+    color: var(--color-grey-0);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
 
     &:hover {
-      /* background-image: linear-gradient(
-        to left,
-        var(--color-primary-light),
-        var(--color-primary-dark)
-      ); */
       transform: scale(1.02);
     }
 
@@ -48,16 +42,18 @@ const variations = {
       transform: scale(1.01);
     }
   `,
-  /*secondary: css`
+  secondary: css`
     color: var(--color-grey-600);
-    background: var(--color-grey-0);
-    border: 1px solid var(--color-grey-200);
+    background: transparent;
+    letter-spacing: 1px;
+    padding: 0;
+    font-weight: 500;
 
     &:hover {
-      background-color: var(--color-grey-50);
+      color: var(--color-blue-900);
     }
   `,
-  danger: css`
+  /*danger: css`
     color: var(--color-red-100);
     background-color: var(--color-red-700);
 
@@ -68,9 +64,10 @@ const variations = {
 };
 
 const Button = styled.button`
+  cursor: pointer;
   border: none;
-  border-radius: var(--border-radius-sm);
-  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  text-align: center;
 
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.variation]}

@@ -10,7 +10,20 @@ const variations = {
       color: var(--color-primary-light);
     }
   `,
-  secondary: css``,
+  secondary: css`
+    & svg {
+      color: var(--color-grey-100);
+    }
+  `,
+  tertiary: css`
+    &:hover {
+      background-color: var(--color-brand-100);
+    }
+
+    & svg {
+      color: var(--color-brand-800);
+    }
+  `,
 };
 
 const ButtonIcon = styled.button`

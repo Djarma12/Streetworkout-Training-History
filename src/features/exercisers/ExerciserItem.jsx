@@ -8,6 +8,7 @@ const StyledExerciser = styled.li`
   position: relative;
   border-radius: 0.4rem;
   overflow: hidden;
+  max-width: 20rem;
 `;
 
 const Image = styled.div`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import HeaderHeading from "./HeaderHeading";
+import DarkModeToggle from "./DarkModeToggle";
 
 const StyledHeader = styled.header`
   z-index: 1;
@@ -20,7 +21,7 @@ function Header() {
   return (
     <StyledHeader>
       <HeaderHeading />
-      icon
+      <DarkModeToggle />
     </StyledHeader>
   );
 }
