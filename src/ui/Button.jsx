@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 
-const sizes = {
-  small: css`
-    font-size: 1.4rem;
-    padding: 1.6rem 4.8rem;
-    font-weight: 400;
+const position = {
+  // center: css`
+  //   align-self: center;
+  // `,
+  right: css`
+    align-self: flex-end;
   `,
   // medium: css`
   //   font-size: 1.4rem;
@@ -31,6 +32,10 @@ const variations = {
     border-radius: var(--border-radius-sm);
     box-shadow: var(--shadow-sm);
     text-transform: uppercase;
+
+    font-size: 1.4rem;
+    padding: 1.6rem 4.8rem;
+    font-weight: 400;
 
     &:hover {
       transform: scale(1.02);
@@ -69,13 +74,13 @@ const Button = styled.button`
   transition: all 0.2s;
   text-align: center;
 
-  ${(props) => sizes[props.size]}
+  ${(props) => position[props.position]}
   ${(props) => variations[props.variation]}
 `;
 
 Button.defaultProps = {
   variation: "primary",
-  size: "small",
+  // position: "center",
 };
 
 export default Button;

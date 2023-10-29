@@ -16,12 +16,11 @@ function ExercisersList() {
   if (isLoading) return <Spinner />;
 
   return (
-    <div>
-      <List>
-        {exercisers.map((exerciser) => (
-          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
-        ))}
-        {/* {exercisers.map((exerciser) => (
+    <List>
+      {exercisers.map((exerciser) => (
+        <ExerciserItem exerciser={exerciser} key={exerciser.id} />
+      ))}
+      {/* {exercisers.map((exerciser) => (
           <ExerciserItem exerciser={exerciser} key={exerciser.id} />
         ))}
         {exercisers.map((exerciser) => (
@@ -30,8 +29,7 @@ function ExercisersList() {
         {exercisers.map((exerciser) => (
           <ExerciserItem exerciser={exerciser} key={exerciser.id} />
         ))} */}
-      </List>
-    </div>
+    </List>
   );
 }
 

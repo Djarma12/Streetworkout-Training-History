@@ -8,8 +8,17 @@ const StyledFormRow = styled.div`
 `;
 
 const Label = styled.label`
+  cursor: pointer;
+  width: max-content;
   font-weight: 700;
   color: var(--color-grey-700);
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--color-grey-800);
+    border-bottom: 1px solid var(--color-grey-300);
+  }
 `;
 
 const Error = styled.span`

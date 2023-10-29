@@ -149,6 +149,7 @@ function LoginForm() {
           <Button
             variation="secondary"
             type="button"
+            disabled={isLoading}
             onClick={() => setIsSignUp((e) => !e)}
           >
             {isSignUp ? "I have existing account" : "Create Account"}

@@ -5,6 +5,24 @@ import Button from "../../ui/Button";
 import Input from "../../ui/Input";
 import Spinner from "../../ui/Spinner";
 import FormRowVertical from "../../ui/FormRowVertical";
+import Form from "../../ui/Form";
+import styled from "styled-components";
+
+const Image = styled.img`
+  display: block;
+  width: 20rem;
+  border-radius: var(--border-radius-md);
+  margin-inline: auto;
+  background-image: linear-gradient(
+      var(--gradient-brand-500),
+      var(--gradient-brand-500)
+    ),
+    url(${(props) => props.imageUrl});
+  background-size: cover;
+  background-position: top;
+  aspect-ratio: 9 / 16;
+  margin-bottom: 1.6rem;
+`;
 
 function ProfileSettings({ userData }) {
   const { user } = useUser();
@@ -29,7 +47,7 @@ function ProfileSettings({ userData }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRowVertical label="Nick name" error={errors?.nickName?.message}>
         <Input
           type="text"
@@ -39,12 +57,17 @@ function ProfileSettings({ userData }) {
         />
       </FormRowVertical>
 
-      <input
-        disabled={isUpdating}
-        type="date"
-        // value="2018-07-22"
-        {...register("birthDate")}
-      />
+      <FormRowVertical label="Birth date" error={errors?.birthDate?.message}>
+        <Input
+          type="date"
+          id="birthDate"
+          disabled={isUpdating}
+          {...register("birthDate", {
+            required: "This field is required",
+            valueAsDate: true,
+          })}
+        />
+      </FormRowVertical>
 
       {/* <input
         disabled={isUpdating}
@@ -53,28 +76,27 @@ function ProfileSettings({ userData }) {
         {...register("avatar")}
       /> */}
 
-      <div>
-        {watch("avatar") && (
-          <img
-            src={
-              typeof watch("avatar") === "string"
-                ? watch("avatar")
-                : URL.createObjectURL(watch("avatar"))
-            }
-            alt="Avatar"
-            style={{ maxWidth: "100px" }}
-          />
-        )}
-        <FormRowVertical label="Change Avatar Image">
-          <Input
-            disabled={isUpdating}
-            id="avatar"
-            type="file"
-            onChange={(e) => setValue("avatar", e.target.files[0])}
-            style={{ display: "none" }}
-          />
-        </FormRowVertical>
-        {/* <label>
+      <FormRowVertical label="Change Avatar Image">
+        <Input
+          disabled={isUpdating}
+          id="avatar"
+          type="file"
+          onChange={(e) => setValue("avatar", e.target.files[0])}
+          style={{ display: "none" }}
+        />
+      </FormRowVertical>
+
+      {watch("avatar") && (
+        <Image
+          src={
+            typeof watch("avatar") === "string"
+              ? watch("avatar")
+              : URL.createObjectURL(watch("avatar"))
+          }
+          alt="Avatar"
+        />
+      )}
+      {/* <label>
           <span>Change Avatar Image</span>
           <input
             disabled={isUpdating}
@@ -83,12 +105,11 @@ function ProfileSettings({ userData }) {
             style={{ display: "none" }}
           />
         </label> */}
-      </div>
 
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <Button disabled={isUpdating}>Update</Button>
-    </form>
+      <FormRowVertical>
+        <Button disabled={isUpdating}>Update</Button>
+      </FormRowVertical>
+    </Form>
   );
 }
 

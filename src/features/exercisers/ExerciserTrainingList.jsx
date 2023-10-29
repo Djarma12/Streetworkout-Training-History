@@ -4,6 +4,14 @@ import { useExercisersList } from "./useExercisersList";
 import { currentExerciser } from "../../utils/helpers";
 import TrainingScheduler from "../../ui/Scheduler";
 import Spinner from "../../ui/Spinner";
+import Button from "../../ui/Button";
+import styled from "styled-components";
+
+const StyledExerciserTrainingList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`;
 
 function ExerciserTrainingList() {
   const navigate = useNavigate();
@@ -17,27 +25,16 @@ function ExerciserTrainingList() {
   if (isLoading || isLoadingExercisers) return <Spinner />;
 
   return (
-    <div>
-      {/* Put name to AppLayout for rendering name of exerciser when we look his trainings and detail in training, so if  exerciserId exists in url, it will be rendered(stalno ce se prikazivati ime kada prelazimo iz exerciserTrainingList u exerciserTrainingDetail */}
-      {/* <h4>{currentExerciser({ exercisers, exerciserId }).nickName}</h4>
-      <p>Exerciser Training List</p>
-      {trainings.map((training) => (
-        <p key={training.id}>
-          <Link to={`/exercisers/${exerciserId}/${training.id}`}>
-            See training
-          </Link>
-        </p>
-      ))}
-
-      <br />
-      <br /> */}
+    <StyledExerciserTrainingList>
       <TrainingScheduler
         trainings={trainings}
         startDayHour={startDayHour}
         endDayHour={endDayHour}
       />
-      <button onClick={() => navigate(-1)}>Go back</button>
-    </div>
+      <Button position="right" onClick={() => navigate(-1)}>
+        Go back
+      </Button>
+    </StyledExerciserTrainingList>
   );
 }
 

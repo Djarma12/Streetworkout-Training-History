@@ -37,6 +37,10 @@ const Image = styled.div`
 
 const ShowName = styled.span`
   pointer-events: none;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-grey-900);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -48,7 +52,7 @@ function ExerciserItem({ exerciser }) {
   const { userid, nickName, avatar } = exerciser;
   const [isShown, setIsShown] = useState(false);
   const navigate = useNavigate();
-
+  console.log(avatar);
   return (
     <StyledExerciser
       onMouseEnter={() => setIsShown(true)}
@@ -56,7 +60,7 @@ function ExerciserItem({ exerciser }) {
       onClick={() => navigate(`${userid}`)}
     >
       {isShown && <ShowName>{nickName}</ShowName>}
-      <Image imageUrl={avatar} />
+      <Image imageUrl={avatar || "anonimous.png"} />
     </StyledExerciser>
   );
 }
