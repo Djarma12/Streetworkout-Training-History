@@ -18,7 +18,7 @@ const Image = styled.div`
       var(--gradient-brand-500),
       var(--gradient-brand-500)
     ),
-    url(${(props) => props.imageUrl});
+    url(${(props) => props.image});
   background-size: cover;
   background-position: top;
   aspect-ratio: 9 / 16;
@@ -31,7 +31,7 @@ const Image = styled.div`
         var(--gradient-brand-hover-500),
         var(--gradient-brand-hover-500)
       ),
-      url(${(props) => props.imageUrl});
+      url(${(props) => props.image});
   }
 `;
 
@@ -60,7 +60,7 @@ function ExerciserItem({ exerciser }) {
       onClick={() => navigate(`${userid}`)}
     >
       {isShown && <ShowName>{nickName}</ShowName>}
-      <Image imageUrl={avatar || "anonimous.png"} />
+      <Image image={avatar || "/anonimous.png"} />
     </StyledExerciser>
   );
 }

@@ -8,6 +8,19 @@ export async function getExercisers() {
   return data;
 }
 
+export async function getExerciserData(id) {
+  console.log(id);
+  const { data, error } = await supabase
+    .from("users")
+    .select("*")
+    .eq("userid", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
 export async function getTraining({ exerciserId }) {
   const { data, error } = await supabase
     .from("trainings")

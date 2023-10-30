@@ -24,7 +24,7 @@ const Image = styled.img`
   margin-bottom: 1.6rem;
 `;
 
-function ProfileSettings({ userData }) {
+function ProfileSettings({ exerciserData }) {
   const { user } = useUser();
   const { updateUser, isUpdating } = useUpdateUser();
 
@@ -35,7 +35,7 @@ function ProfileSettings({ userData }) {
     watch,
     formState: { errors },
   } = useForm({
-    defaultValues: { ...userData },
+    defaultValues: { ...exerciserData },
   });
 
   if (isUpdating) return <Spinner />;
@@ -43,7 +43,7 @@ function ProfileSettings({ userData }) {
   function onSubmit(data) {
     console.log(data);
     const updatedUser = { ...data };
-    updateUser({ updatedUser, oldAvatar: userData.avatar });
+    updateUser({ updatedUser, oldAvatar: exerciserData.avatar });
   }
 
   return (

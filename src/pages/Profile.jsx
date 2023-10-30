@@ -1,14 +1,14 @@
 import ProfileSettings from "../features/authentication/ProfileSettings";
 import { useUser } from "../features/authentication/useUser";
-import { useUserData } from "../features/authentication/useUserData";
+import { useExerciserData } from "../features/authentication/useExerciserData";
 
 function Profile() {
   const { user } = useUser();
-  const { isLoading, userData } = useUserData(user.id);
+  const { isLoading, exerciserData } = useExerciserData(user.id);
 
   if (isLoading) return null;
 
-  return <ProfileSettings userData={userData} />;
+  return <ProfileSettings exerciserData={exerciserData} />;
 }
 
 export default Profile;

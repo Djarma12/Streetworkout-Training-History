@@ -1,11 +1,11 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTrainingList } from "../../hooks/useTrainingList";
-import { useExercisersList } from "./useExercisersList";
 import { currentExerciser } from "../../utils/helpers";
 import TrainingScheduler from "../../ui/Scheduler";
 import Spinner from "../../ui/Spinner";
 import Button from "../../ui/Button";
 import styled from "styled-components";
+import ExerciserData from "./ExerciserData";
 
 const StyledExerciserTrainingList = styled.div`
   display: flex;
@@ -19,13 +19,13 @@ function ExerciserTrainingList() {
   const { trainings, isLoading, startDayHour, endDayHour } = useTrainingList({
     exerciserId,
   });
-  const { exercisers, isLoading: isLoadingExercisers } = useExercisersList();
 
   console.log(trainings);
-  if (isLoading || isLoadingExercisers) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <StyledExerciserTrainingList>
+      <ExerciserData />
       <TrainingScheduler
         trainings={trainings}
         startDayHour={startDayHour}

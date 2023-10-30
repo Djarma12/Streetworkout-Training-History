@@ -44,19 +44,6 @@ export async function insertUser({ nickName, birthDate, userid }) {
   return data;
 }
 
-export async function getUserData(id) {
-  console.log(id);
-  const { data, error } = await supabase
-    .from("users")
-    .select("*")
-    .eq("userid", id)
-    .single();
-
-  if (error) throw new Error(error.message);
-
-  return data;
-}
-
 export async function updateUser({ updatedUser, oldAvatar }) {
   const hasAvatarPath = updatedUser.avatar?.startsWith?.(supabaseUrl);
 

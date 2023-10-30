@@ -13,14 +13,22 @@ import Heading from "../../ui/Heading";
 import { insertUser } from "../../services/apiAuth";
 
 const StyledLoginForm = styled.div`
-  background-color: var(--color-brand-200);
   width: 100%;
-  /* height: 100vh; */
   padding: 6.4rem 4.8rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Background = styled.div`
+  background-color: var(--color-brand-200);
+  position: fixed;
+  z-index: -10;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 const Header = styled.header`
@@ -62,6 +70,7 @@ function LoginForm() {
 
   return (
     <StyledLoginForm>
+      <Background />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Header>
           <Logo />
