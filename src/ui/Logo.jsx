@@ -7,7 +7,7 @@ const StyledLogo = styled.img`
 `;
 
 function Logo() {
-  return <StyledLogo src="logo.webp" alt="Logo" />;
+  return <StyledLogo src="/logo.webp" alt="Logo" />;
 }
 
 export default Logo;

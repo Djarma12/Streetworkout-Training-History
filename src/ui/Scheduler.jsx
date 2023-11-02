@@ -18,7 +18,6 @@ import { EditingState } from "@devexpress/dx-react-scheduler";
 
 import BasicLayout from "./BasicLayout";
 
-import { formatCurrentDate } from "../utils/helpers";
 import Content from "./Content";
 import TextEditor from "./TextEditor";
 
@@ -27,7 +26,7 @@ const Appointment = ({ children, style, ...restProps }) => (
     {...restProps}
     style={{
       ...style,
-      backgroundColor: "#748ffc",
+      backgroundColor: "var(--color-blue-700)",
       borderRadius: "8px",
       fontSize: "1rem",
     }}
@@ -51,8 +50,9 @@ function TrainingScheduler({
         border: "1px solid var(--color-grey-200)",
       }}
     >
-      <Scheduler data={trainings} height={660}>
-        <ViewState defaultCurrentDate={formatCurrentDate()} />
+      <Scheduler data={trainings}>
+        {/* <ViewState defaultCurrentDate={formatCurrentDate()} /> */}
+        <ViewState />
         <Toolbar />
         <ViewSwitcher />
         <DateNavigator />
@@ -72,18 +72,14 @@ function TrainingScheduler({
           showDeleteButton={isUser}
           showCloseButton
           contentComponent={Content}
-          style={{ backgroundColor: "green" }}
+          // style={{ backgroundColor: "green" }}
         />
 
         {isUser && (
-          <>
-            <AppointmentForm
-              basicLayoutComponent={BasicLayout}
-              textEditorComponent={TextEditor}
-              // formComponent={BasicLayout}
-              style={{ backgroundColor: "green" }}
-            />
-          </>
+          <AppointmentForm
+            basicLayoutComponent={BasicLayout}
+            textEditorComponent={TextEditor}
+          />
         )}
         <ConfirmationDialog
           messages={{

@@ -1,7 +1,9 @@
 import supabase from "./supabase";
 
 export async function getExercisers() {
-  const { data, error } = await supabase.from("users").select("*");
+  const { data, error } = await supabase
+    .from("users")
+    .select("nickName, avatar,  userid");
 
   if (error) throw new Error(error.message);
 

@@ -1,5 +1,4 @@
-import { useLocation } from "react-router-dom";
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 // - Font sizes (px)
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -59,6 +58,7 @@ const GlobalStyles = createGlobalStyle`
     --image-opacity: 90%;
   }
 
+  --color-blue-700: #748ffc;
   --color-blue-900: #075985;
   --color-red-100: #fee2e2;
   --color-red-700: #b91c1c;

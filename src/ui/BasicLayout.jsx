@@ -2,11 +2,19 @@ import { AppointmentForm } from "@devexpress/dx-react-scheduler-material-ui";
 import { useEffect } from "react";
 
 function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
+  // Remove radio buttons
   useEffect(function () {
     const [removeDiv] = Array.from(document.querySelectorAll("span")).filter(
       (span) => span.textContent === "All Day"
     );
     removeDiv?.closest("div").remove();
+  }, []);
+
+  // Set appointment form to be on all over screen
+  useEffect(function () {
+    document.querySelector(
+      ".css-vr9er9-MuiModal-root-MuiDrawer-root"
+    ).style.position = "fixed";
   }, []);
 
   return (
