@@ -20,6 +20,13 @@ const Heading = styled.h1`
       letter-spacing: 1px;
       color: var(--color-grey-500);
     `}
+  ${(props) =>
+    props.as === "h3" &&
+    css`
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-red-700);
+    `}
 `;
 
 export default Heading;

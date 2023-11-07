@@ -44,10 +44,10 @@ export async function insertUser({ nickName, birthDate, userid }) {
   return data;
 }
 
-export async function updateUser({ updatedUser, oldAvatar }) {
+export async function updateUser({ updatedUser, userExist }) {
   const hasAvatarPath = updatedUser.avatar?.startsWith?.(supabaseUrl);
 
-  const avatarName = `${Math.random()}-${updatedUser.avatar.name}`.replaceAll(
+  const avatarName = `${Math.random()}-${updatedUser?.avatar?.name}`.replaceAll(
     "/",
     ""
   );
@@ -55,16 +55,54 @@ export async function updateUser({ updatedUser, oldAvatar }) {
     ? updatedUser.avatar
     : `${supabaseUrl}/storage/v1/object/public/avatars/${avatarName}`;
 
-  const { data, error } = await supabase
-    .from("users")
-    .update({ ...updatedUser, avatar: avatarPath })
-    .eq("userid", updatedUser.userid)
-    .select();
+  // 1. Create/edit user
+  let query = supabase.from("users");
+  let data, error;
+  // const { data, error } = await supabase.from("users")
+  //   .insert([{ ...updatedUser }])
+  //   .select();
+
+  // A) CREATE
+  if (!userExist) {
+    console.log({
+      ...updatedUser,
+      avatar: updatedUser.avatar ? avatarPath : null,
+    });
+    const { data: user, error: err } = await supabase
+      .from("users")
+      .insert([
+        { ...updatedUser, avatar: updatedUser.avatar ? avatarPath : null },
+      ])
+      .select()
+      .single();
+    data = user;
+    error = err;
+    // await query.insert([
+    //   { ...updatedUser, avatar: updatedUser.avatar ? avatarPath : null },
+    // ]);
+  }
+  // B) UPDATE
+  if (userExist) {
+    const { data: user, error: err } = await supabase
+      .from("users")
+      .update({
+        ...updatedUser,
+        avatar: updatedUser.avatar ? avatarPath : null,
+      })
+      .eq("userid", updatedUser.userid)
+      .select()
+      .single();
+    data = user;
+    error = err;
+  }
+
+  // const { data, error } = await query.select().single();
+  console.log(data, error);
 
   if (error) throw new Error(error.message);
 
   // 2. Upload avatar
-  if (hasAvatarPath) return data;
+  if (hasAvatarPath || !updatedUser.avatar) return data;
 
   const { error: storageError } = await supabase.storage
     .from("avatars")

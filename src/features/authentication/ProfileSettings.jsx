@@ -7,6 +7,7 @@ import Spinner from "../../ui/Spinner";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Form from "../../ui/Form";
 import styled from "styled-components";
+import Heading from "../../ui/Heading";
 
 const Image = styled.img`
   display: block;
@@ -42,12 +43,22 @@ function ProfileSettings({ exerciserData }) {
 
   function onSubmit(data) {
     console.log(data);
-    const updatedUser = { ...data };
-    updateUser({ updatedUser, oldAvatar: exerciserData.avatar });
+    const updatedUser = { ...data, userid: user.id };
+    updateUser({
+      updatedUser,
+      userExist: Boolean(exerciserData),
+    });
   }
-
+  console.log(exerciserData);
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      <FormRowVertical>
+        <Heading as="h3">
+          {exerciserData
+            ? "Update profile"
+            : "Enter the data so that other users can see you"}
+        </Heading>
+      </FormRowVertical>
       <FormRowVertical label="Nick name" error={errors?.nickName?.message}>
         <Input
           type="text"
