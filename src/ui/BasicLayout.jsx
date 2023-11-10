@@ -15,6 +15,9 @@ function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
     document.querySelector(
       ".css-vr9er9-MuiModal-root-MuiDrawer-root"
     ).style.position = "fixed";
+    console.log(
+      document.querySelector(".css-vr9er9-MuiModal-root-MuiDrawer-root")
+    );
   }, []);
 
   return (
