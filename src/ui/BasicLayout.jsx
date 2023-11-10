@@ -12,12 +12,12 @@ function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
 
   // Set appointment form to be on all over screen
   useEffect(function () {
-    document.querySelector(
+    const form = document.querySelector(
       ".css-vr9er9-MuiModal-root-MuiDrawer-root"
-    ).style.position = "fixed";
-    console.log(
-      document.querySelector(".css-vr9er9-MuiModal-root-MuiDrawer-root")
     );
+    if (form) {
+      form.style.position = "fixed";
+    }
   }, []);
 
   return (
