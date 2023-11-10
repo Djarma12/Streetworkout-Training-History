@@ -5,17 +5,20 @@ import { useState } from "react";
 export function useExerciserData(userId) {
   const [isFetching, setIsFetching] = useState(true);
 
-  const { isLoading, data: exerciserData } = useQuery({
+  const {
+    isLoading,
+    data: exerciserData,
+    refetch,
+  } = useQuery({
     queryKey: ["exerciserData", userId],
     queryFn: () => getExerciserData(userId),
-    onError: () => {
-      setIsFetching(false);
-    },
+    onError: () => setIsFetching(false),
     enabled: isFetching,
   });
 
   return {
     isLoading,
     exerciserData,
+    refetch,
   };
 }

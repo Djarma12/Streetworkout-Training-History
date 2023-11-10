@@ -1,4 +1,5 @@
 import { differenceInYears, format } from "date-fns";
+import { mediaQueryValues } from "../styles/MediaQueryManager";
 
 export function currentExerciser({ exercisers, exerciserId }) {
   const [exerciser] = exercisers.filter(
@@ -30,4 +31,9 @@ export function removeEmptyProperties(addTraining) {
       obj[key] = value;
       return obj;
     }, {});
+}
+
+// For sidebar in response
+export function isTabPort() {
+  return window.innerWidth > mediaQueryValues.tabPort;
 }

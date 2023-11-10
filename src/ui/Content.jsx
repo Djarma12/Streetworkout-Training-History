@@ -22,21 +22,31 @@ function Content({ children, appointmentData, ...restProps }) {
       appointmentData={appointmentData}
     >
       <StyledContent>
-        <StyledParagraph>
-          Num pull up: <span>{numPullUp}</span>
-        </StyledParagraph>
-        <StyledParagraph>
-          Num dip: <span>{numDip}</span>
-        </StyledParagraph>
-        <StyledParagraph>
-          Num push up: <span>{numPushUp}</span>
-        </StyledParagraph>
-        <StyledParagraph>
-          Training strength: <span>{trainingStrength}</span>
-        </StyledParagraph>
-        <StyledParagraph>
-          Description: <span>{description}</span>
-        </StyledParagraph>
+        {numPullUp && (
+          <StyledParagraph>
+            Num pull up: <span>{numPullUp}</span>
+          </StyledParagraph>
+        )}
+        {numDip && (
+          <StyledParagraph>
+            Num dip: <span>{numDip}</span>
+          </StyledParagraph>
+        )}
+        {numPushUp && (
+          <StyledParagraph>
+            Num push up: <span>{numPushUp}</span>
+          </StyledParagraph>
+        )}
+        {trainingStrength && (
+          <StyledParagraph>
+            Training strength: <span>{trainingStrength}</span>
+          </StyledParagraph>
+        )}
+        {description && (
+          <StyledParagraph>
+            Description: <span>{description}</span>
+          </StyledParagraph>
+        )}
       </StyledContent>
     </AppointmentTooltip.Content>
   );

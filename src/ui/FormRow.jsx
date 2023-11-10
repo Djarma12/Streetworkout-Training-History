@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledFormRow = styled.div`
   width: 100%;
@@ -21,11 +22,12 @@ const StyledFormRow = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 
-  /* &:has(button) {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.2rem;
-  } */
+  ${mediaQueryManager.phone(
+    css`
+      grid-template-columns: 10rem 1.6fr 1fr;
+      gap: 0.8rem;
+    `
+  )}
 `;
 
 const Label = styled.label`
@@ -35,6 +37,12 @@ const Label = styled.label`
 const Error = styled.span`
   font-size: 1.4rem;
   color: var(--color-red-700);
+
+  ${mediaQueryManager.phone(
+    css`
+      font-size: 1.2rem;
+    `
+  )}
 `;
 
 function FormRow({ label, error, children }) {

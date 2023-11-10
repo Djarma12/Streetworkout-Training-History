@@ -1,14 +1,22 @@
+import styled, { css } from "styled-components";
 import { useParams } from "react-router";
+
 import { useExerciserData } from "../authentication/useExerciserData";
 import Spinner from "../../ui/Spinner";
-import styled from "styled-components";
-import { differenceInYears } from "date-fns";
 import { age, formatDMY } from "../../utils/helpers";
+import mediaQueryManager from "../../styles/MediaQueryManager";
 
 const StyledExerciserData = styled.div`
   display: flex;
   justify-content: space-between;
   padding-inline: 3.2rem;
+  gap: 0.8rem;
+
+  ${mediaQueryManager.phone(
+    css`
+      padding-inline: 0;
+    `
+  )}
 `;
 
 const ExerciserContent = styled.div`
@@ -29,6 +37,12 @@ const ListItem = styled.p`
     font-weight: 700;
     color: var(--color-grey-700);
   }
+
+  ${mediaQueryManager.phone(
+    css`
+      padding: 0.8rem 1.6rem;
+    `
+  )}
 `;
 
 const Image = styled.img`

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledFormRow = styled.div`
   display: flex;
@@ -24,6 +25,12 @@ const Label = styled.label`
 const Error = styled.span`
   font-size: 1.4rem;
   color: var(--color-red-700);
+
+  ${mediaQueryManager.phone(
+    css`
+      font-size: 1.2rem;
+    `
+  )}
 `;
 
 function FormRowVertical({ label, error, children }) {

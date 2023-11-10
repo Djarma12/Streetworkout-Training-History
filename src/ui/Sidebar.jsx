@@ -3,28 +3,30 @@ import MainNav from "./MainNav";
 import Logo from "./Logo";
 import Logout from "../features/authentication/Logout";
 import ButtonProfile from "./ButtonProfile";
-import { useDarkMode } from "../context/DarkModeContext";
+import mediaQueryManager from "../styles/MediaQueryManager";
+import { SidebarProvider, useSidebar } from "../context/SidebarProvider";
+import { moveRight } from "../styles/animations";
 
 const StyledSidebar = styled.aside`
-  ${(props) => {
-    if (props.dark) {
-      return css`
-        background-color: var(--color-grey-50);
-      `;
-    } else {
-      return css`
-        background-color: var(--color-grey-900);
-      `;
-    }
-  }}
   grid-row: 1/-1;
   height: 100vh;
-
+  background-color: var(--color-grey-900);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-block: 1.6rem;
+
+  animation: ${moveRight} 0.25s ease-out;
+
+  ${mediaQueryManager.tabPort(css`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    transform: translateX(0);
+    width: max-content;
+  `)}
 `;
 
 const Footer = styled.footer`
@@ -36,17 +38,23 @@ const Footer = styled.footer`
 `;
 
 function Sidebar() {
-  const { isDarkMode } = useDarkMode();
+  const { isOpen, toggleOpen } = useSidebar();
 
   return (
-    <StyledSidebar dark={isDarkMode}>
-      <Logo />
-      <MainNav />
-      <Footer>
-        <ButtonProfile />
-        <Logout />
-      </Footer>
-    </StyledSidebar>
+    <>
+      {isOpen && (
+        <StyledSidebar>
+          <Logo />
+          <MainNav />
+          <Footer>
+            <SidebarProvider.CloseSidebar>
+              <ButtonProfile />
+            </SidebarProvider.CloseSidebar>
+            <Logout />
+          </Footer>
+        </StyledSidebar>
+      )}
+    </>
   );
 }
 

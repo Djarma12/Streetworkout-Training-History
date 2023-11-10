@@ -72,7 +72,6 @@ function TrainingScheduler({
           showDeleteButton={isUser}
           showCloseButton
           contentComponent={Content}
-          // style={{ backgroundColor: "green" }}
         />
 
         {isUser && (

@@ -1,13 +1,22 @@
-import { Link } from "react-router-dom";
-import { useExercisersList } from "./useExercisersList";
+import styled, { css } from "styled-components";
+
 import ExerciserItem from "./ExerciserItem";
-import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
+import mediaQueryManager from "../../styles/MediaQueryManager";
+
+import { useExercisersList } from "./useExercisersList";
 
 const List = styled.ul`
   display: grid;
   gap: 3.2rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+  ${mediaQueryManager.phone(
+    css`
+      gap: 2.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    `
+  )}
 `;
 
 function ExercisersList() {
@@ -17,7 +26,7 @@ function ExercisersList() {
 
   return (
     <List>
-      {exercisers.map((exerciser) => (
+      {exercisers?.map((exerciser) => (
         <ExerciserItem exerciser={exerciser} key={exerciser.id} />
       ))}
       {/* {exercisers.map((exerciser) => (

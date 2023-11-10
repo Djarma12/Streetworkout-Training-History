@@ -1,13 +1,35 @@
+import styled, { css } from "styled-components";
+import { BiWindowClose } from "react-icons/bi";
 import { useForm } from "react-hook-form";
+
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
-import Spinner from "../../ui/Spinner";
+import SpinnerMini from "../../ui/SpinnerMini";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Form from "../../ui/Form";
-import styled from "styled-components";
 import Heading from "../../ui/Heading";
+import ButtonIcon from "../../ui/ButtonIcon";
+import mediaQueryManager from "../../styles/MediaQueryManager";
+
+const CloseImage = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  justify-content: end;
+
+  &:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+
+  ${(props) => {
+    if (props.line === "column")
+      return css`
+        flex-direction: column;
+        align-items: end;
+      `;
+  }}
+`;
 
 const Image = styled.img`
   display: block;
@@ -25,7 +47,7 @@ const Image = styled.img`
   margin-bottom: 1.6rem;
 `;
 
-function ProfileSettings({ exerciserData }) {
+function ProfileSettings({ exerciserData, refetch }) {
   const { user } = useUser();
   const { updateUser, isUpdating } = useUpdateUser();
 
@@ -34,29 +56,34 @@ function ProfileSettings({ exerciserData }) {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: { ...exerciserData },
   });
 
-  if (isUpdating) return <Spinner />;
-
   function onSubmit(data) {
-    console.log(data);
     const updatedUser = { ...data, userid: user.id };
-    updateUser({
-      updatedUser,
-      userExist: Boolean(exerciserData),
-    });
+    updateUser(
+      {
+        updatedUser,
+        userExist: Boolean(exerciserData),
+      },
+      {
+        onSuccess: () => {
+          refetch();
+        },
+      }
+    );
   }
-  console.log(exerciserData);
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRowVertical>
         <Heading as="h3">
           {exerciserData
             ? "Update profile"
-            : "Enter the data so that other users can see you"}
+            : "Enter the data so that other users can see your profile"}
         </Heading>
       </FormRowVertical>
       <FormRowVertical label="Nick name" error={errors?.nickName?.message}>
@@ -80,46 +107,48 @@ function ProfileSettings({ exerciserData }) {
         />
       </FormRowVertical>
 
-      {/* <input
-        disabled={isUpdating}
-        type="file"
-        placeholder="Avatar"
-        {...register("avatar")}
-      /> */}
-
       <FormRowVertical label="Change Avatar Image">
         <Input
-          disabled={isUpdating}
           id="avatar"
           type="file"
+          disabled={isUpdating}
           onChange={(e) => setValue("avatar", e.target.files[0])}
           style={{ display: "none" }}
         />
       </FormRowVertical>
 
       {watch("avatar") && (
-        <Image
-          src={
-            typeof watch("avatar") === "string"
-              ? watch("avatar")
-              : URL.createObjectURL(watch("avatar"))
-          }
-          alt="Avatar"
-        />
-      )}
-      {/* <label>
-          <span>Change Avatar Image</span>
-          <input
+        <CloseImage line="column">
+          <ButtonIcon
+            variation="tertiary"
             disabled={isUpdating}
-            type="file"
-            onChange={(e) => setValue("avatar", e.target.files[0])}
-            style={{ display: "none" }}
+            onClick={() => setValue("avatar", null)}
+          >
+            <BiWindowClose />
+          </ButtonIcon>
+          <Image
+            src={
+              typeof watch("avatar") === "string"
+                ? watch("avatar")
+                : URL.createObjectURL(watch("avatar"))
+            }
+            alt="Avatar"
           />
-        </label> */}
+        </CloseImage>
+      )}
 
-      <FormRowVertical>
-        <Button disabled={isUpdating}>Update</Button>
-      </FormRowVertical>
+      <CloseImage>
+        <Button
+          disabled={isUpdating}
+          variation="primary"
+          onClick={() => reset(exerciserData)}
+        >
+          Cancle
+        </Button>
+        <Button type="submit" disabled={isUpdating}>
+          {isUpdating ? <SpinnerMini /> : "Update"}
+        </Button>
+      </CloseImage>
     </Form>
   );
 }

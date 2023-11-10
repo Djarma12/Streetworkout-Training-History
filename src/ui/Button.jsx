@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const position = {
   // center: css`
@@ -46,6 +47,13 @@ const variations = {
       animation: pulsate 1s infinite;
       transform: scale(1.01);
     }
+
+    ${mediaQueryManager.phone(
+      css`
+        font-size: 1rem;
+        padding: 1.2rem 3.2rem;
+      `
+    )}
   `,
   secondary: css`
     color: var(--color-grey-600);

@@ -1,15 +1,23 @@
 import { Outlet } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import useBodyOverflow from "../hooks/useBodyOverflow";
+import mediaQueryManager from "../styles/MediaQueryManager";
+import { SidebarProvider } from "../context/SidebarProvider";
 
 const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   overflow: hidden;
+
+  ${mediaQueryManager.tabPort(
+    css`
+      grid-template-columns: 1fr;
+    `
+  )}
 `;
 
 const Main = styled.main`
@@ -18,9 +26,14 @@ const Main = styled.main`
 
   border-top: 2px solid var(--color-brand-200);
   border-left: 2px solid var(--color-brand-200);
-  /* height: calc(100vh - 8rem); */
   height: 100vh;
   overflow-y: auto;
+
+  ${mediaQueryManager.phone(
+    css`
+      padding: 3.2rem 2.4rem;
+    `
+  )}
 `;
 
 const Container = styled.div`
@@ -34,8 +47,10 @@ function AppLayout() {
   useBodyOverflow();
   return (
     <StyledAppLayout>
-      <Header />
-      <Sidebar />
+      <SidebarProvider>
+        <Header />
+        <Sidebar />
+      </SidebarProvider>
       <Main>
         <Container>
           <Outlet />

@@ -5,11 +5,11 @@ import Spinner from "../ui/Spinner";
 
 function Profile() {
   const { user } = useUser();
-  const { isLoading, exerciserData } = useExerciserData(user.id);
+  const { isLoading, exerciserData, refetch } = useExerciserData(user.id);
 
   if (isLoading) return <Spinner />;
 
-  return <ProfileSettings exerciserData={exerciserData} />;
+  return <ProfileSettings exerciserData={exerciserData} refetch={refetch} />;
 }
 
 export default Profile;

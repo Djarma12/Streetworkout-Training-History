@@ -20,22 +20,21 @@ function MainTraining() {
   if (isLoading || isCreating || isDeleting || isUpdating) return <Spinner />;
 
   function handleCommitChanges({ added: addTraining, changed, deleted }) {
-    if (addTraining) {
+    if (addTraining && addTraining.title) {
       const newTraining = {
         title: addTraining.title,
         startDate: formatDate(addTraining.startDate),
         endDate: formatDate(addTraining.endDate),
         numPullUp: addTraining.numPullUp,
         numDip: addTraining.numDip,
-        numPushUp: addTraining.numPullUp,
+        numPushUp: addTraining.numPushUp,
         description: addTraining.description,
         trainingStrength: addTraining.trainingStrength,
         userid: user.id,
       };
-      console.log(newTraining);
       createTraining(newTraining);
     }
-    if (changed) {
+    if (changed && changed.title) {
       const [trainingId] = Object.keys(changed);
       const updatedFields = Object.values(changed)[0];
       updateTraining({ trainingId, updatedFields });

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
@@ -11,6 +11,7 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import Logo from "../../ui/Logo";
 import Heading from "../../ui/Heading";
 import { insertUser } from "../../services/apiAuth";
+import mediaQueryManager from "../../styles/MediaQueryManager";
 
 const StyledLoginForm = styled.div`
   width: 100%;
@@ -19,6 +20,12 @@ const StyledLoginForm = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${mediaQueryManager.phone(
+    css`
+      padding: 4.8rem 3.2rem;
+    `
+  )}
 `;
 
 const Background = styled.div`
@@ -76,16 +83,6 @@ function LoginForm() {
           <Logo />
           <Heading as="h1">{isSignUp ? "SignUp" : "LogIn"}</Heading>
         </Header>
-        {isSignUp && (
-          <FormRowVertical label="Nick name" error={errors?.nickName?.message}>
-            <Input
-              type="text"
-              id="nickName"
-              disabled={isLoading}
-              {...register("nickName", { required: "This field is required" })}
-            />
-          </FormRowVertical>
-        )}
 
         <FormRowVertical label="Email address" error={errors?.email?.message}>
           <Input
@@ -130,20 +127,6 @@ function LoginForm() {
                   required: "This field is required",
                   validate: (value) =>
                     value === getValues().password || "Passwords need to match",
-                })}
-              />
-            </FormRowVertical>
-            <FormRowVertical
-              label="Birth date"
-              error={errors?.birthDate?.message}
-            >
-              <Input
-                type="date"
-                id="birthDate"
-                disabled={isLoading}
-                {...register("birthDate", {
-                  required: "This field is required",
-                  valueAsDate: true,
                 })}
               />
             </FormRowVertical>

@@ -4,6 +4,7 @@ import { BiSolidHome, BiSolidAddToQueue } from "react-icons/bi";
 import { BsFillPeopleFill } from "react-icons/bs";
 
 import ButtonIcon from "./ButtonIcon";
+import { SidebarProvider } from "../context/SidebarProvider";
 
 const StyledMainNav = styled.ul`
   color: var(--color-grey-200);
@@ -53,30 +54,40 @@ function MainNav() {
   return (
     <nav>
       <StyledMainNav>
-        <MainNavItem className={activeURL === "trainings" ? "active" : ""}>
-          <NavLink to="/trainings">
-            <ButtonIcon variation="secondary">
-              <BiSolidHome />
-            </ButtonIcon>{" "}
-            My trainings
-          </NavLink>
-        </MainNavItem>
-        <MainNavItem className={activeURL === "trainings/new" ? "active" : ""}>
-          <NavLink to="/trainings/new">
-            <ButtonIcon variation="secondary">
-              <BiSolidAddToQueue />
-            </ButtonIcon>
-            Add new training
-          </NavLink>
-        </MainNavItem>
-        <MainNavItem className={activeURL === "exercisers" ? "active" : ""}>
-          <NavLink to="/exercisers">
-            <ButtonIcon variation="secondary">
-              <BsFillPeopleFill />
-            </ButtonIcon>
-            Exercisers
-          </NavLink>
-        </MainNavItem>
+        <SidebarProvider.CloseSidebar>
+          <MainNavItem className={activeURL === "trainings" ? "active" : ""}>
+            <NavLink to="/trainings">
+              <ButtonIcon variation="secondary">
+                <BiSolidHome />
+              </ButtonIcon>{" "}
+              My trainings
+            </NavLink>
+          </MainNavItem>
+        </SidebarProvider.CloseSidebar>
+
+        <SidebarProvider.CloseSidebar>
+          <MainNavItem
+            className={activeURL === "trainings/new" ? "active" : ""}
+          >
+            <NavLink to="/trainings/new">
+              <ButtonIcon variation="secondary">
+                <BiSolidAddToQueue />
+              </ButtonIcon>
+              Add new training
+            </NavLink>
+          </MainNavItem>
+        </SidebarProvider.CloseSidebar>
+
+        <SidebarProvider.CloseSidebar>
+          <MainNavItem className={activeURL === "exercisers" ? "active" : ""}>
+            <NavLink to="/exercisers">
+              <ButtonIcon variation="secondary">
+                <BsFillPeopleFill />
+              </ButtonIcon>
+              Exercisers
+            </NavLink>
+          </MainNavItem>
+        </SidebarProvider.CloseSidebar>
       </StyledMainNav>
     </nav>
   );

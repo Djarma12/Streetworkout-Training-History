@@ -57,47 +57,23 @@ export async function updateUser({ updatedUser, userExist }) {
 
   // 1. Create/edit user
   let query = supabase.from("users");
-  let data, error;
-  // const { data, error } = await supabase.from("users")
-  //   .insert([{ ...updatedUser }])
-  //   .select();
 
   // A) CREATE
-  if (!userExist) {
-    console.log({
-      ...updatedUser,
-      avatar: updatedUser.avatar ? avatarPath : null,
-    });
-    const { data: user, error: err } = await supabase
-      .from("users")
-      .insert([
-        { ...updatedUser, avatar: updatedUser.avatar ? avatarPath : null },
-      ])
-      .select()
-      .single();
-    data = user;
-    error = err;
-    // await query.insert([
-    //   { ...updatedUser, avatar: updatedUser.avatar ? avatarPath : null },
-    // ]);
-  }
+  if (!userExist)
+    query = query.insert([
+      { ...updatedUser, avatar: updatedUser.avatar ? avatarPath : null },
+    ]);
+
   // B) UPDATE
-  if (userExist) {
-    const { data: user, error: err } = await supabase
-      .from("users")
+  if (userExist)
+    query = query
       .update({
         ...updatedUser,
         avatar: updatedUser.avatar ? avatarPath : null,
       })
-      .eq("userid", updatedUser.userid)
-      .select()
-      .single();
-    data = user;
-    error = err;
-  }
+      .eq("userid", updatedUser.userid);
 
-  // const { data, error } = await query.select().single();
-  console.log(data, error);
+  const { data, error } = await query.select().single();
 
   if (error) throw new Error(error.message);
 

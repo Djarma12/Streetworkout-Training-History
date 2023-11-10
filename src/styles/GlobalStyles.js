@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
+import mediaQueryManager, { mediaQueryValues } from "./MediaQueryManager";
 
 // - Font sizes (px)
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -102,7 +103,16 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%;
+  
+  ${mediaQueryManager.phone(
+    css`
+      font-size: 50%;
+    `
+  )}
 }
+/* @media only screen and (max-width: ${mediaQueryValues.phone}px) {
+    font-size: 50%;
+} */
 
 body {
   font-family: 'Roboto', sans-serif;

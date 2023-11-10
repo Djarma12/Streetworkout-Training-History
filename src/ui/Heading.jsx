@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const Heading = styled.h1`
   ${(props) =>
@@ -19,6 +20,12 @@ const Heading = styled.h1`
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--color-grey-500);
+
+      ${mediaQueryManager.phone(
+        css`
+          font-size: 1.8rem;
+        `
+      )}
     `}
   ${(props) =>
     props.as === "h3" &&

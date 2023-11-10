@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const Form = styled.form`
   font-size: 1.6rem;
@@ -9,6 +10,13 @@ const Form = styled.form`
 
   margin-inline: auto;
   flex-basis: 60rem;
+
+  ${mediaQueryManager.phone(
+    css`
+      font-size: 1.2rem;
+      padding: 2.4rem 3.2rem;
+    `
+  )}
 `;
 
 export default Form;

@@ -11,13 +11,17 @@ const variations = {
     }
   `,
   secondary: css`
+    &:hover {
+      transform: scale(1.1);
+    }
     & svg {
       color: var(--color-grey-100);
     }
   `,
   tertiary: css`
     &:hover {
-      background-color: var(--color-brand-100);
+      background-color: var(--color-grey-300);
+      transform: scale(1.1);
     }
 
     & svg {
