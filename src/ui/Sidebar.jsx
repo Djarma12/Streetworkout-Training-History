@@ -10,6 +10,7 @@ import { moveRight } from "../styles/animations";
 const StyledSidebar = styled.aside`
   grid-row: 1/-1;
   height: 100vh;
+  height: 100svh;
   background-color: var(--color-grey-900);
   display: flex;
   flex-direction: column;
@@ -35,12 +36,6 @@ const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  ${mediaQueryManager.phone(
-    css`
-      padding-bottom: 12.8rem;
-    `
-  )}
 `;
 
 function Sidebar() {

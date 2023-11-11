@@ -27,12 +27,12 @@ const Main = styled.main`
   border-top: 2px solid var(--color-brand-200);
   border-left: 2px solid var(--color-brand-200);
   height: 100vh;
+  height: 100svh;
   overflow-y: auto;
 
   ${mediaQueryManager.phone(
     css`
       padding: 3.2rem 2.4rem;
-      padding-bottom: 12.8rem;
     `
   )}
 `;
