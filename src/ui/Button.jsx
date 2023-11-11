@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import mediaQueryManager from "../styles/MediaQueryManager";
 
-const position = {
+const positions = {
   // center: css`
   //   align-self: center;
   // `,
@@ -82,7 +82,7 @@ const Button = styled.button`
   transition: all 0.2s;
   text-align: center;
 
-  ${(props) => position[props.position]}
+  ${(props) => positions[props.position]}
   ${(props) => variations[props.variation]}
 `;
 
