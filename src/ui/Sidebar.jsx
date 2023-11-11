@@ -35,6 +35,12 @@ const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${mediaQueryManager.phone(
+    css`
+      padding-bottom: 12.8rem;
+    `
+  )}
 `;
 
 function Sidebar() {

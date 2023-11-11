@@ -32,6 +32,7 @@ const Main = styled.main`
   ${mediaQueryManager.phone(
     css`
       padding: 3.2rem 2.4rem;
+      padding-bottom: 12.8rem;
     `
   )}
 `;
