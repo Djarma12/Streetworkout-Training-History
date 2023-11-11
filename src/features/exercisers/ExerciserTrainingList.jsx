@@ -31,9 +31,8 @@ function ExerciserTrainingList() {
         startDayHour={startDayHour}
         endDayHour={endDayHour}
       />
-      <Button position="right" variation="primary" onClick={() => navigate(-1)}>
-        Go back
-      </Button>
+      {/* <Button position="right" variation="primary" onClick={() => navigate(-1)}> */}
+      <Button onClick={() => navigate(-1)}>Go back</Button>
     </StyledExerciserTrainingList>
   );
 }
