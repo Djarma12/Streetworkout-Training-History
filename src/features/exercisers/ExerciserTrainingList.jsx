@@ -1,6 +1,5 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { useTrainingList } from "../../hooks/useTrainingList";
-import { currentExerciser } from "../../utils/helpers";
 import TrainingScheduler from "../../ui/Scheduler";
 import Spinner from "../../ui/Spinner";
 import Button from "../../ui/Button";

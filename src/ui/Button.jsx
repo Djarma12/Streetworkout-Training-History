@@ -8,16 +8,6 @@ const positions = {
   right: css`
     align-self: flex-end;
   `,
-  // medium: css`
-  //   font-size: 1.4rem;
-  //   padding: 1.2rem 1.6rem;
-  //   font-weight: 500;
-  // `,
-  // large: css`
-  //   font-size: 1.6rem;
-  //   padding: 1.2rem 2.4rem;
-  //   font-weight: 500;
-  // `,
 };
 
 const variations = {
@@ -66,14 +56,6 @@ const variations = {
       color: var(--color-blue-900);
     }
   `,
-  /*danger: css`
-    color: var(--color-red-100);
-    background-color: var(--color-red-700);
-
-    &:hover {
-      background-color: var(--color-red-800);
-    }
-  `,*/
 };
 
 const Button = styled.button`

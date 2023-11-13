@@ -1,13 +1,13 @@
 import { differenceInYears, format } from "date-fns";
 import { mediaQueryValues } from "../styles/MediaQueryManager";
 
-export function currentExerciser({ exercisers, exerciserId }) {
-  const [exerciser] = exercisers.filter(
-    (exerciser) => exerciser.userid === exerciserId
-  );
-  console.log(exerciser);
-  return exerciser;
-}
+// export function currentExerciser({ exercisers, exerciserId }) {
+//   const [exerciser] = exercisers.filter(
+//     (exerciser) => exerciser.userid === exerciserId
+//   );
+//   console.log(exerciser);
+//   return exerciser;
+// }
 
 // Format for supabase and scheduler
 export function formatDate(date) {

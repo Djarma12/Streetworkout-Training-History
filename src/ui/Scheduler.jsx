@@ -12,7 +12,6 @@ import {
   ViewSwitcher,
   ConfirmationDialog,
   AppointmentForm,
-  DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { EditingState } from "@devexpress/dx-react-scheduler";
 
@@ -86,7 +85,6 @@ function TrainingScheduler({
               "Are you sure you want to delete this training?",
           }}
         />
-        <DragDropProvider />
       </Scheduler>
     </Paper>
   );
