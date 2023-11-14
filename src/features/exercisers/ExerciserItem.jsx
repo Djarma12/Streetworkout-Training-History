@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledExerciser = styled.li`
-  /* height: 25rem; */
-  /* padding: 2.4rem 3.2rem; */
   position: relative;
   border-radius: 0.4rem;
   overflow: hidden;
@@ -52,7 +50,7 @@ function ExerciserItem({ exerciser }) {
   const { userid, nickName, avatar } = exerciser;
   const [isShown, setIsShown] = useState(false);
   const navigate = useNavigate();
-  console.log(avatar);
+  
   return (
     <StyledExerciser
       onMouseEnter={() => setIsShown(true)}

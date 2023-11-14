@@ -50,7 +50,6 @@ function TrainingScheduler({
       }}
     >
       <Scheduler data={trainings}>
-        {/* <ViewState defaultCurrentDate={formatCurrentDate()} /> */}
         <ViewState />
         <Toolbar />
         <ViewSwitcher />

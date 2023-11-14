@@ -47,9 +47,6 @@ const ListItem = styled.p`
 
 const Image = styled.img`
   height: 15rem;
-  /* background-size: cover; */
-  /* background-position: top; */
-  /* aspect-ratio: 9 / 16; */
   border-radius: 0.4rem;
 `;
 

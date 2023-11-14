@@ -29,15 +29,6 @@ function ExercisersList() {
       {exercisers?.map((exerciser) => (
         <ExerciserItem exerciser={exerciser} key={exerciser.id} />
       ))}
-      {/* {exercisers.map((exerciser) => (
-          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
-        ))}
-        {exercisers.map((exerciser) => (
-          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
-        ))}
-        {exercisers.map((exerciser) => (
-          <ExerciserItem exerciser={exerciser} key={exerciser.id} />
-        ))} */}
     </List>
   );
 }

@@ -35,5 +35,5 @@ export function removeEmptyProperties(addTraining) {
 
 // For sidebar in response
 export function isTabPort() {
-  return window.innerWidth > mediaQueryValues.tabPort;
+  return window.innerWidth < mediaQueryValues.tabPort;
 }

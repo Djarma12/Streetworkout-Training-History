@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-import { useLoginSignup } from "./useLoginSignup";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
@@ -10,8 +9,10 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import SpinnerMini from "../../ui/SpinnerMini";
 import Logo from "../../ui/Logo";
 import Heading from "../../ui/Heading";
-import { insertUser } from "../../services/apiAuth";
 import mediaQueryManager from "../../styles/MediaQueryManager";
+
+import { useLoginSignup } from "./useLoginSignup";
+// import { insertUser } from "../../services/apiAuth";
 
 const StyledLoginForm = styled.div`
   width: 100%;
@@ -54,24 +55,21 @@ function LoginForm() {
     register,
     getValues,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: { email: "test@test.com", password: "123123" },
   });
 
-  // Kreirati jos jedan hook, samo za ubacivanje imena
-  function onSubmit({ nickName, email, password, birthDate }) {
+  function onSubmit({ email, password }) {
     loginSignup(
-      { email, password },
-      {
-        onSettled: async (user) => {
-          if (isSignUp) {
-            await insertUser({ nickName, birthDate, userid: user.user.id });
-          }
-        },
-      }
+      { email, password }
+      // {
+      //   onSettled: async (user) => {
+      //     if (isSignUp) {
+      //       await insertUser({ nickName, birthDate, userid: user.user.id });
+      //     }
+      //   },
+      // }
     );
   }
 

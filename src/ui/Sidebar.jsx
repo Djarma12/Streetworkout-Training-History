@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
+
 import MainNav from "./MainNav";
 import Logo from "./Logo";
 import Logout from "../features/authentication/Logout";
 import ButtonProfile from "./ButtonProfile";
 import mediaQueryManager from "../styles/MediaQueryManager";
-import { SidebarProvider, useSidebar } from "../context/SidebarProvider";
+
+import { SidebarProvider } from "../context/SidebarProvider";
 import { moveRight } from "../styles/animations";
 
 const StyledSidebar = styled.aside`
@@ -39,23 +41,17 @@ const Footer = styled.footer`
 `;
 
 function Sidebar() {
-  const { isOpen, toggleOpen } = useSidebar();
-
   return (
-    <>
-      {isOpen && (
-        <StyledSidebar>
-          <Logo />
-          <MainNav />
-          <Footer>
-            <SidebarProvider.CloseSidebar>
-              <ButtonProfile />
-            </SidebarProvider.CloseSidebar>
-            <Logout />
-          </Footer>
-        </StyledSidebar>
-      )}
-    </>
+    <SidebarProvider.Sidebar>
+      <StyledSidebar>
+        <Logo />
+        <MainNav />
+        <Footer>
+          <ButtonProfile />
+          <Logout />
+        </Footer>
+      </StyledSidebar>
+    </SidebarProvider.Sidebar>
   );
 }
 

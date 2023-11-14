@@ -33,16 +33,16 @@ export async function getCurrentUser() {
   return data?.user;
 }
 
-export async function insertUser({ nickName, birthDate, userid }) {
-  const { data, error } = await supabase
-    .from("users")
-    .insert([{ nickName, birthDate, userid }])
-    .select();
+// export async function insertUser({ nickName, birthDate, userid }) {
+//   const { data, error } = await supabase
+//     .from("users")
+//     .insert([{ nickName, birthDate, userid }])
+//     .select();
 
-  if (error) throw new Error(error.message);
+//   if (error) throw new Error(error.message);
 
-  return data;
-}
+//   return data;
+// }
 
 export async function updateUser({ updatedUser, userExist }) {
   const hasAvatarPath = updatedUser.avatar?.startsWith?.(supabaseUrl);

@@ -3,7 +3,6 @@ import { updateTraining as updateTrainingApi } from "../../services/apiTrainings
 
 export function useUpdateTraining(userId) {
   const queryClient = useQueryClient();
-  // const navigate = useNavigate();
 
   const { mutate: updateTraining, isLoading: isUpdating } = useMutation({
     mutationFn: updateTrainingApi,

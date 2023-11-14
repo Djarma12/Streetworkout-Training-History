@@ -1,4 +1,4 @@
-import {  useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTrainingList } from "../../hooks/useTrainingList";
 import TrainingScheduler from "../../ui/Scheduler";
 import Spinner from "../../ui/Spinner";
@@ -19,7 +19,6 @@ function ExerciserTrainingList() {
     exerciserId,
   });
 
-  console.log(trainings);
   if (isLoading) return <Spinner />;
 
   return (

@@ -36,7 +36,7 @@ function Header() {
   return (
     <StyledHeader>
       <HeaderHeading />
-      {!isTabPort() && (
+      {isTabPort() && (
         <ButtonIcon variation="tertiary" onClick={toggleOpen}>
           {isOpen ? <BiWindowClose /> : <BiMenuAltRight />}
         </ButtonIcon>

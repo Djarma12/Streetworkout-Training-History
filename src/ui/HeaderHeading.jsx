@@ -9,8 +9,6 @@ const Headings = {
   trainingDetail: "Training detail",
 };
 
-// function changeHeadings({}) {}
-
 function HeaderHeading() {
   const location = useLocation();
   const { trainingId, exerciserId } = useParams();

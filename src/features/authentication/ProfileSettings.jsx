@@ -2,8 +2,6 @@ import styled, { css } from "styled-components";
 import { BiWindowClose } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 
-import { useUser } from "./useUser";
-import { useUpdateUser } from "./useUpdateUser";
 import Button from "../../ui/Button";
 import Input from "../../ui/Input";
 import SpinnerMini from "../../ui/SpinnerMini";
@@ -11,7 +9,9 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import Form from "../../ui/Form";
 import Heading from "../../ui/Heading";
 import ButtonIcon from "../../ui/ButtonIcon";
-import mediaQueryManager from "../../styles/MediaQueryManager";
+
+import { useUser } from "./useUser";
+import { useUpdateUser } from "./useUpdateUser";
 
 const CloseImage = styled.div`
   display: flex;

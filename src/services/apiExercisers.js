@@ -1,9 +1,10 @@
 import supabase from "./supabase";
 
-export async function getExercisers() {
+export async function getExercisers(userid) {
   const { data, error } = await supabase
     .from("users")
-    .select("nickName, avatar,  userid");
+    .select("id, nickName, avatar,  userid")
+    .neq("userid", userid);
 
   if (error) throw new Error(error.message);
 
@@ -11,7 +12,6 @@ export async function getExercisers() {
 }
 
 export async function getExerciserData(id) {
-  console.log(id);
   const { data, error } = await supabase
     .from("users")
     .select("*")
@@ -27,7 +27,7 @@ export async function getTraining({ exerciserId }) {
   const { data, error } = await supabase
     .from("trainings")
     .select("*")
-    // .select("id, trainingName")
+    // .select("id, title")
     .eq("userid", exerciserId);
 
   if (error) throw new Error(error.message);
@@ -35,14 +35,14 @@ export async function getTraining({ exerciserId }) {
   return data;
 }
 
-export async function getTrainingDetail({ trainingId }) {
-  const { data, error } = await supabase
-    .from("trainings")
-    .select("*")
-    .eq("id", trainingId)
-    .single();
+// export async function getTrainingDetail({ trainingId }) {
+//   const { data, error } = await supabase
+//     .from("trainings")
+//     .select("*")
+//     .eq("id", trainingId)
+//     .single();
 
-  if (error) throw new Error(error.message);
-  console.log(data);
-  return data;
-}
+//   if (error) throw new Error(error.message);
+//   console.log(data);
+//   return data;
+// }

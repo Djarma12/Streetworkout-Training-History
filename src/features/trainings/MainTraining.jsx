@@ -1,11 +1,12 @@
 import TrainingScheduler from "../../ui/Scheduler";
+import Spinner from "../../ui/Spinner";
+
 import { useUser } from "../authentication/useUser";
 import { useTrainingList } from "../../hooks/useTrainingList";
 import { useCreateTraining } from "./useCreateTraining";
 import { useDeleteTraining } from "./useDeleteTraining";
 import { useUpdateTraining } from "./useUpdateTraining";
 import { formatDate } from "../../utils/helpers";
-import Spinner from "../../ui/Spinner";
 
 function MainTraining() {
   const { user } = useUser();
