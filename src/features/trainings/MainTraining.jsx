@@ -35,7 +35,7 @@ function MainTraining() {
       };
       createTraining(newTraining);
     }
-    if (changed && changed.title) {
+    if (changed && Object.values(changed)[0].title !== "") {
       const [trainingId] = Object.keys(changed);
       const updatedFields = Object.values(changed)[0];
       updateTraining({ trainingId, updatedFields });

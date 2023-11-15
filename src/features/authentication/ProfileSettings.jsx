@@ -141,6 +141,7 @@ function ProfileSettings({ exerciserData, refetch }) {
         <Button
           disabled={isUpdating}
           variation="primary"
+          type="button"
           onClick={() => reset(exerciserData)}
         >
           Cancle

@@ -15,6 +15,7 @@ import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
 import FormRowVertical from "../../ui/FormRowVertical";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { trainingStrengthValues } from "../../utils/contants";
 
 function CreateTrainingForm() {
   const { user } = useUser();
@@ -154,12 +155,25 @@ function CreateTrainingForm() {
           label="Training strength:"
           error={errors?.trainingStrength?.message}
         >
-          <Input
+          {/* <Input
             type="number"
             id="trainingStrength"
             disabled={isCreating}
             {...register("trainingStrength")}
-          />
+          /> */}
+          <Input
+            as="select"
+            id="trainingStrength"
+            disabled={isCreating}
+            {...register("trainingStrength")}
+            defaultChecked
+          >
+            {trainingStrengthValues.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.text}
+              </option>
+            ))}
+          </Input>
         </FormRow>
         <FormRowVertical>
           <Button type="submit" disabled={isCreating}>

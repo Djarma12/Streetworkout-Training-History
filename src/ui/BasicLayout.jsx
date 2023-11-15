@@ -1,6 +1,8 @@
 import { AppointmentForm } from "@devexpress/dx-react-scheduler-material-ui";
 import { useEffect } from "react";
 
+import { trainingStrengthValues } from "../utils/contants";
+
 function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
   // Remove radio buttons
   useEffect(function () {
@@ -57,13 +59,7 @@ function BasicLayout({ onFieldChange, appointmentData, ...restProps }) {
       <AppointmentForm.Select
         value={appointmentData.trainingStrength || "1"}
         onValueChange={(e) => onFieldChange({ trainingStrength: e })}
-        availableOptions={[
-          { id: 1, text: "1" },
-          { id: 2, text: "2" },
-          { id: 3, text: "3" },
-          { id: 4, text: "4" },
-          { id: 5, text: "5" },
-        ]}
+        availableOptions={trainingStrengthValues}
       ></AppointmentForm.Select>
     </AppointmentForm.BasicLayout>
   );
