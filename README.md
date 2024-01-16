@@ -9,15 +9,15 @@ You can view the project live here:
 
 ---
 
-### Table of Contents
+### Table of Contents 🗒
 
-- [Description](#description)
-- [Getting Started](#getting-started)
+- [Description](#description-📝)
+- [Getting Started](#getting-started-💻)
 - [References](#references)
 
 ---
 
-## Description
+## Description 📝
 
 #### Authentication:
 
@@ -55,7 +55,7 @@ You can view the project live here:
 
 ---
 
-## Getting Started
+## Getting Started 💻
 
 To start the project, it is necessary to download the files from the github repository and after that run this commands:
 <br>`'npm i'` <br> `'npm run dev'`
