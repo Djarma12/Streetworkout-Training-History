@@ -11,8 +11,8 @@ You can view the project live here:
 
 ### Table of Contents 🗒
 
-- [Description](#description-📝)
-- [Getting Started](#getting-started-💻)
+- [Description](#description-)
+- [Getting Started](#getting-started-)
 - [References](#references)
 
 ---
