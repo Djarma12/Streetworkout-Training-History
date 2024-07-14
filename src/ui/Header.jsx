@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
 import { BiMenuAltRight, BiWindowClose } from "react-icons/bi";
+import styled, { css } from "styled-components";
 
-import HeaderHeading from "./HeaderHeading";
-import mediaQueryManager from "../styles/MediaQueryManager";
 import { useSidebar } from "../context/SidebarProvider";
+import mediaQueryManager from "../styles/MediaQueryManager";
 import ButtonIcon from "./ButtonIcon";
+import HeaderHeading from "./HeaderHeading";
 
 import { isTabPort } from "../utils/helpers";
 

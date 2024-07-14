@@ -1,22 +1,23 @@
-import styled, { css } from "styled-components";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import styled, { css } from "styled-components";
 
+import mediaQueryManager from "../../styles/MediaQueryManager";
 import Button from "../../ui/Button";
-import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import FormRowVertical from "../../ui/FormRowVertical";
-import SpinnerMini from "../../ui/SpinnerMini";
-import Logo from "../../ui/Logo";
 import Heading from "../../ui/Heading";
-import mediaQueryManager from "../../styles/MediaQueryManager";
+import Input from "../../ui/Input";
+import Logo from "../../ui/Logo";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 import { useLoginSignup } from "./useLoginSignup";
 // import { insertUser } from "../../services/apiAuth";
 
 const StyledLoginForm = styled.div`
   width: 100%;
-  padding: 6.4rem 4.8rem;
+  padding-inline: 4.8rem;
+  padding-top: 4.8rem;
 
   display: flex;
   justify-content: center;
@@ -27,16 +28,6 @@ const StyledLoginForm = styled.div`
       padding: 4.8rem 3.2rem;
     `
   )}
-`;
-
-const Background = styled.div`
-  background-color: var(--color-brand-200);
-  position: fixed;
-  z-index: -10;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 `;
 
 const Header = styled.header`
@@ -75,7 +66,6 @@ function LoginForm() {
 
   return (
     <StyledLoginForm>
-      <Background />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Header>
           <Logo />

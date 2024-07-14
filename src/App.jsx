@@ -1,16 +1,18 @@
-import { Suspense, lazy } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import ProtectedRoute from "./ui/ProtectedRoute";
 import GlobalStyles from "./styles/GlobalStyles";
+import ProtectedRoute from "./ui/ProtectedRoute";
 import SpinnerFullPage from "./ui/SpinnerFullPage";
 
+import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
 import PageNotFound from "./pages/PageNotFound";
+import Profile from "./pages/Profile";
+import HomeLayout from "./ui/HomeLayout";
 
 // import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
 // import AppLayout from "./ui/AppLayout";
@@ -83,6 +85,9 @@ function App() {
                 path="exercisers/:exerciserId/:exerciserTrainingId"
                 element={<ExerciserTrainingDetail />}
               /> */}
+              </Route>
+              <Route element={<HomeLayout />}>
+                <Route path="home" element={<Home />} />
               </Route>
               <Route path="login" element={<Login />} />
               <Route path="*" element={<PageNotFound />} />

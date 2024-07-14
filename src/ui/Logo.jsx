@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLogo = styled.img`
@@ -7,7 +8,11 @@ const StyledLogo = styled.img`
 `;
 
 function Logo() {
-  return <StyledLogo src="/logo.png" alt="Logo" />;
+  return (
+    <Link to="/home">
+      <StyledLogo src="/logo.png" alt="Logo" />
+    </Link>
+  );
 }
 
 export default Logo;
