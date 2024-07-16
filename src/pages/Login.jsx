@@ -16,11 +16,20 @@ const StyledLogin = styled.div`
   height: 100dvh;
 `;
 
+const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 9.6rem);
+`;
+
 function Login() {
   return (
     <StyledLogin>
       <HeaderHome />
-      <LoginForm />
+      <LoginContainer>
+        <LoginForm />
+      </LoginContainer>
     </StyledLogin>
   );
 }

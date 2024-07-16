@@ -13,6 +13,10 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
 import HomeLayout from "./ui/HomeLayout";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import OurTeam from "./pages/OurTeam";
+import Contact from "./pages/Contact";
 
 // import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
 // import AppLayout from "./ui/AppLayout";
@@ -66,8 +70,7 @@ function App() {
                   <ProtectedRoute>
                     <AppLayout />
                   </ProtectedRoute>
-                }
-              >
+                }>
                 <Route index element={<Navigate replace to="/trainings" />} />
                 <Route path="trainings" element={<Trainings />} />
                 <Route path="trainings/new" element={<CreateTrainingForm />} />
@@ -88,6 +91,10 @@ function App() {
               </Route>
               <Route element={<HomeLayout />}>
                 <Route path="home" element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="services" element={<Services />} />
+                <Route path="our-team" element={<OurTeam />} />
+                <Route path="contact" element={<Contact />} />
               </Route>
               <Route path="login" element={<Login />} />
               <Route path="*" element={<PageNotFound />} />
