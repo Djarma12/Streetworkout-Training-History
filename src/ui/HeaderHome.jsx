@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
 import Logo from "./Logo";
@@ -35,13 +35,18 @@ const NavList = styled.ul`
   align-items: center;
 `;
 
-const NavItem = styled.li`
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--color-grey-200);
-  transition: all 0.2s;
-
-  &:hover {
+const StyledNavLink = styled(NavLink)`
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-grey-200);
+    transition: all 0.2s;
+  }
+  &:hover,
+  &:active,
+  &.active:link,
+  &.active:visited {
     color: var(--color-primary);
   }
 `;
@@ -52,21 +57,21 @@ function HeaderHome() {
       <Logo />
       <Nav>
         <NavList>
-          <NavItem>
-            <Link to="/home">Home</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/about">About</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/services">Services</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/our-team">Our team</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/contact">Contact</Link>
-          </NavItem>
+          <li>
+            <StyledNavLink to="/home">Home</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/about">About</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/services">Services</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/our-team">Our team</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/contact">Contact</StyledNavLink>
+          </li>
         </NavList>
         <Link to="/login">
           <Button>Become a member</Button>

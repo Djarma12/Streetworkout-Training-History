@@ -7,12 +7,12 @@ import { css } from "styled-components";
   1800px - 112.5em
 */
 
-export const mediaQueryValues = {
-  phone: 600,
-  tabPort: 900,
-  // tabLand: 1200,
-  // bigDesktop: 1800,
-};
+// export const mediaQueryValues = {
+//   phone: 600,
+//   tabPort: 900,
+//   // tabLand: 1200,
+//   // bigDesktop: 1800,
+// };
 
 const mediaQueryManager = {
   phone: (...args) => css`

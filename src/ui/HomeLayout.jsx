@@ -25,7 +25,7 @@ const Main = styled.main`
 const Container = styled.div`
   max-width: 120rem;
   margin: 0 auto;
-  margin-top: calc(80dvh - 9.6rem);
+  margin-top: 80dvh;
 `;
 
 function HomeLayout() {

@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import mediaQueryManager, { mediaQueryValues } from "./MediaQueryManager";
+import mediaQueryManager from "./MediaQueryManager";
 
 // - Font sizes (px)
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -78,9 +78,6 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
-  /* Creating animations for dark mode */
-  transition: background-color 0.3s, border 0.3s;
 }
 
 html {
@@ -92,9 +89,6 @@ html {
     `
   )}
 }
-/* @media only screen and (max-width: ${mediaQueryValues.phone}px) {
-    font-size: 50%;
-} */
 
 body {
   font-family: 'Roboto', sans-serif;
