@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import mediaQueryManager from "../styles/MediaQueryManager";
 import HeaderHome from "./HeaderHome";
+import Footer from "./Footer";
 
 const Main = styled.main`
   background-color: var(--color-red-50);
@@ -37,6 +38,7 @@ function HomeLayout() {
           <Outlet />
         </Container>
       </Main>
+      <Footer />
     </>
   );
 }

@@ -48,14 +48,14 @@ const GlobalStyles = createGlobalStyle`
   --color-red-900: #7f1d1d;
   
   /* Violet */
-  --color-brand-50: #f5f3ff;
+  /* --color-brand-50: #f5f3ff;
   --color-brand-100: #ede9fe;
   --color-brand-200: #ddd6fe;
   --color-brand-500: #8b5cf6;
   --color-brand-600: #7c3aed;
   --color-brand-700: #6d28d9;
   --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
+  --color-brand-900: #4c1d95; */
 
   --color-primary: #f03e3e;
   --color-primary-light: #ff8787;
