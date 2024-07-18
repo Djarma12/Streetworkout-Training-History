@@ -9,6 +9,11 @@ const StyledHeaderHome = styled.header`
   height: 9.6rem;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 `;
 
 const Nav = styled.nav`

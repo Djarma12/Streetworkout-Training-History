@@ -85,10 +85,8 @@ function Hero({ imgpath = "" }) {
               like-minded athletes, push your boundaries, and track your
               progress with our app.
             </p>
-            <Link to="login">
-              <Button variation="primary" onClick={() => console.log("radi")}>
-                Sign Up for Free
-              </Button>
+            <Link to="/login">
+              <Button variation="primary">Sign Up for Free</Button>
             </Link>
           </HeroContent>
         </StyledHeroImage>
@@ -96,7 +94,7 @@ function Hero({ imgpath = "" }) {
           <HeroContent>
             <Heading as="h1">Get in Touch with Us</Heading>
             <p>Have questions or want to learn more? We’re here to help!</p>
-            <Link to="login">
+            <Link to="/contact">
               <Button variation="primary">Contact Us</Button>
             </Link>
           </HeroContent>
