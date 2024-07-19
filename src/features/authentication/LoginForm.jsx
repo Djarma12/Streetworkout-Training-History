@@ -17,7 +17,6 @@ import { useLoginSignup } from "./useLoginSignup";
 const StyledLoginForm = styled.div`
   width: 100%;
   padding-inline: 4.8rem;
-  padding-top: 4.8rem;
 
   display: flex;
   justify-content: center;
@@ -104,8 +103,7 @@ function LoginForm() {
           <>
             <FormRowVertical
               label="Repeat password"
-              error={errors?.passwordConfirm?.message}
-            >
+              error={errors?.passwordConfirm?.message}>
               <Input
                 type="password"
                 id="passwordConfirm"
@@ -130,8 +128,7 @@ function LoginForm() {
             variation="secondary"
             type="button"
             disabled={isLoading}
-            onClick={() => setIsSignUp((e) => !e)}
-          >
+            onClick={() => setIsSignUp((e) => !e)}>
             {isSignUp ? "I have existing account" : "Create Account"}
           </Button>
         </FormRowVertical>

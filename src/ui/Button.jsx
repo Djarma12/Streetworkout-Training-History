@@ -12,15 +12,13 @@ const positions = {
 
 const variations = {
   primary: css`
-    border-radius: 100px;
-    border: none;
     background-image: linear-gradient(
       to right,
       var(--color-primary-light),
       var(--color-primary-dark)
     );
     color: var(--color-grey-0);
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--border-radius-tiny);
     box-shadow: var(--shadow-sm);
     text-transform: uppercase;
 

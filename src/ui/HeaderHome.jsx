@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
 import Logo from "./Logo";
 
 const StyledHeaderHome = styled.header`
-  max-width: 130rem;
   margin-inline: auto;
-  padding-inline: 3.6rem;
+  padding-inline: 6.4rem;
   height: 9.6rem;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 `;
 
 const Nav = styled.nav`
@@ -23,7 +27,6 @@ const Nav = styled.nav`
     display: block;
     height: 3px;
     width: calc(100% + 4.8rem);
-    margin-left: -10rem;
     clip-path: polygon(40% 0, 100% 0, 100% 98%, 40% 100%, 0% 38%);
     background-color: var(--color-red-600);
     position: absolute;
@@ -38,13 +41,18 @@ const NavList = styled.ul`
   align-items: center;
 `;
 
-const NavItem = styled.li`
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--color-grey-200);
-  transition: all 0.2s;
-
-  &:hover {
+const StyledNavLink = styled(NavLink)`
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-grey-200);
+    transition: all 0.2s;
+  }
+  &:hover,
+  &:active,
+  &.active:link,
+  &.active:visited {
     color: var(--color-primary);
   }
 `;
@@ -55,21 +63,21 @@ function HeaderHome() {
       <Logo />
       <Nav>
         <NavList>
-          <NavItem>
-            <Link to="/home">Home</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/about">About</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/services">Services</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/our-team">Our team</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/contact">Contact</Link>
-          </NavItem>
+          <li>
+            <StyledNavLink to="/home">Home</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/about">About</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/services">Services</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/our-team">Our team</StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="/contact">Contact</StyledNavLink>
+          </li>
         </NavList>
         <Link to="/login">
           <Button>Become a member</Button>

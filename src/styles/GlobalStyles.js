@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import mediaQueryManager, { mediaQueryValues } from "./MediaQueryManager";
+import mediaQueryManager from "./MediaQueryManager";
 
 // - Font sizes (px)
 // 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -48,14 +48,14 @@ const GlobalStyles = createGlobalStyle`
   --color-red-900: #7f1d1d;
   
   /* Violet */
-  --color-brand-50: #f5f3ff;
+  /* --color-brand-50: #f5f3ff;
   --color-brand-100: #ede9fe;
   --color-brand-200: #ddd6fe;
   --color-brand-500: #8b5cf6;
   --color-brand-600: #7c3aed;
   --color-brand-700: #6d28d9;
   --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
+  --color-brand-900: #4c1d95; */
 
   --color-primary: #f03e3e;
   --color-primary-light: #ff8787;
@@ -78,9 +78,6 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
-  /* Creating animations for dark mode */
-  transition: background-color 0.3s, border 0.3s;
 }
 
 html {
@@ -92,9 +89,6 @@ html {
     `
   )}
 }
-/* @media only screen and (max-width: ${mediaQueryValues.phone}px) {
-    font-size: 50%;
-} */
 
 body {
   font-family: 'Roboto', sans-serif;
