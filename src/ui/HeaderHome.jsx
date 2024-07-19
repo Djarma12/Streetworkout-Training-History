@@ -4,7 +4,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 
 const StyledHeaderHome = styled.header`
-  max-width: 120rem;
+  max-width: 130rem;
   margin-inline: auto;
   padding-inline: 3.6rem;
   height: 9.6rem;
@@ -20,8 +20,10 @@ const Nav = styled.nav`
 
   &::after {
     content: "";
+    display: block;
     height: 3px;
-    width: 100%;
+    width: calc(100% + 4.8rem);
+    margin-left: -10rem;
     clip-path: polygon(40% 0, 100% 0, 100% 98%, 40% 100%, 0% 38%);
     background-color: var(--color-red-600);
     position: absolute;
