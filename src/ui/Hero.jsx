@@ -66,7 +66,8 @@ function Hero({ imgpath = "" }) {
         transitionTime={750}
         showStatus={false}
         showArrows={false}
-        showThumbs={false}>
+        showThumbs={false}
+      >
         <StyledHeroImage imgpath="public/home.jpg">
           <HeroContent>
             <Heading as="h1">Unleash Your Inner Strength</Heading>

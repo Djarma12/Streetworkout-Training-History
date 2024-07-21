@@ -12,7 +12,6 @@ const Input = styled.input`
   ${(props) =>
     props.as === "textarea" &&
     css`
-      font-size: 1.2rem;
       height: 9.6rem;
     `}
 `;

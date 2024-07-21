@@ -3,11 +3,11 @@ import styled, { css } from "styled-components";
 const variations = {
   primary: css`
     &:hover {
-      background-color: var(--color-brand-100);
+      background-color: var(--color-red-100);
     }
 
     & svg {
-      color: var(--color-primary-light);
+      color: var(--color-primary);
     }
   `,
   secondary: css`
@@ -25,7 +25,7 @@ const variations = {
     }
 
     & svg {
-      color: var(--color-brand-800);
+      color: var(--color-red-800);
     }
   `,
 };

@@ -8,15 +8,15 @@ import GlobalStyles from "./styles/GlobalStyles";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import SpinnerFullPage from "./ui/SpinnerFullPage";
 
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import OurTeam from "./pages/OurTeam";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
-import HomeLayout from "./ui/HomeLayout";
-import About from "./pages/About";
 import Services from "./pages/Services";
-import OurTeam from "./pages/OurTeam";
-import Contact from "./pages/Contact";
+import HomeLayout from "./ui/HomeLayout";
 
 // import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
 // import AppLayout from "./ui/AppLayout";
@@ -70,7 +70,8 @@ function App() {
                   <ProtectedRoute>
                     <AppLayout />
                   </ProtectedRoute>
-                }>
+                }
+              >
                 <Route index element={<Navigate replace to="/trainings" />} />
                 <Route path="trainings" element={<Trainings />} />
                 <Route path="trainings/new" element={<CreateTrainingForm />} />
