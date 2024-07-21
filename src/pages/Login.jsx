@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
+import Footer from "../ui/Footer";
 import HeaderHome from "../ui/HeaderHome";
 
 const StyledLogin = styled.div`
@@ -13,24 +14,28 @@ const StyledLogin = styled.div`
   -webkit-backdrop-filter: blur(50px);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100dvh;
+  /* height: 100dvh; */
+  padding-block: 12.8rem;
 `;
 
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 9.6rem);
+  height: 100%;
 `;
 
 function Login() {
   return (
-    <StyledLogin>
-      <HeaderHome />
-      <LoginContainer>
-        <LoginForm />
-      </LoginContainer>
-    </StyledLogin>
+    <>
+      <StyledLogin>
+        <HeaderHome />
+        <LoginContainer>
+          <LoginForm />
+        </LoginContainer>
+      </StyledLogin>
+      <Footer />
+    </>
   );
 }
 
