@@ -13,6 +13,7 @@
     "@babel/traverse": "^7.23.2",
     "@date-io/date-fns": "^2.17.0",
     "@devexpress/dx-react-scheduler-material-ui": "^4.0.5",
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/lab": "^5.0.0-alpha.150",

@@ -34,6 +34,18 @@ const Heading = styled.h1`
       font-weight: 700;
       color: var(--color-red-700);
     `}
+  ${(props) =>
+    props.as === "h4" &&
+    css`
+      font-style: italic;
+      line-height: 1.1;
+      font-size: 6.4rem;
+      color: var(--color-red-50);
+      width: 60rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    `}
 `;
 
 export default Heading;

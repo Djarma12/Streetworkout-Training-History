@@ -1,9 +1,12 @@
 import Hero from "../ui/Hero";
+import HeroHomeContent from "../ui/HeroHomeContent";
 
 function Home() {
   return (
     <>
-      <Hero imgpath="public/home.jpg" />
+      <Hero>
+        <HeroHomeContent />
+      </Hero>
     </>
   );
 }

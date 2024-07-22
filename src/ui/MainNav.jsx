@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
-import { BiSolidHome, BiSolidAddToQueue } from "react-icons/bi";
+import { BiSolidAddToQueue, BiSolidHome } from "react-icons/bi";
 import { BsFillPeopleFill } from "react-icons/bs";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
 
-import ButtonIcon from "./ButtonIcon";
 import { SidebarProvider } from "../context/SidebarProvider";
+import ButtonIcon from "./ButtonIcon";
 
 const StyledMainNav = styled.ul`
   color: var(--color-grey-200);
