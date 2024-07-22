@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Input from "../../ui/Input";
+import SpinnerMini from "../../ui/SpinnerMini";
 import { useContact } from "./useContact";
 
 function ContactForm() {
@@ -15,7 +16,6 @@ function ContactForm() {
   } = useForm();
 
   function onSubmit(formData) {
-    console.log(formData);
     sendMessage(formData);
   }
 
@@ -32,13 +32,13 @@ function ContactForm() {
           })}
         />
       </FormRowVertical>
-      <FormRowVertical error={errors?.email?.message}>
+      <FormRowVertical error={errors?.email_id?.message}>
         <Input
           placeholder="Email"
           type="email"
-          name="email"
+          name="email_id"
           disabled={isSending}
-          {...register("email", {
+          {...register("email_id", {
             required: "This field is required",
             pattern: {
               value: /\S+@\S+\.\S+/,
@@ -59,8 +59,8 @@ function ContactForm() {
           })}
         />
       </FormRowVertical>
-      <Button variation="primary" onClick={() => {}}>
-        Send message
+      <Button variation="primary" type="submit" disabled={isSending}>
+        {isSending ? <SpinnerMini /> : " Send message"}
       </Button>
     </Form>
   );

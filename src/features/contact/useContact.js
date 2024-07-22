@@ -10,7 +10,10 @@ export function useContact() {
         "The message has been sent successfully, expect a reply as soon as possible."
       );
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) =>
+      toast.error(
+        `There was a problem while sending the message, contact us on Instagram or Mail. ${err}`
+      ),
   });
 
   return { sendMessage, isSending };
