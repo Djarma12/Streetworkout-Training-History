@@ -6,7 +6,8 @@ const StyledHero = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: -10;
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
 `;
 
 function Hero({ children }) {
