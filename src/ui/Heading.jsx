@@ -46,6 +46,25 @@ const Heading = styled.h1`
       text-transform: uppercase;
       letter-spacing: 2px;
     `}
+  ${(props) =>
+    props.as === "h5" &&
+    css`
+      font-size: 4.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.2;
+
+      .secondary {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 900;
+        letter-spacing: 0.4px;
+      }
+
+      span {
+        color: var(--color-primary-dark);
+      }
+    `}
 `;
 
 export default Heading;
