@@ -1,0 +1,34 @@
+{
+  "teamMembers": [
+    {
+      "id": 1,
+      "imgpath": "public/team-members/team-member-1.jpg",
+      "name": "Čedo Milovanović"
+    },
+    {
+      "id": 2,
+      "imgpath": "public/team-members/team-member-2.jpg",
+      "name": "Isidor Lukić"
+    },
+    {
+      "id": 3,
+      "imgpath": "public/team-members/team-member-3.jpg",
+      "name": "Dušan Mađar"
+    },
+    {
+      "id": 4,
+      "imgpath": "public/team-members/team-member-4.jpg",
+      "name": "Milovan Velemir"
+    },
+    {
+      "id": 5,
+      "imgpath": "public/team-members/team-member-5.jpg",
+      "name": "Kristian Mađar"
+    },
+    {
+      "id": 6,
+      "imgpath": "public/team-members/team-member-6.jpg",
+      "name": "Đole Čobanović"
+    }
+  ]
+}
