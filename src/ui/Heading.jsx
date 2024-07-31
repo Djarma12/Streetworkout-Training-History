@@ -52,9 +52,11 @@ const Heading = styled.h1`
       font-size: 4.4rem;
       font-weight: 700;
       text-transform: uppercase;
-      line-height: 1.2;
+      line-height: 1.1;
+      margin-bottom: 3.2rem;
 
       .secondary {
+        margin-bottom: 1.2rem;
         display: block;
         font-size: 1.6rem;
         font-weight: 900;
