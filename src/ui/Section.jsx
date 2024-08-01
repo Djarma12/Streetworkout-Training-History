@@ -1,11 +1,27 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const variations = {
+  redLight: css`
+    background-color: var(--color-red-50);
+  `,
+};
 
 const StyledSection = styled.section`
   padding-block: 9.6rem;
+  ${(props) => variations[props.variation]}
 `;
 
-function Section({ children }) {
-  return <StyledSection>{children}</StyledSection>;
+const Container = styled.section`
+  max-width: 120rem;
+  margin-inline: auto;
+`;
+
+function Section({ variation, children }) {
+  return (
+    <StyledSection variation={variation}>
+      <Container>{children}</Container>
+    </StyledSection>
+  );
 }
 
 export default Section;
