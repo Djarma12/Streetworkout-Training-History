@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../features/authentication/useUser";
-import { useEffect } from "react";
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
@@ -10,7 +10,6 @@ function ProtectedRoute({ children }) {
   useEffect(
     function () {
       if (!isAuthenticated && !isLoading) {
-        console.log(isAuthenticated);
         navigate("/login");
       }
     },

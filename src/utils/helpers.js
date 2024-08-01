@@ -1,3 +1,4 @@
+import isPropValid from "@emotion/is-prop-valid";
 import { differenceInYears, format } from "date-fns";
 import { mediaQueryValues } from "../styles/MediaQueryManager";
 
@@ -36,4 +37,13 @@ export function removeEmptyProperties(addTraining) {
 // For sidebar in response
 export function isTabPort() {
   return window.innerWidth < mediaQueryValues.tabPort;
+}
+
+export function shouldForwardProp(propName, target) {
+  if (typeof target === "string") {
+    // For HTML elements, forward the prop if it is a valid HTML attribute
+    return isPropValid(propName);
+  }
+  // For other elements, forward all props
+  return true;
 }

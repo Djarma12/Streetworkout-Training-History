@@ -1,26 +1,16 @@
+import styled from "styled-components";
+import Heading from "../ui/Heading";
 import Hero from "../ui/Hero";
 import HeroHomeContent from "../ui/HeroHomeContent";
-import StyledVideoYt from "../ui/VideoYt";
+import Paragraph from "../ui/Paragraph";
 import Section from "../ui/Section";
-import Heading from "../ui/Heading";
-import styled from "styled-components";
+import StyledVideoYt from "../ui/VideoYt";
 
 const StyledHome = styled.div`
   .about-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  p {
-    letter-spacing: 0.7px;
-    line-height: 1.6;
-    color: var(--color-grey-500);
-    font-weight: 500;
-
-    &:not(:last-child) {
-      margin-bottom: 1.2rem;
-    }
   }
 `;
 
@@ -38,17 +28,17 @@ function Home() {
               <span className="secondary">Information About Us</span>SWBP is a
               team of workout <span>enthusiasts</span>
             </Heading>
-            <p>
+            <Paragraph>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
               odit omnis rem magni labore, dolorem quaerat tenetur maiores,
               tempore iusto quasi quidem inventore cumque. Aliquid voluptatibus
               aspernatur.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
               Aaboriosam accusamus beatae recusandae minima, aperiam aut ad
               incidunt quos mollitia nulla expedita minus quia officiis
               perferendis soluta non fugit iste. Eos, aut.
-            </p>
+            </Paragraph>
           </div>
         </div>
       </Section>

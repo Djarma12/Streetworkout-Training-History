@@ -45,6 +45,9 @@ const Heading = styled.h1`
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
+      &:not(:last-child) {
+        margin-bottom: 1.2rem;
+      }
     `}
   ${(props) =>
     props.as === "h5" &&
