@@ -7,7 +7,6 @@ import HeaderHome from "./HeaderHome";
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  /* padding-inline: 4.8rem; */
   /* padding-top: 9.6rem; */
 
   /* border-top: 2px solid var(--color-brand-200);

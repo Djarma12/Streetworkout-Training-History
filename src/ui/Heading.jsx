@@ -56,7 +56,7 @@ const Heading = styled.h1`
       font-weight: 700;
       text-transform: uppercase;
       line-height: 1.1;
-      margin-bottom: 3.2rem;
+      margin-bottom: 4rem;
 
       .secondary {
         margin-bottom: 1.2rem;

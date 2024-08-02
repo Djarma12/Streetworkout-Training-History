@@ -8,10 +8,11 @@ const variations = {
 
 const StyledSection = styled.section`
   padding-block: 9.6rem;
+  padding-inline: 4.8rem;
   ${(props) => variations[props.variation]}
 `;
 
-const Container = styled.section`
+const Container = styled.div`
   max-width: 120rem;
   margin-inline: auto;
 `;

@@ -4,11 +4,11 @@ const variations = {
   primary: css`
     letter-spacing: 0.7px;
     line-height: 1.6;
-    color: var(--color-grey-500);
-    font-weight: 500;
+    color: var(--color-grey-700);
+    font-weight: 400;
 
     &:not(:last-child) {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.6rem;
     }
   `,
   secondary: css`
