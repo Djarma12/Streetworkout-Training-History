@@ -4,7 +4,6 @@ import Hero from "../ui/Hero";
 import HeroHomeContent from "../ui/HeroHomeContent";
 import Paragraph from "../ui/Paragraph";
 import Section from "../ui/Section";
-import StyledVideoYt from "../ui/VideoYt";
 
 const StyledHome = styled.div`
   .about-container {
@@ -132,7 +131,7 @@ function Home() {
           </ul>
         </div>
       </Section>
-      <StyledVideoYt src="https://www.youtube.com/watch?v=DkJM2rkolkk&t=527s" />
+      <Section></Section>
     </StyledHome>
   );
 }
