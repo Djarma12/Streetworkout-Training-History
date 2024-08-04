@@ -1,0 +1,22 @@
+{
+  "choseUsReasons": [
+    {
+      "id": "1",
+      "name": "Healthy nutrition plan",
+      "imgpath": "public/chose-us/orange-juice.png",
+      "description": "Our healthy eating plan offers balanced, customized meal guidelines to support your calisthenics goals and improve overall well-being."
+    },
+    {
+      "id": "2",
+      "name": "Proffesponal training plan",
+      "imgpath": "public/chose-us/gym.png",
+      "description": "Our professional training plan provides customized workouts for peak results. Receive expert guidance to enhance your performance."
+    },
+    {
+      "id": "3",
+      "name": "Unique to your needs",
+      "imgpath": "public/chose-us/hearth.png",
+      "description": "Tailored to your needs, our approach ensures every plan is customized specifically for your unique goals, preferences, and lifestyle."
+    }
+  ]
+}

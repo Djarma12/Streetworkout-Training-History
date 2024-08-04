@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ChoseUsReasons from "../ui/ChoseUsReasons";
 import Heading from "../ui/Heading";
 import Hero from "../ui/Hero";
 import HeroHomeContent from "../ui/HeroHomeContent";
@@ -15,38 +16,6 @@ const StyledHome = styled.div`
 
   .chose-us {
     text-align: center;
-
-    ul {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8rem;
-    }
-    &__background {
-      background-color: var(--color-grey-0);
-      height: 8rem;
-      width: 8rem;
-      border-radius: 50%;
-      margin-inline: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2.4rem;
-      transition: all 0.2s;
-
-      &:hover {
-        background-color: var(--color-red-100);
-      }
-    }
-    &__image {
-      height: 4.8rem;
-      width: 4.8rem;
-    }
-    &__name {
-      font-size: 2rem;
-      font-weight: 700;
-      display: inline-block;
-      margin-bottom: 1.6rem;
-    }
   }
 `;
 
@@ -82,56 +51,9 @@ function Home() {
             <span className="secondary">Why Chose Us?</span>Push Your Limits{" "}
             <span>Forward</span>
           </Heading>
-          <ul>
-            <li>
-              <span className="chose-us__background">
-                <img
-                  className="chose-us__image"
-                  src="public/chose-us/orange-juice.png"
-                  alt="Orange-juice image"
-                />
-              </span>
-              <span className="chose-us__name">Healthy nutrition plan</span>
-              <Paragraph>
-                Our healthy eating plan offers balanced, customized meal
-                guidelines to support your calisthenics goals and improve
-                overall well-being.
-              </Paragraph>
-            </li>
-            <li>
-              <span className="chose-us__background">
-                <img
-                  className="chose-us__image"
-                  src="public/chose-us/gym.png"
-                  alt="Gym image"
-                />
-              </span>
-              <span className="chose-us__name">Proffesponal training plan</span>
-              <Paragraph>
-                Our professional training plan provides customized workouts for
-                peak results. Receive expert guidance to enhance your
-                performance.
-              </Paragraph>
-            </li>
-            <li>
-              <span className="chose-us__background">
-                <img
-                  className="chose-us__image"
-                  src="public/chose-us/hearth.png"
-                  alt="Hearth image"
-                />
-              </span>
-              <span className="chose-us__name">Unique to your needs</span>
-              <Paragraph>
-                Tailored to your needs, our approach ensures every plan is
-                customized specifically for your unique goals, preferences, and
-                lifestyle.
-              </Paragraph>
-            </li>
-          </ul>
+          <ChoseUsReasons />
         </div>
       </Section>
-      <Section></Section>
     </StyledHome>
   );
 }
