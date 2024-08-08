@@ -5,6 +5,7 @@ import Hero from "../ui/Hero";
 import HeroHomeContent from "../ui/HeroHomeContent";
 import Paragraph from "../ui/Paragraph";
 import Section from "../ui/Section";
+import Video from "../ui/Video";
 
 const StyledHome = styled.div`
   .about-container {
@@ -55,13 +56,7 @@ function Home() {
         </div>
       </Section>
       <Section>
-        <iframe
-          width="100%"
-          height="600px"
-          src="https://www.youtube.com/embed/7IhGzGfQg9E?si=IaHtb8330hXMplWa"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        <Video src="https://www.youtube.com/embed/7IhGzGfQg9E?si=IaHtb8330hXMplWa" />
       </Section>
     </StyledHome>
   );
