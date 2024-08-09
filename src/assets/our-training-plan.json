@@ -1,0 +1,18 @@
+{
+  "ourPlans": [
+    {
+      "id": 1,
+      "name": "Starter",
+      "price": 18,
+      "include": ["Fat loss", "Gaining muscle mass", "Fitness growth"],
+      "notInclude": ["Strength growth"]
+    },
+    {
+      "id": 1,
+      "name": "Starter",
+      "price": 18,
+      "include": ["Fat loss", "Gaining muscle mass", "Fitness growth"],
+      "notInclude": ["Strength growth"]
+    }
+  ]
+}

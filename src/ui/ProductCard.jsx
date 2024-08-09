@@ -21,7 +21,7 @@ const StyledProductCard = styled.li`
       backface-visibility: hidden;
       border-radius: 3px;
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
 
       &--front {
         background-color: var(--color-grey-0);
@@ -75,10 +75,10 @@ const StyledProductCard = styled.li`
     }
 
     &__type {
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 500;
       letter-spacing: 0.8px;
-      color: var(--color-grey-600);
+      color: var(--color-grey-800);
       word-wrap: break-word;
       hyphens: auto;
       text-align: justify;
