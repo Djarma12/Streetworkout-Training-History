@@ -4,15 +4,26 @@
       "id": 1,
       "name": "Starter",
       "price": 18,
-      "include": ["Fat loss", "Gaining muscle mass", "Fitness growth"],
-      "notInclude": ["Strength growth"]
+      "include": [
+        "Fat loss",
+        "Gaining muscle mass",
+        "Fitness growth",
+        "Bodyweight trainings"
+      ],
+      "notInclude": ["Weight trainings", "Strength growth"]
     },
     {
       "id": 1,
-      "name": "Starter",
-      "price": 18,
-      "include": ["Fat loss", "Gaining muscle mass", "Fitness growth"],
-      "notInclude": ["Strength growth"]
+      "name": "Advance",
+      "price": 23,
+      "include": [
+        "Fat loss",
+        "Gaining muscle mass",
+        "Fitness growth",
+        "Bodyweight trainings",
+        "Weight trainings",
+        "Strength growth"
+      ]
     }
   ]
 }

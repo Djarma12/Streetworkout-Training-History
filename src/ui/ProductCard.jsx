@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
-import { Link } from "react-router-dom";
 
 const StyledProductCard = styled.li`
   height: 52rem;
@@ -10,6 +10,7 @@ const StyledProductCard = styled.li`
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
+    width: 100%;
     &__side {
       height: 52rem;
       transition: all 0.8s ease;

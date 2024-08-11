@@ -9,7 +9,7 @@ const Heading = styled.h1`
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--color-grey-600);
+      color: var(--color-primary-dark);
     `}
 
   ${(props) =>

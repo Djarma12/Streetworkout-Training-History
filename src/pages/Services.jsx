@@ -1,18 +1,19 @@
 import styled from "styled-components";
+import { ourProducts } from "../assets/our-products.json";
+import { ourPlans } from "../assets/our-training-plan.json";
 import Heading from "../ui/Heading";
 import Hero from "../ui/Hero";
 import HeroBackground from "../ui/HeroBackground";
 import HeroContent from "../ui/HeroContent";
-import Section from "../ui/Section";
-import { ourProducts } from "../assets/our-products.json";
-import { ourPlans } from "../assets/our-training-plan.json";
-import ProductCard from "../ui/ProductCard";
 import PlanCard from "../ui/PlanCard";
+import ProductCard from "../ui/ProductCard";
+import Section from "../ui/Section";
 
 const StyledServices = styled.div`
   .shop {
     display: flex;
     /* flex-wrap: wrap; */
+    justify-content: center;
     gap: 6.4rem;
   }
 `;
@@ -37,11 +38,10 @@ function Services() {
         </ul>
       </Section>
       <Section>
-        {" "}
         <Heading as="h5">
           <span className="secondary">Pricing</span>Train well without breaking
           the <span>Bank</span>
-        </Heading>{" "}
+        </Heading>
         <ul className="shop">
           {ourPlans.map((plan) => (
             <PlanCard plan={plan} key={plan.id} />
