@@ -8,7 +8,6 @@ import GlobalStyles from "./styles/GlobalStyles";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import SpinnerFullPage from "./ui/SpinnerFullPage";
 
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -70,8 +69,7 @@ function App() {
                   <ProtectedRoute>
                     <AppLayout />
                   </ProtectedRoute>
-                }
-              >
+                }>
                 <Route index element={<Navigate replace to="/trainings" />} />
                 <Route path="trainings" element={<Trainings />} />
                 <Route path="trainings/new" element={<CreateTrainingForm />} />
@@ -92,7 +90,6 @@ function App() {
               </Route>
               <Route element={<HomeLayout />}>
                 <Route path="home" element={<Home />} />
-                <Route path="about" element={<About />} />
                 <Route path="services" element={<Services />} />
                 <Route path="our-team" element={<OurTeam />} />
                 <Route path="contact" element={<Contact />} />

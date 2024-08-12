@@ -67,13 +67,10 @@ function HeaderHome() {
             <StyledNavLink to="/home">Home</StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/about">About</StyledNavLink>
+            <StyledNavLink to="/our-team">Our team</StyledNavLink>
           </li>
           <li>
             <StyledNavLink to="/services">Services</StyledNavLink>
-          </li>
-          <li>
-            <StyledNavLink to="/our-team">Our team</StyledNavLink>
           </li>
           <li>
             <StyledNavLink to="/contact">Contact</StyledNavLink>
