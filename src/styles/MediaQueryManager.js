@@ -10,7 +10,7 @@ import { css } from "styled-components";
 export const mediaQueryValues = {
   phone: 600,
   tabPort: 900,
-  // tabLand: 1200,
+  tabLand: 1200,
   // bigDesktop: 1800,
 };
 
@@ -25,11 +25,11 @@ const mediaQueryManager = {
       ${css(...args)};
     }
   `,
-  // tabLand: (...args) => css`
-  //   @media only screen and (max-width: 75em) {
-  //     ${css(...args)};
-  //   }
-  // `,
+  tabLand: (...args) => css`
+    @media only screen and (max-width: 75em) {
+      ${css(...args)};
+    }
+  `,
   // bigDesktop: (...args) => css`
   //   @media only screen and (min-width: 112.5em) {
   //     ${css(...args)};

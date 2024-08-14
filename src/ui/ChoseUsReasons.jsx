@@ -4,8 +4,8 @@ import Paragraph from "./Paragraph";
 
 const StyledChoseUsReasons = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 6.4rem;
 
   .chose-us {
     &__background {

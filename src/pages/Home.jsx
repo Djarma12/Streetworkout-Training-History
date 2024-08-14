@@ -8,11 +8,19 @@ import Section from "../ui/Section";
 import Video from "../ui/Video";
 
 const StyledHome = styled.div`
-  .about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.2rem;
+  .about {
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2.4rem;
+    }
+    &__content {
+      flex-grow: 1;
+      flex-basis: 34rem;
+      max-width: 80rem;
+    }
   }
 
   .chose-us {
@@ -27,9 +35,9 @@ function Home() {
         <HeroHomeContent />
       </Hero>
       <Section>
-        <div className="about-container">
+        <div className="about__container">
           <img src="public/posing/posing-1.png" alt="Posing image" />
-          <div>
+          <div className="about__content">
             <Heading as="h5">
               <span className="secondary">Information About Us</span>SWBP is a
               team of workout <span>enthusiasts</span>
