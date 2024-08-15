@@ -1,9 +1,10 @@
 import { BiChevronsRight, BiLogoInstagram, BiSend } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ButtonIcon from "./ButtonIcon";
 import Logo from "./Logo";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledFooter = styled.footer`
   background-color: var(--color-grey-800);
@@ -25,7 +26,43 @@ const FooterContent = styled.div`
   display: grid;
   grid-template-columns: 1.2fr 0.8fr 1fr 1.2fr;
   gap: 2.4rem;
+  justify-items: center;
 
+  ${mediaQueryManager.tabLand(css`
+    grid-template-columns: repeat(3, 1fr);
+    .grid-cel--4 {
+      grid-column: 1/-1;
+    }
+  `)}
+  ${mediaQueryManager.tabPort(css`
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    .grid-cel--2 {
+      grid-row: 1/2;
+      grid-column: 2/3;
+    }
+    .grid-cel--3 {
+      justify-self: left;
+    }
+    .grid-cel--4 {
+      grid-column: 2/3;
+    }
+  `)}
+  ${mediaQueryManager.phone(css`
+    grid-template-columns: 1fr;
+    justify-items: left;
+    .grid-cel--2 {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .grid-cel--3 {
+      /* justify-self: center; */
+    }
+    .grid-cel--4 {
+      grid-column: 1/2;
+    }
+  `)}
+  
   .overview {
     div {
       margin-top: 1.2rem;
@@ -99,7 +136,7 @@ function Footer() {
   return (
     <StyledFooter>
       <FooterContent>
-        <div className="overview">
+        <div className="overview grid-cel--1">
           <Logo />
           <p>
             We motivate and educate people through sports, promoting a healthy
@@ -108,8 +145,7 @@ function Footer() {
           <div>
             <Link
               to="https://www.instagram.com/street_workout_backa_palanka"
-              target="_blank"
-            >
+              target="_blank">
               <ButtonIcon variation="primary">
                 <BiLogoInstagram />
               </ButtonIcon>
@@ -121,26 +157,20 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="grid-cel--2">
           <span className="title">Explore</span>
           <ul className="list">
             <li>
               <span>
                 <BiChevronsRight />
               </span>
-              <StyledLink to="/about">About us</StyledLink>
+              <StyledLink to="/our-team">Our Team</StyledLink>
             </li>
             <li>
               <span>
                 <BiChevronsRight />
               </span>
               <StyledLink to="/services">Services</StyledLink>
-            </li>
-            <li>
-              <span>
-                <BiChevronsRight />
-              </span>
-              <StyledLink to="/our-team">Our Team</StyledLink>
             </li>
             <li>
               <span>
@@ -156,7 +186,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="grid-cel--3">
           <span className="title">Our Contacts</span>
           <ul className="list">
             <li>
@@ -165,8 +195,7 @@ function Footer() {
               </span>
               <StyledLink
                 to="https://www.instagram.com/street_workout_backa_palanka"
-                target="_blank"
-              >
+                target="_blank">
                 street_workout_backa_palanka
               </StyledLink>
             </li>
@@ -180,7 +209,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="grid-cel--4">
           <ul className="images">
             <li>
               <img src="public/back-lever.jpg" alt="Training image" />
@@ -207,8 +236,7 @@ function Footer() {
         Copyright ©2024 All rights reserved | This website is made with 🤍 by{" "}
         <StyledLink
           to="https://www.instagram.com/street_workout_backa_palanka"
-          target="_blank"
-        >
+          target="_blank">
           SWBP
         </StyledLink>{" "}
         and{" "}
