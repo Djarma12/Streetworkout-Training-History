@@ -9,3 +9,13 @@ export const moveRight = keyframes`
     transform: translateX(0);
   }
 `;
+
+export const moveBottom = keyframes`
+  0% {
+    transform: translate(-50%, -150%);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+`;

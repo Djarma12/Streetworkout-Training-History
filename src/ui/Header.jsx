@@ -1,12 +1,9 @@
-import { BiMenuAltRight, BiWindowClose } from "react-icons/bi";
 import styled, { css } from "styled-components";
 
-import { useSidebar } from "../context/SidebarProvider";
 import mediaQueryManager from "../styles/MediaQueryManager";
-import ButtonIcon from "./ButtonIcon";
 import HeaderHeading from "./HeaderHeading";
 
-import { isTabPort } from "../utils/helpers";
+import ToggleSidebar from "./ToggleSidebar";
 
 const StyledHeader = styled.header`
   z-index: 1;
@@ -31,16 +28,10 @@ const StyledHeader = styled.header`
 `;
 
 function Header() {
-  const { isOpen, toggleOpen } = useSidebar();
-
   return (
     <StyledHeader>
       <HeaderHeading />
-      {isTabPort() && (
-        <ButtonIcon variation="tertiary" onClick={toggleOpen}>
-          {isOpen ? <BiWindowClose /> : <BiMenuAltRight />}
-        </ButtonIcon>
-      )}
+      <ToggleSidebar />
     </StyledHeader>
   );
 }
