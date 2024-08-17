@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
-import Button from "./Button";
-import mediaQueryManager from "../styles/MediaQueryManager";
 import { SidebarProvider } from "../context/SidebarProvider";
-import ToggleSidebar from "./ToggleSidebar";
 import { moveBottom } from "../styles/animations";
+import mediaQueryManager from "../styles/MediaQueryManager";
+import Button from "./Button";
+import ToggleSidebar from "./ToggleSidebar";
 
 const StyledHomeNav = styled.nav`
   display: flex;
@@ -25,6 +25,10 @@ const StyledHomeNav = styled.nav`
   }
 
   animation: ${moveBottom} 0.25s ease-out;
+
+  ${mediaQueryManager.bigDesktop(css`
+    animation: none;
+  `)}
   ${mediaQueryManager.tabPort(css`
     width: 80%;
     height: max-content;

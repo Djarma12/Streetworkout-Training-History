@@ -11,7 +11,7 @@ export const mediaQueryValues = {
   phone: 600,
   tabPort: 900,
   tabLand: 1200,
-  // bigDesktop: 1800,
+  bigDesktop: 1800,
 };
 
 const mediaQueryManager = {
@@ -30,10 +30,10 @@ const mediaQueryManager = {
       ${css(...args)};
     }
   `,
-  // bigDesktop: (...args) => css`
-  //   @media only screen and (min-width: 112.5em) {
-  //     ${css(...args)};
-  //   }
-  // `,
+  bigDesktop: (...args) => css`
+    @media only screen and (min-width: 112.5em) {
+      ${css(...args)};
+    }
+  `,
 };
 export default mediaQueryManager;
