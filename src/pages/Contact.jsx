@@ -13,7 +13,7 @@ function Contact() {
   return (
     <StyledContact>
       <Hero>
-        <HeroBackground imgpath="public/training-3.jpg">
+        <HeroBackground imgpath="/training-3.jpg">
           <HeroContent headingText="Contact Us" />
         </HeroBackground>
       </Hero>

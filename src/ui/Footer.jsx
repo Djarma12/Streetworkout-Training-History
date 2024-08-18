@@ -2,9 +2,9 @@ import { BiChevronsRight, BiLogoInstagram, BiSend } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 import ButtonIcon from "./ButtonIcon";
 import Logo from "./Logo";
-import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledFooter = styled.footer`
   background-color: var(--color-grey-800);
@@ -145,7 +145,8 @@ function Footer() {
           <div>
             <Link
               to="https://www.instagram.com/street_workout_backa_palanka"
-              target="_blank">
+              target="_blank"
+            >
               <ButtonIcon variation="primary">
                 <BiLogoInstagram />
               </ButtonIcon>
@@ -195,7 +196,8 @@ function Footer() {
               </span>
               <StyledLink
                 to="https://www.instagram.com/street_workout_backa_palanka"
-                target="_blank">
+                target="_blank"
+              >
                 street_workout_backa_palanka
               </StyledLink>
             </li>
@@ -212,22 +214,22 @@ function Footer() {
         <div className="grid-cel--4">
           <ul className="images">
             <li>
-              <img src="public/back-lever.jpg" alt="Training image" />
+              <img src="/back-lever.jpg" alt="Training image" />
             </li>
             <li>
-              <img src="public/training-1.jpg" alt="Training image" />
+              <img src="/training-1.jpg" alt="Training image" />
             </li>
             <li>
-              <img src="public/front-lever.jpg" alt="Training image" />
+              <img src="/front-lever.jpg" alt="Training image" />
             </li>
             <li>
-              <img src="public/push-up.jpg" alt="Training image" />
+              <img src="/push-up.jpg" alt="Training image" />
             </li>
             <li>
-              <img src="public/pull-up.jpg" alt="Training image" />
+              <img src="/pull-up.jpg" alt="Training image" />
             </li>
             <li>
-              <img src="public/training-2.jpg" alt="Training image" />
+              <img src="/training-2.jpg" alt="Training image" />
             </li>
           </ul>
         </div>
@@ -236,7 +238,8 @@ function Footer() {
         Copyright ©2024 All rights reserved | This website is made with 🤍 by{" "}
         <StyledLink
           to="https://www.instagram.com/street_workout_backa_palanka"
-          target="_blank">
+          target="_blank"
+        >
           SWBP
         </StyledLink>{" "}
         and{" "}

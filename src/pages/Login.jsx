@@ -9,7 +9,7 @@ const StyledLogin = styled.div`
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.2)
     ),
-    url("public/login-background.jpg");
+    url("/login-background.jpg");
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   background-repeat: no-repeat;
