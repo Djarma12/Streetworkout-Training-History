@@ -21,7 +21,7 @@ function OurTeam() {
   return (
     <StyledOurTeam>
       <Hero>
-        <HeroBackground imgpath="public/our-team.jpg">
+        <HeroBackground imgpath="/our-team.jpg">
           <HeroContent headingText="Our Team" />
         </HeroBackground>
       </Hero>
