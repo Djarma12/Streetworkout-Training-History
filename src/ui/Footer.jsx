@@ -2,6 +2,7 @@ import { BiChevronsRight, BiLogoInstagram, BiSend } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { images } from "../assets/footer.json";
 import mediaQueryManager from "../styles/MediaQueryManager";
 import ButtonIcon from "./ButtonIcon";
 import Logo from "./Logo";
@@ -213,24 +214,15 @@ function Footer() {
         </div>
         <div className="grid-cel--4">
           <ul className="images">
-            <li>
-              <img src="/back-lever.jpg" alt="Training image" />
-            </li>
-            <li>
-              <img src="/training-1.jpg" alt="Training image" />
-            </li>
-            <li>
-              <img src="/front-lever.jpg" alt="Training image" />
-            </li>
-            <li>
-              <img src="/push-up.jpg" alt="Training image" />
-            </li>
-            <li>
-              <img src="/pull-up.jpg" alt="Training image" />
-            </li>
-            <li>
-              <img src="/training-2.jpg" alt="Training image" />
-            </li>
+            {images.map((image) => (
+              <li key={image.id}>
+                <picture>
+                  <source type="image/webp" srcSet={image.imgpathWebp} />
+                  <source type="image/jpg" srcSet={image.imgpathJpg} />
+                  <img src={image.imgpathJpg} alt="Training image" />
+                </picture>
+              </li>
+            ))}
           </ul>
         </div>
       </FooterContent>

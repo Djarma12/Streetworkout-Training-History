@@ -69,7 +69,8 @@ function App() {
                   <ProtectedRoute>
                     <AppLayout />
                   </ProtectedRoute>
-                }>
+                }
+              >
                 <Route index element={<Navigate replace to="/trainings" />} />
                 <Route path="trainings" element={<Trainings />} />
                 <Route path="trainings/new" element={<CreateTrainingForm />} />

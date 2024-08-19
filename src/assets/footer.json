@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "imgpathJpg": "/footer/jpg/back-lever.jpg",
+      "imgpathWebp": "/footer/webp/back-lever.webp"
+    },
+    {
+      "id": 2,
+      "imgpathJpg": "/footer/jpg/training-1.jpg",
+      "imgpathWebp": "/footer/webp/training-1.webp"
+    },
+    {
+      "id": 3,
+      "imgpathJpg": "/footer/jpg/front-lever.jpg",
+      "imgpathWebp": "/footer/webp/front-lever.webp"
+    },
+    {
+      "id": 4,
+      "imgpathJpg": "/footer/jpg/push-up.jpg",
+      "imgpathWebp": "/footer/webp/push-up.webp"
+    },
+    {
+      "id": 5,
+      "imgpathJpg": "/footer/jpg/pull-up.jpg",
+      "imgpathWebp": "/footer/webp/pull-up.webp"
+    },
+    {
+      "id": 6,
+      "imgpathJpg": "/footer/jpg/training-2.jpg",
+      "imgpathWebp": "/footer/webp/training-2.webp"
+    }
+  ]
+}
