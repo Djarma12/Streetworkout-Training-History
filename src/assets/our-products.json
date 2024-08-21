@@ -4,24 +4,24 @@
       "id": 1,
       "name": "Shirt with no sleeves",
       "type": "Ideal for warm summer days, light and airy.",
-      "frontImg": "/shop-products/t-shirt-1.jpg",
-      "backImg": "/shop-products/t-shirt-2.jpg",
+      "frontImg": "/shop-products/t-shirt-1.webp",
+      "backImg": "/shop-products/t-shirt-2.webp",
       "price": 12.99
     },
     {
       "id": 2,
       "name": "Sweatshirt",
       "type": "Thick and warm, perfect for the cold winter months.",
-      "frontImg": "/shop-products/sweatshirt-1.jpg",
-      "backImg": "/shop-products/sweatshirt-2.jpg",
+      "frontImg": "/shop-products/sweatshirt-1.webp",
+      "backImg": "/shop-products/sweatshirt-2.webp",
       "price": 22.99
     },
     {
       "id": 3,
       "name": "T-shirt",
       "type": "An elegant t-shirt that follows the body line, suitable for cooler weather.",
-      "frontImg": "/shop-products/t-shirt-3.jpg",
-      "backImg": "/shop-products/t-shirt-4.jpg",
+      "frontImg": "/shop-products/t-shirt-3.webp",
+      "backImg": "/shop-products/t-shirt-4.webp",
       "price": 14.99
     }
   ]
