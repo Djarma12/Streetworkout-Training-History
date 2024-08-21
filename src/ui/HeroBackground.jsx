@@ -14,6 +14,15 @@ const HeroBackground = styled.div`
   background-position: center 17%;
   background-repeat: no-repeat;
   display: flex;
+
+  @media only screen and (max-width: 37.5rem) {
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url(${(props) => props.imgpathSmall});
+  }
 `;
 
 export default HeroBackground;

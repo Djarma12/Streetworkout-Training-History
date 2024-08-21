@@ -19,7 +19,7 @@ const StyledHeroHomeContent = styled.div`
 function HeroHomeContent() {
   return (
     <Carousel>
-      <HeroBackground imgpath="/home.jpg">
+      <HeroBackground imgpath="/home.webp" imgpathSmall="/home-small.webp">
         <StyledHeroHomeContent>
           <Heading as="h4">Unleash Your Inner Strength</Heading>
           <Paragraph variation="secondary">
@@ -29,7 +29,10 @@ function HeroHomeContent() {
           <Button variation="primary">Crate personal training</Button>
         </StyledHeroHomeContent>
       </HeroBackground>
-      <HeroBackground imgpath="/our-team.jpg">
+      <HeroBackground
+        imgpath="/our-team.webp"
+        imgpathSmall="/our-team-small.webp"
+      >
         <StyledHeroHomeContent>
           <Heading as="h4">Calisthenics without limits</Heading>
           <Paragraph variation="secondary">
@@ -42,7 +45,7 @@ function HeroHomeContent() {
           </Link>
         </StyledHeroHomeContent>
       </HeroBackground>
-      <HeroBackground imgpath="/login-background.jpg">
+      <HeroBackground imgpath="/home-2.webp" imgpathSmall="/home-2-small.webp">
         <StyledHeroHomeContent>
           <Heading as="h4">Get in Touch with Us</Heading>
           <Paragraph variation="secondary">

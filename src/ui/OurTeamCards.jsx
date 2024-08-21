@@ -64,6 +64,7 @@ function OurTeamCards() {
             <source type="image/webp" srcSet={teamMember.imgpathWebp} />
             <source type="image/jpg" srcSet={teamMember.imgpathJpg} />
             <img
+              loading="lazy"
               src={teamMember.imgpathJpg}
               alt={`Team member image: ${teamMember.name}`}
             />
