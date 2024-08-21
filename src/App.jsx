@@ -3,39 +3,18 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
 import GlobalStyles from "./styles/GlobalStyles";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import SpinnerFullPage from "./ui/SpinnerFullPage";
-
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import OurTeam from "./pages/OurTeam";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
-import Services from "./pages/Services";
-import HomeLayout from "./ui/HomeLayout";
 
-// import ExerciserTrainingList from "./features/exercisers/ExerciserTrainingList";
-// import AppLayout from "./ui/AppLayout";
-// import Trainings from "./pages/Trainings";
-// import Exercisers from "./pages/Exercisers";
-// import CreateTrainingForm from "./features/trainings/CreateTrainingForm";
-
-/* 
-  Before
-  dist/index.html                    0.97 kB │ gzip:   0.42 kB
-  dist/assets/index-bfae6d9b.js  1,137.31 kB │ gzip: 337.44 kB
-
-  After
-  dist/assets/helpers-62221bac.js                 24.80 kB │ gzip:   6.76 kB
-  dist/assets/contants-886efe03.js               245.47 kB │ gzip:  75.50 kB
-  dist/assets/useTrainingList-d7e3170a.js        408.36 kB │ gzip: 110.25 kB
-  dist/assets/index-1db3d014.js                  425.97 kB │ gzip: 136.49 kB
-  and other small
-*/
-
+const Home = lazy(() => import("./pages/Home"));
+const OurTeam = lazy(() => import("./pages/OurTeam"));
+const Services = lazy(() => import("./pages/Services"));
+const Contact = lazy(() => import("./pages/Contact"));
+const HomeLayout = lazy(() => import("./ui/HomeLayout"));
+const Login = lazy(() => import("./pages/Login"));
 const AppLayout = lazy(() => import("./ui/AppLayout"));
 const Trainings = lazy(() => import("./pages/Trainings"));
 const Exercisers = lazy(() => import("./pages/Exercisers"));
