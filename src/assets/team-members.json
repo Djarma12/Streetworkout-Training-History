@@ -2,32 +2,38 @@
   "teamMembers": [
     {
       "id": 1,
-      "imgpath": "/team-members/team-member-1.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-1.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-1.webp",
       "name": "Čedo Milovanović"
     },
     {
       "id": 2,
-      "imgpath": "/team-members/team-member-2.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-2.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-2.webp",
       "name": "Isidor Lukić"
     },
     {
       "id": 3,
-      "imgpath": "/team-members/team-member-3.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-3.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-3.webp",
       "name": "Dušan Mađar"
     },
     {
       "id": 4,
-      "imgpath": "/team-members/team-member-4.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-4.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-4.webp",
       "name": "Milovan Velemir"
     },
     {
       "id": 5,
-      "imgpath": "/team-members/team-member-5.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-5.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-5.webp",
       "name": "Kristian Mađar"
     },
     {
       "id": 6,
-      "imgpath": "/team-members/team-member-6.jpg",
+      "imgpathJpg": "/team-members/jpg/team-member-6.jpg",
+      "imgpathWebp": "/team-members/webp/team-member-6.webp",
       "name": "Đole Čobanović"
     }
   ]
