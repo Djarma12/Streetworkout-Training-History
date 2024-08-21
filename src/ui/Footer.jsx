@@ -219,7 +219,11 @@ function Footer() {
                 <picture>
                   <source type="image/webp" srcSet={image.imgpathWebp} />
                   <source type="image/jpg" srcSet={image.imgpathJpg} />
-                  <img src={image.imgpathJpg} alt="Training image" />
+                  <img
+                    loading="lazy"
+                    src={image.imgpathJpg}
+                    alt="Training image"
+                  />
                 </picture>
               </li>
             ))}
