@@ -5,8 +5,8 @@ import Heading from "../ui/Heading";
 import Hero from "../ui/Hero";
 import HeroBackground from "../ui/HeroBackground";
 import HeroContent from "../ui/HeroContent";
-import Section from "../ui/Section";
 import OurTeamCards from "../ui/OurTeamCards";
+import Section from "../ui/Section";
 
 const StyledOurTeam = styled.div`
   .heading-bar {
@@ -21,7 +21,10 @@ function OurTeam() {
   return (
     <StyledOurTeam>
       <Hero>
-        <HeroBackground imgpath="/our-team.jpg">
+        <HeroBackground
+          imgpath="/our-team.webp"
+          imgpathSmall="/our-team-small.webp"
+        >
           <HeroContent headingText="Our Team" />
         </HeroBackground>
       </Hero>

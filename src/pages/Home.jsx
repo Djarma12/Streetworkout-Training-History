@@ -36,7 +36,7 @@ function Home() {
       </Hero>
       <Section>
         <div className="about__container">
-          <img src="/posing/posing-1.png" alt="Posing image" />
+          <img src="/posing/posing-1.webp" alt="Posing image" />
           <div className="about__content">
             <Heading as="h5">
               <span className="secondary">Information About Us</span>SWBP is a

@@ -22,7 +22,10 @@ function Services() {
   return (
     <StyledServices>
       <Hero>
-        <HeroBackground imgpath="/training-3.jpg">
+        <HeroBackground
+          imgpath="/home-3.webp"
+          imgpathSmall="/home-3-small.webp"
+        >
           <HeroContent headingText="Services" />
         </HeroBackground>
       </Hero>
