@@ -9,13 +9,21 @@ const StyledLogin = styled.div`
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.2)
     ),
-    url("/login-background.jpg");
+    url("/home-2.webp");
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   background-repeat: no-repeat;
   background-size: cover;
-  /* height: 100dvh; */
   padding-block: 12.8rem;
+
+  @media only screen and (max-width: 37.5rem) {
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.4)
+      ),
+      url("/home-2-small.webp");
+  }
 `;
 
 const LoginContainer = styled.div`

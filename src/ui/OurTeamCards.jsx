@@ -5,7 +5,7 @@ const StyledOurTeamCards = styled.ul`
   max-width: 90rem;
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: 1.6rem;
 
   li {
@@ -19,10 +19,9 @@ const StyledOurTeamCards = styled.ul`
       object-fit: cover;
       object-position: top;
       border-radius: var(--border-radius-sm);
-
-      &:hover + div {
-        transform: translateY(-19rem);
-      }
+    }
+    picture:hover + div {
+      transform: translateY(-19rem);
     }
   }
 
@@ -61,7 +60,15 @@ function OurTeamCards() {
     <StyledOurTeamCards>
       {teamMembers.map((teamMember) => (
         <li key={teamMember.id}>
-          <img src={teamMember.imgpath} alt="Team member" />
+          <picture>
+            <source type="image/webp" srcSet={teamMember.imgpathWebp} />
+            <source type="image/jpg" srcSet={teamMember.imgpathJpg} />
+            <img
+              loading="lazy"
+              src={teamMember.imgpathJpg}
+              alt={`Team member image: ${teamMember.name}`}
+            />
+          </picture>
           <div className="team-member-info">
             <span>{teamMember.name}</span>
           </div>

@@ -108,6 +108,7 @@ function ProductCard({ product }) {
         <div className="card__side card__side--front">
           <div className="card__image-holder">
             <img
+              loading="lazy"
               src={frontImg}
               className="card__image"
               alt="Front product image"
