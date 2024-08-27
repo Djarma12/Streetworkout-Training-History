@@ -20,6 +20,9 @@ const StyledHeaderHome = styled.header`
   ${mediaQueryManager.tabPort(css`
     align-items: center;
   `)}
+  ${mediaQueryManager.phone(css`
+    padding-inline: 3.2rem;
+  `)}
 `;
 
 function HeaderHome() {

@@ -13,7 +13,7 @@ const variations = {
   `,
   secondary: css`
     font-size: 2rem;
-    width: 45rem;
+    max-width: 45rem;
     color: var(--color-red-100);
     &:not(:last-child) {
       margin-bottom: 3.2rem;

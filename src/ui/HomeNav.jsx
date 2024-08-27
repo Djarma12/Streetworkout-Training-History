@@ -93,7 +93,7 @@ function HomeNav() {
     <SidebarProvider>
       <SidebarProvider.Sidebar>
         <StyledHomeNav>
-          <ToggleSidebar />
+          <ToggleSidebar variation="primary" />
           <SidebarProvider.CloseSidebar>
             <NavList>
               <li>
@@ -115,7 +115,7 @@ function HomeNav() {
           </Link>
         </StyledHomeNav>
       </SidebarProvider.Sidebar>
-      <ToggleSidebar />
+      <ToggleSidebar variation="primary" />
     </SidebarProvider>
   );
 }
