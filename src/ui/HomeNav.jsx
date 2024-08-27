@@ -29,6 +29,10 @@ const StyledHomeNav = styled.nav`
   ${mediaQueryManager.bigDesktop(css`
     animation: none;
   `)}
+
+  ${mediaQueryManager.tabLand(css`
+    gap: 6.4rem;
+  `)}
   ${mediaQueryManager.tabPort(css`
     width: 80%;
     height: max-content;

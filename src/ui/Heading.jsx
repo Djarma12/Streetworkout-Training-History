@@ -39,15 +39,18 @@ const Heading = styled.h1`
     css`
       font-style: italic;
       line-height: 1.1;
-      font-size: 6.4rem;
+      font-size: 6.2rem;
       color: var(--color-red-50);
-      width: 60rem;
+      max-width: 60rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
       &:not(:last-child) {
         margin-bottom: 1.2rem;
       }
+      ${mediaQueryManager.phone(css`
+        font-size: 4.4rem;
+      `)}
     `}
   ${(props) =>
     props.as === "h5" &&

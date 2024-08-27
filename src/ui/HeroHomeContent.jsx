@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 import Button from "./Button";
 import Carousel from "./Carousel";
 import Heading from "./Heading";
@@ -14,6 +15,9 @@ const StyledHeroHomeContent = styled.div`
   align-items: start;
   text-align: left;
   margin-left: 10%;
+  ${mediaQueryManager.tabPort(css`
+    margin-left: 0;
+  `)}
 `;
 
 function HeroHomeContent() {

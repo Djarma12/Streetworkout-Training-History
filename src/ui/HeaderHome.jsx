@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import Logo from "./Logo";
-import HomeNav from "./HomeNav";
 import mediaQueryManager from "../styles/MediaQueryManager";
+import HomeNav from "./HomeNav";
+import Logo from "./Logo";
 
 const StyledHeaderHome = styled.header`
   margin-inline: auto;
@@ -14,6 +14,9 @@ const StyledHeaderHome = styled.header`
   left: 0;
   right: 0;
   z-index: 20;
+  ${mediaQueryManager.tabLand(css`
+    padding-inline: 4.8rem;
+  `)}
   ${mediaQueryManager.tabPort(css`
     align-items: center;
   `)}
