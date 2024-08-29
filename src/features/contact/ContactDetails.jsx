@@ -4,6 +4,8 @@ import Heading from "../../ui/Heading";
 
 const StyledContactDetails = styled.div`
   padding-inline: 4.8rem;
+  max-width: 70rem;
+  margin-inline: auto;
   h3 {
     color: var(--color-grey-800);
   }
@@ -50,8 +52,7 @@ function ContactDetails() {
           <span>Instagram:</span>
           <Link
             to="https://www.instagram.com/street_workout_backa_palanka"
-            target="_blank"
-          >
+            target="_blank">
             street_workout_backa_palanka
           </Link>
         </div>

@@ -6,6 +6,8 @@ const StyledContactInfo = styled.div`
   padding: 3.2rem 2.4rem;
   background-color: var(--color-grey-200);
   width: 100%;
+  /* flex-basis: 100rem; */
+  /* flex-grow: 1; */
 `;
 
 function ContactInfo() {
