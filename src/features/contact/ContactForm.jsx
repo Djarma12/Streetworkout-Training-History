@@ -59,9 +59,11 @@ function ContactForm() {
           })}
         />
       </FormRowVertical>
-      <Button variation="primary" type="submit" disabled={isSending}>
-        {isSending ? <SpinnerMini /> : " Send message"}
-      </Button>
+      <FormRowVertical>
+        <Button variation="primary" type="submit" disabled={isSending}>
+          {isSending ? <SpinnerMini /> : " Send message"}
+        </Button>
+      </FormRowVertical>
     </Form>
   );
 }

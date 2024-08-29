@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Heading from "../../ui/Heading";
+import mediaQueryManager from "../../styles/MediaQueryManager";
 
 const StyledContactDetails = styled.div`
   padding-inline: 4.8rem;
@@ -40,6 +41,14 @@ const StyledContactDetails = styled.div`
       color: var(--color-primary);
     }
   }
+
+  ${mediaQueryManager.phone(css`
+    padding-inline: 3.2rem;
+    .contact__media {
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+  `)}
 `;
 
 function ContactDetails() {
