@@ -13,7 +13,13 @@ const StyledOurTeam = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 4.8rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+
+    h5 {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -23,8 +29,7 @@ function OurTeam() {
       <Hero>
         <HeroBackground
           imgpath="/our-team.webp"
-          imgpathSmall="/our-team-small.webp"
-        >
+          imgpathSmall="/our-team-small.webp">
           <HeroContent headingText="Our Team" />
         </HeroBackground>
       </Hero>
@@ -35,7 +40,7 @@ function OurTeam() {
             <span>Experts</span>
           </Heading>
           <Link to="/contact">
-            <Button variation="primary">Appointment</Button>
+            <Button variation="primary">Train With Us</Button>
           </Link>
         </div>
         <OurTeamCards />
