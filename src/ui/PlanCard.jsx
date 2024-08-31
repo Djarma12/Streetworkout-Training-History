@@ -1,7 +1,8 @@
 import { BiCheck, BiX } from "react-icons/bi";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "./Button";
 import Heading from "./Heading";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledPlanCard = styled.li`
   padding: 3.2rem 6.4rem;
@@ -77,6 +78,24 @@ const StyledPlanCard = styled.li`
       font-size: 3.6rem;
     }
   }
+  ${mediaQueryManager.phone(css`
+    padding: 2.4rem 4.8rem;
+
+    .card {
+      &__list {
+        margin-bottom: 3.2rem;
+      }
+      &__best-value {
+        top: 4.5rem;
+        right: -15rem;
+        width: 100%;
+        text-align: center;
+        transform: rotate(45deg);
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  `)}
 `;
 
 function PlanCard({ plan }) {

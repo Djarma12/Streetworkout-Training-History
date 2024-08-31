@@ -72,6 +72,9 @@ const Heading = styled.h1`
       span {
         color: var(--color-primary-dark);
       }
+      ${mediaQueryManager.phone(css`
+        font-size: 3.6rem;
+      `)}
     `}
 `;
 
