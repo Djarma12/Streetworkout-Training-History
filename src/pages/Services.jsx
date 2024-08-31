@@ -11,10 +11,17 @@ import Section from "../ui/Section";
 
 const StyledServices = styled.div`
   .shop {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    justify-items: center;
+    gap: 8rem;
+  }
+
+  .plans {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 6.4rem;
+    gap: 8rem;
   }
 `;
 
@@ -24,8 +31,7 @@ function Services() {
       <Hero>
         <HeroBackground
           imgpath="/home-3.webp"
-          imgpathSmall="/home-3-small.webp"
-        >
+          imgpathSmall="/home-3-small.webp">
           <HeroContent headingText="Services" />
         </HeroBackground>
       </Hero>
@@ -45,7 +51,7 @@ function Services() {
           <span className="secondary">Pricing</span>Train well without breaking
           the <span>Bank</span>
         </Heading>
-        <ul className="shop">
+        <ul className="plans">
           {ourPlans.map((plan) => (
             <PlanCard plan={plan} key={plan.id} />
           ))}
