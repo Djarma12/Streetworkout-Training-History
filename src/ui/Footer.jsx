@@ -146,8 +146,7 @@ function Footer() {
           <div>
             <Link
               to="https://www.instagram.com/street_workout_backa_palanka"
-              target="_blank"
-            >
+              target="_blank">
               <ButtonIcon variation="primary">
                 <BiLogoInstagram />
               </ButtonIcon>
@@ -184,7 +183,7 @@ function Footer() {
               <span>
                 <BiChevronsRight />
               </span>
-              <StyledLink to="/trainings">Track your progress</StyledLink>
+              <StyledLink to="/login">Track your progress</StyledLink>
             </li>
           </ul>
         </div>
@@ -197,8 +196,7 @@ function Footer() {
               </span>
               <StyledLink
                 to="https://www.instagram.com/street_workout_backa_palanka"
-                target="_blank"
-              >
+                target="_blank">
                 street_workout_backa_palanka
               </StyledLink>
             </li>
@@ -234,8 +232,7 @@ function Footer() {
         Copyright ©2024 All rights reserved | This website is made with 🤍 by{" "}
         <StyledLink
           to="https://www.instagram.com/street_workout_backa_palanka"
-          target="_blank"
-        >
+          target="_blank">
           SWBP
         </StyledLink>{" "}
         and{" "}

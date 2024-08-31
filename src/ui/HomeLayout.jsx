@@ -23,7 +23,7 @@ const Main = styled.main`
 `;
 
 const Container = styled.div`
-  margin-top: 80dvh;
+  margin-top: 70.4dvh;
 `;
 
 function HomeLayout() {
