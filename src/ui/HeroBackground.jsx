@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeroBackground = styled.div`
-  height: 80dvh;
+  height: 80svh;
   padding-inline: 4.8rem;
   color: var(--color-red-50);
   background-image: linear-gradient(
