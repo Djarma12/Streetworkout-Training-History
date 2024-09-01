@@ -100,7 +100,7 @@ const StyledPlanCard = styled.li`
 
 function PlanCard({ plan }) {
   const { name, price, include, notInclude } = plan;
-  console.log(name);
+
   return (
     <StyledPlanCard className={`card card--${name.toLowerCase()}`}>
       {name === "Advance" && <p className="card__best-value">Best Value</p>}
