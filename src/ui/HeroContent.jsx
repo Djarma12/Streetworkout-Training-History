@@ -1,8 +1,9 @@
 import { BiRightArrowAlt } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Heading from "./Heading";
 import Paragraph from "./Paragraph";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledHeroContent = styled.div`
   width: 100%;
@@ -12,6 +13,10 @@ const StyledHeroContent = styled.div`
   justify-content: end;
   align-items: center;
   padding-bottom: 7%;
+
+  ${mediaQueryManager.phone(css`
+    padding-bottom: 30%;
+  `)}
 `;
 
 function HeroContent({ headingText }) {

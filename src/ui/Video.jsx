@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mediaQueryManager from "../styles/MediaQueryManager";
 
 const StyledVideo = styled.iframe`
   height: auto;
@@ -9,6 +10,10 @@ const StyledVideo = styled.iframe`
   background-position: center 17%;
   background-repeat: no-repeat;
   display: flex;
+
+  ${mediaQueryManager.tabPort(css`
+    height: 45rem;
+  `)}
 `;
 
 export default StyledVideo;

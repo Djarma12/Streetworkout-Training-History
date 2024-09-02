@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Heading from "../../ui/Heading";
+import mediaQueryManager from "../../styles/MediaQueryManager";
 
 const StyledContactDetails = styled.div`
   padding-inline: 4.8rem;
+  max-width: 70rem;
+  margin-inline: auto;
   h3 {
     color: var(--color-grey-800);
   }
@@ -38,6 +41,14 @@ const StyledContactDetails = styled.div`
       color: var(--color-primary);
     }
   }
+
+  ${mediaQueryManager.phone(css`
+    padding-inline: 3.2rem;
+    .contact__media {
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+  `)}
 `;
 
 function ContactDetails() {
@@ -50,8 +61,7 @@ function ContactDetails() {
           <span>Instagram:</span>
           <Link
             to="https://www.instagram.com/street_workout_backa_palanka"
-            target="_blank"
-          >
+            target="_blank">
             street_workout_backa_palanka
           </Link>
         </div>

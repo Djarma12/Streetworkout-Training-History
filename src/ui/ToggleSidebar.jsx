@@ -1,15 +1,15 @@
-import { isTabPort } from "../utils/helpers";
-import ButtonIcon from "./ButtonIcon";
 import { BiMenuAltRight, BiWindowClose } from "react-icons/bi";
 import { useSidebar } from "../context/SidebarProvider";
+import { isTabPort } from "../utils/helpers";
+import ButtonIcon from "./ButtonIcon";
 
-function ToggleSidebar() {
+function ToggleSidebar({ variation = "tertiary" }) {
   const { isOpen, toggleOpen } = useSidebar();
 
   return (
     <>
       {isTabPort() && (
-        <ButtonIcon variation="tertiary" onClick={toggleOpen}>
+        <ButtonIcon variation={variation} onClick={toggleOpen}>
           {isOpen ? <BiWindowClose /> : <BiMenuAltRight />}
         </ButtonIcon>
       )}

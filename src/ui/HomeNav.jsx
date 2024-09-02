@@ -29,6 +29,10 @@ const StyledHomeNav = styled.nav`
   ${mediaQueryManager.bigDesktop(css`
     animation: none;
   `)}
+
+  ${mediaQueryManager.tabLand(css`
+    gap: 6.4rem;
+  `)}
   ${mediaQueryManager.tabPort(css`
     width: 80%;
     height: max-content;
@@ -89,7 +93,7 @@ function HomeNav() {
     <SidebarProvider>
       <SidebarProvider.Sidebar>
         <StyledHomeNav>
-          <ToggleSidebar />
+          <ToggleSidebar variation="primary" />
           <SidebarProvider.CloseSidebar>
             <NavList>
               <li>
@@ -111,7 +115,7 @@ function HomeNav() {
           </Link>
         </StyledHomeNav>
       </SidebarProvider.Sidebar>
-      <ToggleSidebar />
+      <ToggleSidebar variation="primary" />
     </SidebarProvider>
   );
 }

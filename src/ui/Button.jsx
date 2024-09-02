@@ -38,7 +38,7 @@ const variations = {
 
     ${mediaQueryManager.phone(
       css`
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 1.2rem 3.2rem;
       `
     )}

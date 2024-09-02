@@ -14,7 +14,6 @@ const StyledLogin = styled.div`
   -webkit-backdrop-filter: blur(50px);
   background-repeat: no-repeat;
   background-size: cover;
-  padding-block: 12.8rem;
 
   @media only screen and (max-width: 37.5rem) {
     background-image: linear-gradient(
@@ -27,6 +26,7 @@ const StyledLogin = styled.div`
 `;
 
 const LoginContainer = styled.div`
+  padding-block: 12.8rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -47,3 +47,23 @@ export function shouldForwardProp(propName, target) {
   // For other elements, forward all props
   return true;
 }
+
+// Use for display HeaderHome
+export function debounceCallback(scrollDirection, setScrollDirection) {
+  return (lastScrollY, handleLastScroll) => {
+    const scrollY = window.pageYOffset;
+    let direction = "";
+    if (scrollY < 100) {
+      direction = "";
+    } else {
+      direction = scrollY > lastScrollY ? "down" : "up";
+    }
+    if (
+      direction !== scrollDirection &&
+      (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+    ) {
+      setScrollDirection(direction);
+    }
+    handleLastScroll(scrollY > 0 ? scrollY : 0);
+  };
+}
