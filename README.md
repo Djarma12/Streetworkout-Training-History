@@ -5,7 +5,7 @@
 The goal of this app is to allow authenticated users to add, edit, or delete past trainings, facilitating a long-term review of their training progress.
 
 You can view the project live here:
-[Streetworkout-Training-History](https://streetworkout-training-history.netlify.app)
+[Streetworkout-Training-History](https://swbp.netlify.app)
 
 ---
 
