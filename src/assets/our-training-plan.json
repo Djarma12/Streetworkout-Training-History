@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Starter",
-      "price": 18,
+      "price": 19,
       "include": [
         "Fat loss",
         "Gaining muscle mass",
@@ -13,9 +13,9 @@
       "notInclude": ["Weight trainings", "Strength growth"]
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Advance",
-      "price": 23,
+      "price": 24,
       "include": [
         "Fat loss",
         "Gaining muscle mass",
