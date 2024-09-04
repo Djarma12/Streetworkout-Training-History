@@ -6,6 +6,7 @@ export const trainingStrengthValues = [
   { id: 5, text: "5" },
 ];
 
-export const DEBOUNCED_TIME = 40;
+export const DEBOUNCED_TIME_HEADER = 4 * 10;
+export const DEBOUNCED_TIME_LIKES = 4 * 1000;
 
 export const TEST_CREDENTIAL = { email: "test@test.com", password: "123123" };
