@@ -7,3 +7,5 @@ export const trainingStrengthValues = [
 ];
 
 export const DEBOUNCED_TIME = 40;
+
+export const TEST_CREDENTIAL = { email: "test@test.com", password: "123123" };

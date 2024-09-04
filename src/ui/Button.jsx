@@ -30,12 +30,6 @@ const variations = {
       transform: scale(1.02);
     }
 
-    &:focus {
-      outline: none;
-      animation: pulsate 1s infinite;
-      transform: scale(1.01);
-    }
-
     ${mediaQueryManager.phone(
       css`
         font-size: 1.2rem;
@@ -44,6 +38,30 @@ const variations = {
     )}
   `,
   secondary: css`
+    font-size: 1.4rem;
+    padding: 1.6rem 4.8rem;
+    color: var(--color-grey-600);
+    background-color: var(--color-grey-50);
+    font-weight: 500;
+    border-radius: var(--border-radius-tiny);
+    box-shadow: var(--shadow-sm);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+    ${mediaQueryManager.phone(
+      css`
+        font-size: 1.2rem;
+        padding: 1.2rem 3.2rem;
+      `
+    )}
+  `,
+  tertiary: css`
     color: var(--color-grey-600);
     background: transparent;
     letter-spacing: 1px;

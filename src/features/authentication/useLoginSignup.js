@@ -8,7 +8,7 @@ export function useLoginSignup(isSignUp) {
   const navigate = useNavigate();
   const mutation = isSignUp ? signupApi : loginApi;
 
-  const { mutate: loginSignup, isLoading } = useMutation({
+  const { mutate: loginSignup, isLoading: isLoginSignup } = useMutation({
     mutationFn: mutation,
     onSuccess: (user) => {
       queryClient.setQueryData(["user"], user.user);
@@ -27,5 +27,5 @@ export function useLoginSignup(isSignUp) {
     },
   });
 
-  return { loginSignup, isLoading };
+  return { loginSignup, isLoginSignup };
 }
