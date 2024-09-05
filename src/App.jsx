@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import ScrollToTop from "./ui/ScrollToTop";
 import CheckLoginRoute from "./ui/CheckLoginRoute";
 import StyledToaster from "./ui/StyledToaster";
+import LikeButton from "./ui/LikeButton";
+import Likes from "./features/likes/Likes";
 
 const Home = lazy(() => import("./pages/Home"));
 const OurTeam = lazy(() => import("./pages/OurTeam"));
@@ -83,6 +85,7 @@ function App() {
             </Suspense>
           </ScrollToTop>
         </BrowserRouter>
+        <Likes />
       </QueryClientProvider>
       <StyledToaster />
     </>

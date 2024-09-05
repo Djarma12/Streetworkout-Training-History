@@ -30,13 +30,14 @@ function HeroHomeContent() {
             Street workouts designed for every level. Train with us and reach
             your fitness goals.
           </Paragraph>
-          <Button variation="primary">Crate personal training</Button>
+          <Link to="/services">
+            <Button variation="primary">Crate personal training</Button>
+          </Link>
         </StyledHeroHomeContent>
       </HeroBackground>
       <HeroBackground
         imgpath="/our-team.webp"
-        imgpathSmall="/our-team-small.webp"
-      >
+        imgpathSmall="/our-team-small.webp">
         <StyledHeroHomeContent>
           <Heading as="h4">Calisthenics without limits</Heading>
           <Paragraph variation="secondary">

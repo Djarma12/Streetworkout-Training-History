@@ -11,6 +11,16 @@ export async function login({ email, password }) {
   return data;
 }
 
+export async function loginGoogle() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+  });
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
 export async function signup({ email, password }) {
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -33,17 +43,6 @@ export async function getCurrentUser() {
 
   return data?.user;
 }
-
-// export async function insertUser({ nickName, birthDate, userid }) {
-//   const { data, error } = await supabase
-//     .from("users")
-//     .insert([{ nickName, birthDate, userid }])
-//     .select();
-
-//   if (error) throw new Error(error.message);
-
-//   return data;
-// }
 
 export async function updateUser({ updatedUser, userExist }) {
   const hasAvatarPath = updatedUser.avatar?.startsWith?.(supabaseUrl);

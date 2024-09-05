@@ -12,7 +12,8 @@ import Logo from "../../ui/Logo";
 import SpinnerMini from "../../ui/SpinnerMini";
 
 import { useLoginSignup } from "./useLoginSignup";
-// import { insertUser } from "../../services/apiAuth";
+import { TEST_CREDENTIAL } from "../../utils/contants";
+import { useLoginGoogle } from "./useLoginGoogle";
 
 const StyledLoginForm = styled.div`
   width: 100%;
@@ -40,7 +41,9 @@ const Header = styled.header`
 
 function LoginForm() {
   const [isSignUp, setIsSignUp] = useState(false);
-  const { loginSignup, isLoading } = useLoginSignup(isSignUp);
+  const { loginSignup, isLoginSignup } = useLoginSignup(isSignUp);
+  const { loginGoogle, isLogging: isLoggingGoogle } = useLoginGoogle();
+  const isLoading = isLoginSignup || isLoggingGoogle;
 
   const {
     register,
@@ -48,20 +51,11 @@ function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: { email: "test@test.com", password: "123123" },
+    defaultValues: { email: "", password: "" },
   });
 
   function onSubmit({ email, password }) {
-    loginSignup(
-      { email, password }
-      // {
-      //   onSettled: async (user) => {
-      //     if (isSignUp) {
-      //       await insertUser({ nickName, birthDate, userid: user.user.id });
-      //     }
-      //   },
-      // }
-    );
+    loginSignup({ email, password });
   }
 
   return (
@@ -77,6 +71,7 @@ function LoginForm() {
             type="email"
             id="email"
             disabled={isLoading}
+            placeholder="example@gmail.com"
             {...register("email", {
               required: "This field is required",
               pattern: {
@@ -91,6 +86,9 @@ function LoginForm() {
             type="password"
             id="password"
             disabled={isLoading}
+            placeholder={
+              isSignUp ? "Must have at least 6 characters" : "Enter Password"
+            }
             {...register("password", {
               required: "This field is required",
               minLength: {
@@ -104,13 +102,13 @@ function LoginForm() {
           <>
             <FormRowVertical
               label="Repeat password"
-              error={errors?.passwordConfirm?.message}
-            >
+              error={errors?.passwordConfirm?.message}>
               <Input
                 type="password"
                 id="passwordConfirm"
                 autoComplete="current-password"
                 disabled={isLoading}
+                placeholder="Confirm password"
                 {...register("passwordConfirm", {
                   required: "This field is required",
                   validate: (value) =>
@@ -124,15 +122,28 @@ function LoginForm() {
           <Button type="submit" disabled={isLoading}>
             {!isLoading ? isSignUp ? "Sign up" : "Log in" : <SpinnerMini />}
           </Button>
-        </FormRowVertical>
-        <FormRowVertical>
           <Button
             variation="secondary"
             type="button"
             disabled={isLoading}
-            onClick={() => setIsSignUp((e) => !e)}
-          >
+            onClick={loginGoogle}>
+            Login With Google <img src="/google.svg" alt="Google Image" />
+          </Button>
+          <Button
+            variation="secondary"
+            type="button"
+            disabled={isLoading}
+            onClick={() => setIsSignUp((e) => !e)}>
             {isSignUp ? "I have existing account" : "Create Account"}
+          </Button>
+        </FormRowVertical>
+        <FormRowVertical>
+          <Button
+            variation="tertiary"
+            type="button"
+            disabled={isLoading}
+            onClick={() => onSubmit(TEST_CREDENTIAL)}>
+            Test Application
           </Button>
         </FormRowVertical>
       </Form>
