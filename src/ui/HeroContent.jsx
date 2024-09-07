@@ -25,7 +25,7 @@ function HeroContent({ headingText }) {
   return (
     <StyledHeroContent>
       <Paragraph variation="tertiary">
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <BiRightArrowAlt />
         {pathname.substring(1)}
         <BiRightArrowAlt />
