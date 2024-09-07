@@ -97,7 +97,7 @@ function HomeNav() {
           <SidebarProvider.CloseSidebar>
             <NavList>
               <li>
-                <StyledNavLink to="/home">Home</StyledNavLink>
+                <StyledNavLink to="/">Home</StyledNavLink>
               </li>
               <li>
                 <StyledNavLink to="/our-team">Our team</StyledNavLink>

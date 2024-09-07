@@ -9,7 +9,7 @@ const StyledLogo = styled.img`
 
 function Logo() {
   return (
-    <Link to="/home">
+    <Link to="/">
       <StyledLogo src="/logo.png" alt="Logo" />
     </Link>
   );

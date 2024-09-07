@@ -10,7 +10,6 @@ import Profile from "./pages/Profile";
 import ScrollToTop from "./ui/ScrollToTop";
 import CheckLoginRoute from "./ui/CheckLoginRoute";
 import StyledToaster from "./ui/StyledToaster";
-import LikeButton from "./ui/LikeButton";
 import Likes from "./features/likes/Likes";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -47,13 +46,20 @@ function App() {
           <ScrollToTop>
             <Suspense fallback={<SpinnerFullPage />}>
               <Routes>
+                <Route element={<HomeLayout />}>
+                  <Route index element={<Home replace to="/" />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="services" element={<Services />} />
+                  <Route path="our-team" element={<OurTeam />} />
+                  <Route path="contact" element={<Contact />} />
+                </Route>
                 <Route
                   element={
                     <ProtectedRoute>
                       <AppLayout />
                     </ProtectedRoute>
                   }>
-                  <Route index element={<Navigate replace to="/trainings" />} />
+                  <Route element={<Navigate to="/trainings" />} />
                   <Route path="trainings" element={<Trainings />} />
                   <Route
                     path="trainings/new"
@@ -65,12 +71,6 @@ function App() {
                     path="exercisers/:exerciserId"
                     element={<ExerciserTrainingList />}
                   />
-                </Route>
-                <Route element={<HomeLayout />}>
-                  <Route path="home" element={<Home />} />
-                  <Route path="services" element={<Services />} />
-                  <Route path="our-team" element={<OurTeam />} />
-                  <Route path="contact" element={<Contact />} />
                 </Route>
                 <Route
                   path="login"
