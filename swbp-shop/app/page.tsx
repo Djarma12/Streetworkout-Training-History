@@ -1,3 +1,10 @@
+import PurchaseProduct from "@/app/_components/PurchaseProduct";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      {/* <Link href={constants.preOrder}>Preorder for 29.99</Link>; */}
+      <PurchaseProduct />
+    </>
+  );
 }
