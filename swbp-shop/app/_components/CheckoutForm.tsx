@@ -28,7 +28,7 @@ function CheckoutForm() {
   return (
     <div className="w-96">
       <span>Complete your payment</span>
-      <form onSubmit={handleSubmit}>
+      <form action={handleSubmit}>
         <PaymentElement />
         {/* <AddressElement
           options={{ mode: "billing", allowedCountries: ["EUR"] }}

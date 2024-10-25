@@ -1,5 +1,6 @@
 import "@/app/_styles/globals.css";
 import { Roboto_Serif } from "next/font/google";
+import Footer from "./_components/Footer";
 
 const roboto = Roboto_Serif({
   subsets: ["latin"],
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
