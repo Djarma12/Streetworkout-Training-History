@@ -1,4 +1,3 @@
-import PurchaseProduct from "@/app/_components/PurchaseProduct";
 import { Suspense } from "react";
 import ProductList from "./_components/ProductList";
 
@@ -9,7 +8,6 @@ export default function Home() {
       <Suspense fallback={"Loading..."} key="products">
         <ProductList />
       </Suspense>
-      <PurchaseProduct />
     </>
   );
 }

@@ -8,21 +8,18 @@ import {
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  console.log(elements);
   async function handleSubmit() {
-    try {
-      if (!elements || !stripe) return;
-      const result = await stripe?.confirmPayment({
-        elements,
-        confirmParams: { return_url: "http://localhost:3000" },
-      });
-      if (result.error) {
-        console.log("Err", result.error);
-        alert("Payment blocked");
-      } else {
-        alert("Payment Successful");
-      }
-    } catch (err) {
-      console.log(err);
+    if (!elements || !stripe) return null;
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: { return_url: "http://localhost:3000/complete-payment" },
+    });
+    if (error) {
+      console.log("Err", error);
+      alert("Payment blocked");
+    } else {
+      alert("Payment Successful");
     }
   }
   return (

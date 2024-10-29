@@ -1,17 +1,34 @@
 "use server";
 import Stripe from "stripe";
+import { getProducts } from "../apiProducts";
 
-export async function createPaymentIntent(amount: number, description: string) {
+const calculateOrderAmount = (items) => {
+  let total = 0;
+  items.forEach((item) => {
+    total += item.price * 100;
+  });
+  return total;
+};
+export async function createPaymentIntent({
+  productIds,
+  description,
+}: {
+  productIds: string[];
+  description: string;
+}) {
+  const products = (await getProducts()).filter((product) =>
+    productIds.includes(product.id)
+  );
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     typescript: true,
     apiVersion: "2024-09-30.acacia",
   });
-
+  console.log(products);
   const paymentIntent = await stripe.paymentIntents.create({
-    amount,
+    amount: calculateOrderAmount(products),
     description,
     currency: "EUR",
   });
-
-  return paymentIntent;
+  console.log(calculateOrderAmount(products));
+  return { clientSecret: paymentIntent.client_secret };
 }
