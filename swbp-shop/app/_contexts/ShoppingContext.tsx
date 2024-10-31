@@ -3,6 +3,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 type PurchaseProduct = {
   id: number;
+  name: string;
   num: number;
   size: string;
 };
@@ -27,7 +28,7 @@ function ShoppingProvider({ children }: { children: ReactNode }) {
   function addProduct(newProduct: PurchaseProduct) {
     setProducts((state) => [...state, newProduct]);
   }
-
+  console.log(products);
   return (
     <ShoppingContext.Provider value={{ products, addProduct }}>
       {children}

@@ -69,7 +69,7 @@ export type Database = {
           description: string | null;
           front_img: string | null;
           id: number;
-          name: string | null;
+          name: string;
           price: number;
         };
         Insert: {
@@ -78,7 +78,7 @@ export type Database = {
           description?: string | null;
           front_img?: string | null;
           id?: number;
-          name?: string | null;
+          name?: string;
           price?: number;
         };
         Update: {
@@ -87,7 +87,7 @@ export type Database = {
           description?: string | null;
           front_img?: string | null;
           id?: number;
-          name?: string | null;
+          name?: string;
           price?: number;
         };
         Relationships: [];

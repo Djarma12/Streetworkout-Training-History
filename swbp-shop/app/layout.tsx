@@ -1,6 +1,8 @@
 import "@/app/_styles/globals.css";
 import { Roboto_Serif } from "next/font/google";
 import Footer from "./_components/Footer";
+import Header from "./_components/Header";
+import { ShoppingProvider } from "./_contexts/ShoppingContext";
 
 const roboto = Roboto_Serif({
   subsets: ["latin"],
@@ -24,7 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        {children}
+        <Header />
+        <ShoppingProvider>{children}</ShoppingProvider>
         <Footer />
       </body>
     </html>
