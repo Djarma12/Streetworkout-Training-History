@@ -1,5 +1,5 @@
 import { getProducts } from "@/app/_lib/apiProducts";
-import PurchaseProduct from "./PurchaseProduct";
+import Link from "next/link";
 
 async function ProductList() {
   const products = await getProducts();
@@ -8,8 +8,10 @@ async function ProductList() {
     <div>
       {products.map((product) => (
         <div key={product.id}>
-          <span>{product?.name}</span>
-          <PurchaseProduct product={product} />
+          <span>{product.name}</span>
+          <span>{product.price}</span>
+          <Link href="products/1">Details</Link>
+          <button>Add to Cart</button>
         </div>
       ))}
     </div>

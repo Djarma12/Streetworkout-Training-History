@@ -1,8 +1,9 @@
 "use server";
+import { Product } from "@/app/_types/dbTables";
 import Stripe from "stripe";
 import { getProducts } from "../apiProducts";
 
-const calculateOrderAmount = (items) => {
+const calculateOrderAmount = (items: Product[]) => {
   let total = 0;
   items.forEach((item) => {
     total += item.price * 100;
@@ -13,7 +14,7 @@ export async function createPaymentIntent({
   productIds,
   description,
 }: {
-  productIds: string[];
+  productIds: number[];
   description: string;
 }) {
   const products = (await getProducts()).filter((product) =>

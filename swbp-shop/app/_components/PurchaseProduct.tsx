@@ -5,12 +5,12 @@ import { createPaymentIntent } from "../_lib/actions/payment";
 import { stripePromise } from "../_lib/stripe";
 import CheckoutForm from "./CheckoutForm";
 
-function PurchaseProduct({ product }) {
+function PurchaseProduct() {
   const [clientSecret, setClientSecret] = useState("");
 
   async function initiatePayment() {
     const { clientSecret } = await createPaymentIntent({
-      productIds: [product.id],
+      productIds: [1, 2],
       description: `Payment of the user`,
     });
     setClientSecret(clientSecret!);

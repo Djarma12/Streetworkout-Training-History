@@ -1,13 +1,11 @@
-import { Suspense } from "react";
-import ProductList from "./_components/ProductList";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      {/* <Link href={constants.preOrder}>Preorder for 29.99</Link>; */}
-      <Suspense fallback={"Loading..."} key="products">
-        <ProductList />
-      </Suspense>
+      <Link href="products">Products</Link>
+      <Link href="shopping-cart">Shopping Cart</Link>
+      <Link href="login">Login</Link>
     </>
   );
 }
