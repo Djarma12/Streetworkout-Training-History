@@ -6,7 +6,6 @@ export async function getProducts(): Promise<Product[]> {
     .from("products")
     .select("")
     .returns<Product[]>();
-
   await new Promise((res) => setTimeout(res, 1000));
   if (error) throw new Error(error.message);
 

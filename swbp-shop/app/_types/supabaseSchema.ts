@@ -1,5 +1,5 @@
 // > swbp-shop@0.1.0 supabase
-// > supabase gen types typescript --project-id=plpcdcscmncfuatmrffu
+// > supabase gen types typescript --project-id=plpcdcscmncfuatmrffu --schema=next_auth
 
 export type Json =
   | string
@@ -10,54 +10,63 @@ export type Json =
   | Json[];
 
 export type Database = {
-  public: {
+  next_auth: {
     Tables: {
-      likes: {
+      accounts: {
         Row: {
-          all_likes: number | null;
-          created_at: string;
-          id: number;
+          access_token: string | null;
+          expires_at: number | null;
+          id: string;
+          id_token: string | null;
+          oauth_token: string | null;
+          oauth_token_secret: string | null;
+          provider: string;
+          providerAccountId: string;
+          refresh_token: string | null;
+          scope: string | null;
+          session_state: string | null;
+          token_type: string | null;
+          type: string;
+          userId: string | null;
         };
         Insert: {
-          all_likes?: number | null;
-          created_at?: string;
-          id?: number;
+          access_token?: string | null;
+          expires_at?: number | null;
+          id?: string;
+          id_token?: string | null;
+          oauth_token?: string | null;
+          oauth_token_secret?: string | null;
+          provider: string;
+          providerAccountId: string;
+          refresh_token?: string | null;
+          scope?: string | null;
+          session_state?: string | null;
+          token_type?: string | null;
+          type: string;
+          userId?: string | null;
         };
         Update: {
-          all_likes?: number | null;
-          created_at?: string;
-          id?: number;
-        };
-        Relationships: [];
-      };
-      payments: {
-        Row: {
-          created_at: string;
-          id: number;
-          payment_id: string | null;
-          product_id: number | null;
-          userid: string;
-        };
-        Insert: {
-          created_at?: string;
-          id?: number;
-          payment_id?: string | null;
-          product_id?: number | null;
-          userid: string;
-        };
-        Update: {
-          created_at?: string;
-          id?: number;
-          payment_id?: string | null;
-          product_id?: number | null;
-          userid?: string;
+          access_token?: string | null;
+          expires_at?: number | null;
+          id?: string;
+          id_token?: string | null;
+          oauth_token?: string | null;
+          oauth_token_secret?: string | null;
+          provider?: string;
+          providerAccountId?: string;
+          refresh_token?: string | null;
+          scope?: string | null;
+          session_state?: string | null;
+          token_type?: string | null;
+          type?: string;
+          userId?: string | null;
         };
         Relationships: [
           {
-            foreignKeyName: "payments_product_id_fkey";
-            columns: ["product_id"];
+            foreignKeyName: "accounts_userId_fkey";
+            columns: ["userId"];
             isOneToOne: false;
-            referencedRelation: "products";
+            referencedRelation: "users";
             referencedColumns: ["id"];
           }
         ];
@@ -66,98 +75,100 @@ export type Database = {
         Row: {
           back_img: string | null;
           created_at: string;
-          description: string | null;
-          front_img: string | null;
+          description: string;
+          front_img: string;
           id: number;
-          name: string;
+          name: string | null;
           price: number;
         };
         Insert: {
           back_img?: string | null;
-          created_at?: string;
-          description?: string | null;
-          front_img?: string | null;
-          id?: number;
-          name?: string;
-          price?: number;
+          created_at: string;
+          description: string;
+          front_img: string;
+          id: number;
+          name?: string | null;
+          price: number;
         };
         Update: {
           back_img?: string | null;
           created_at?: string;
-          description?: string | null;
-          front_img?: string | null;
+          description?: string;
+          front_img?: string;
           id?: number;
-          name?: string;
+          name?: string | null;
           price?: number;
         };
         Relationships: [];
       };
-      trainings: {
+      sessions: {
         Row: {
-          created_at: string;
-          description: string | null;
-          endDate: string | null;
-          id: number;
-          numDip: number | null;
-          numPullUp: number | null;
-          numPushUp: number | null;
-          startDate: string | null;
-          title: string | null;
-          trainingStrength: number | null;
-          userid: string | null;
+          expires: string;
+          id: string;
+          sessionToken: string;
+          userId: string | null;
         };
         Insert: {
-          created_at?: string;
-          description?: string | null;
-          endDate?: string | null;
-          id?: number;
-          numDip?: number | null;
-          numPullUp?: number | null;
-          numPushUp?: number | null;
-          startDate?: string | null;
-          title?: string | null;
-          trainingStrength?: number | null;
-          userid?: string | null;
+          expires: string;
+          id?: string;
+          sessionToken: string;
+          userId?: string | null;
         };
         Update: {
-          created_at?: string;
-          description?: string | null;
-          endDate?: string | null;
-          id?: number;
-          numDip?: number | null;
-          numPullUp?: number | null;
-          numPushUp?: number | null;
-          startDate?: string | null;
-          title?: string | null;
-          trainingStrength?: number | null;
-          userid?: string | null;
+          expires?: string;
+          id?: string;
+          sessionToken?: string;
+          userId?: string | null;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "sessions_userId_fkey";
+            columns: ["userId"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       users: {
         Row: {
-          avatar: string | null;
-          birthDate: string | null;
-          created_at: string;
-          id: number;
-          nickName: string | null;
-          userid: string | null;
+          email: string | null;
+          emailVerified: string | null;
+          id: string;
+          image: string | null;
+          name: string | null;
         };
         Insert: {
-          avatar?: string | null;
-          birthDate?: string | null;
-          created_at?: string;
-          id?: number;
-          nickName?: string | null;
-          userid?: string | null;
+          email?: string | null;
+          emailVerified?: string | null;
+          id?: string;
+          image?: string | null;
+          name?: string | null;
         };
         Update: {
-          avatar?: string | null;
-          birthDate?: string | null;
-          created_at?: string;
-          id?: number;
-          nickName?: string | null;
-          userid?: string | null;
+          email?: string | null;
+          emailVerified?: string | null;
+          id?: string;
+          image?: string | null;
+          name?: string | null;
+        };
+        Relationships: [];
+      };
+      verification_tokens: {
+        Row: {
+          expires: string;
+          identifier: string | null;
+          token: string;
+        };
+        Insert: {
+          expires: string;
+          identifier?: string | null;
+          token: string;
+        };
+        Update: {
+          expires?: string;
+          identifier?: string | null;
+          token?: string;
         };
         Relationships: [];
       };
@@ -166,7 +177,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      uid: {
+        Args: Record<PropertyKey, never>;
+        Returns: string;
+      };
     };
     Enums: {
       [_ in never]: never;

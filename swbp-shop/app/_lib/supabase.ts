@@ -3,5 +3,6 @@ import { Database } from "../_types/supabaseSchema";
 
 export const supabase = createClient<Database>(
   process.env.SUPABASE_URL!,
-  process.env.SUPABASE_KEY!
+  process.env.SUPABASE_KEY!,
+  { db: { schema: "next_auth" } }
 );
