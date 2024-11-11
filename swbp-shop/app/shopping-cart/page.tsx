@@ -1,5 +1,7 @@
 import PurchaseProduct from "../_components/PurchaseProduct";
 
+export const metadata = { title: "Shopping Cart" };
+
 export default function Page() {
   return (
     <div>
