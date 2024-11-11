@@ -78,7 +78,7 @@ export type Database = {
           description: string;
           front_img: string;
           id: number;
-          name: string | null;
+          name: string;
           price: number;
         };
         Insert: {
@@ -87,7 +87,7 @@ export type Database = {
           description: string;
           front_img: string;
           id: number;
-          name?: string | null;
+          name: string;
           price: number;
         };
         Update: {
@@ -96,7 +96,7 @@ export type Database = {
           description?: string;
           front_img?: string;
           id?: number;
-          name?: string | null;
+          name?: string;
           price?: number;
         };
         Relationships: [];
